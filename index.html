@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="competition_list">
+<meta name="robots" content="noindex">
+<title>コンペ一覧</title>
+
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAMEElEQVR4nO2be3Bc1X3HP79z7t2V1pIsP5BMTcAhEAdjx2BXFCeAbVKgCYRXWEIDpBmaOG2aCdOh0xk6yWw008fkj6bTxpO2Kem0UJOHJjH2kOmUEiKXJqQ0xhgFU0Hgj8StseSHpL37vvf8+sfdXUuyZe9q15bbyXfmzuzj3HN+v9/5Pc9DaA6STqfN2JoxCQ4F0uS7ZxVdF3Zp34E+HRoacoC2t/d02qbTadveTs8e0k3Qe6ZZFDIZYXDQAaz72K1LjN+xHvTd6rRfcOeFUBRx1jAG9g2TLO3f+7WnjwCQyRi+OKjI3BoxtwDSacvQUASw7hN3XG/VbEO5SazpF2PPLLpzDQV1DhdFR0T4vuD+bt8/7vo+xBoxVOVlNk7JRu2F9z5wV5+x8uci8oBYgwtDNHJORVy7raxlCIiqEWOM8T3UKRpF36mU3O+/+q1dv5hLCCcJoNbwyvtvG/D9xLeN562KiiWnggpiTvXOeQZV1KGIl0waF4Vvh6XyfT/9xtN7TiWEmcxkMobBQbfuY3dutAnznIj0RJUwFBHvnLLQJqhqaDzrIRSjUnjLyJO7/222EEy9dSb+vPE3b1tuPNkZMx/9n2UeQEQ8F0URSofx7XfW3X/XRUPfHnJkMnW+6x/SB9LC4KCrWPtXNuG/I555mmJeRLDGYsScuXGTMNW+RZqzQEGsC11oPW+5SPS3CJqZ8T8n7P7qB+/chGd/FIVhJEhTIU5ECMOQqXyOjkSSRZ2dOOeaInYuGGPIF4sUSkW6UykSno/T5rywopH1fevC8Jb9jz/1TI3nGVMVKZ8VY0Clqd5FhFK5zJKexfzOXR9l4+o1BPl8WzTBiCFXyLP20sv43bvvo3/pcgqlEqZJTQBRQVQdD8/4tfroxnR6cSVZfstYs1Rj8TY0gogQRhHdqRRf/6M/4eD426xZ9S4Gv/5Vhl96ka5Uat6aYMSQLxb41SvW8qXfe4SfvvUzLrvoHXzyT7/A+MRxfM9DG9cERURUNe87uWzvjp2HyGSMSafTBiDsLG2wvrdUI+caZR5iAeQKeTatvYogn+OWhz/Jk888zR033EihVGzaZmf0bYRcscCHr9vK9364h9/43EMcHDvMlg3XEORzzWqBqLrI871UZPQagM3Dw8YbWzMmAEbNajFWlcjJ9OgwV2+AGIOtPdZyPJhiSXcPhWKRMAzxrYcxBpq01xqMMXjWw6kjV8izuGcxE8EUZtq4CqhqY5qgohgDcAWwK1gdiFer6lTpF2ls5o0YIhdRyOcRgckgIFco4FmPyDmstVTCkMkgSyKRIIrCeQnAWstkkKVULmOtJXIOz3rkCwUmgwDf83CqdCSSeJ7XuKkp/RBXkPUwp6KNMW8MhWKRRakUG9esZXF3N9lcwLXr1hNGEcYYypUKq1ZexB1bf53FXd3z9wHGMBFMcfklq3hh/z6MMVTCkI1r1nJ46hi9Xd1M5XKMvDHKZDZLqsHIM53XpuK8kZj51e+8lEc+/hAXr7gQEaESRqxcdgHPvfAC1hiKpRIbV1/J57d9Bt/aeZcNglCOKrxz2Up+8OKPscZQqlS4+wM3cfW6K/GthyocGh/jL/7pH9g/+lrDQqihYQHE3j6kt7uHRx/axorlfWRzASJCOQxZkuoCiBMhYyhFFSaDgKTntSSAYlim1Fup2r3FAPlSkckgoKOaD/QvX86jv/1pHv7SH3N0cqKp6NBwoDYiFEpFNq2/mpV9K5gKslhrTzgka3GqHMtOUiqX8YzFGoNp8bHG4BlLuVLh2NRk3cfU+rbWks3lWL5kCTdsHKDYZI7QlAmowrLeXhyKmBOys8YwkcsycMVaPnV7mo9svZmgFDvI1qAYMUwVAj58/VYOHz/Kdes3MBFkseaEaRljcOpYunhx0yM0Xeio6kmhwhpDtpDH7+ph+x98galijoPHxvDs/NUf4oU9z1renjjCpZdczFf/MMPhqWMcyU7gVUNgDYI0kxTV0ZZKr0bo8WCKI9kJBGnJ+c2GFct/HxvjF3oYIwbP2nkxeyrMSwNUFaeK1InQWAoiWLEIELWJwFr/RgymqnrRLC/vqjSddQ1QFN96JD2fVCKJNTb+VbWa8dUIcsiMQuhsrZ/FEolcRNLzSXg+2uRYjQtABOccvalu+ruWckGqN2b6PIBzDmMMyxb1xDnA2YoCMwatmkCpUuGLj32FV342SmdHJ7l8nlvfv5nPph9A1dVLYlVtqTCajtl91VR/Pno2bwHUiHj76Dg7h5+N47YIxUqJoecKbLvzXpJ+glKlzJ6f/Jjx48ewtj0ao6ok/ARbBzaxtKe3abWfjrZEgZ5FXTh18bKVtXSnFtVn5dD4YV56bSROUU8RQpuFEkeFqXyW/mXLue6qgfkWm0AbBKCqZPMB1noYgWKlTDafr6voimV9rL38PRydOF4vX1uBEJvfBUuXsvqSd8W/tSDVeQtAJE48Vixbzk3XvJ+Rt94glewgKOS59X2bSfg+qkpHMslt13+AMAppsNo+IxTFsydIb6Xf+QuAWAidyQ6+8sjnKRTyGBFUoaOz80Sj2kC2/avr7XCsrVOlCiJ0dqbmbuIcaG2lrVkjqL0jYMwMhtsRVVoTQJX57KuvELw+ikkmceUyvRsG6Lz4kvpSWFw4nR85w2y0FAYRoTx+mP3bfovy+GFMMkmYC1gysIkNT36XeBdZyL46Qu6NUcT3m18fFAF1iOezbPON2M5UXfDtQAsaEDMS5XJoGJK4oA8RwXR0EuUCXLmC7fTIHhhh34P34MrlKtHNxwExljDI8iv33s8Vf/bltiZV7fFM04mRmd81DHGVcnXm5xkEVeO9/1KpJTJPhRYEEDNpOlOgjvL4EUwiQZgL6LzoYkxV3XveezVX/f03CEYPYPzEPCo2AVXE9+i7+UPxL22afWgxD0CVZP8K1m1/jOx/HcAmk7hSid5fex/ieXV77x24lt6Ba9tGdLvsH1o1gSohczJY/V9dBE5bPlpRc6rtRNuyExdWqlpBPPvTIQbx2ku4QmwaC5UI1bakypUKmce2V8vhjhnlcI3AWtrc9nJ4IROhGhGHjo6zc/hfZ5XDxXNSDt84sIklPb0tFVhnqRxOneNyeAHXA35ZDv+yHI7L4WK5VF0JVpJ+4kSj2kD/b8vhKiEdieSM7+3M1ubCwpfDVdTMoVa6nwvm24WmBRA5d0qvW2d6gXhX1ZN2jBpBXQAipz8ap6p4nsfLr78WzziKc27BZ1uJo4IVYd/rr8W7VWcIi9N5NV0XdlV3FXT8dC855+juTPH8yz/h6R8O41UPQNUyvYV6jAi+5zH80ov8y3/8O92LFjWgCTGvwaFAvL4DfQoQoa9L5BDUzKXHCiQSCR796y/z5sGf88FNN9CzqGvBtEBVCQp5nv3PH/E3O79V3as8DUQFpzjHKEDXaJfWD0quSaeXesnKm8ZIr+rcByVrDi+bz9HVmZrh/RcCpUq5Tosx5nRZYRyanBadyuUjO3YeJJMxM84Kr3/wziGb8D8SliuRnMFBWmOJXFTdjOTsbQDPheqYtbNDzrnTbpEpGnm+b8JK5dlXnth1c+1qwAwmBbar03tA5UzuPHLxkXtrF/baUOz9T3kbZlZDiY/KOt0OkD5wQIaorlUPDQ1F6XTavvzEU3uiSmWXl0haVW3odGPtYMJCPY3RSOglfS8slX8wsmP37kwmY2qXJur16dCaIUURG+pnXBiOGc96ijYg2vMbikbGGuvCaMo38ilABqf9f6JAH8Sl702bfd/c/T9RGN2DUDTWNqwJ5yNUCY2xFkGjirtv7+NPvZlOp03tGiDM2q6pmcLIjl3Pazn6IDDmJROeolFVG863u2Kngtbo9ZK+JyITWglvH3nyqX8+86WpKupR4aO3rJKORX8p1twuCFEYouqiZi9UnDOIioixxrMIgnPRM1El/NzIjt2jmzdv9vbs2XOSNs/p6qdL66pP3P0hlE8rusVa28N5cjboJDjFRWEOlecV/dr+x3fuhHlcnKwjg4EMNZtZ//H0SkO40Ym8B9V+1FnmTJnOAapjK+KMYUyNjHqht3fvE0M/r7aYcfV33kin03b6VbPzHpmMadfl6ZM63jw8bNgyH6rOAYZhz5YtrpkZ/18mUz8aHhjCMwAAAABJRU5ErkJggg==">
+<style>
+:root{
+  --bg:#f6f5f2; --panel:#ffffff; --ink:#1d1d1f; --sub:#6b6b70; --line:#e3e1dc;
+  --accent:#2f5d50; --accent-soft:#e3eee9;
+  --red:#c2362b; --red-soft:#fbe6e3; --orange:#b85c00; --orange-soft:#fdeedb;
+  --yellow:#8a6d00; --yellow-soft:#faf3d2; --gray-soft:#efeeea;
+  --free:#1f7a4d; --free-soft:#dff3e7; --paid:#7a4a1f; --paid-soft:#f5e9dc;
+  --chip:#efeeea; --chip-on:#1d1d1f; --chip-on-ink:#fff;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+    --bg:#16171a; --panel:#1f2024; --ink:#ececee; --sub:#9a9aa2; --line:#33343a;
+    --accent:#7fc3ae; --accent-soft:#22332e;
+    --red:#ff8a7f; --red-soft:#3a2321; --orange:#f3a85a; --orange-soft:#3a2d1d;
+    --yellow:#e2c55a; --yellow-soft:#332e1a; --gray-soft:#2a2b30;
+    --free:#7fd3a4; --free-soft:#1f3328; --paid:#e0b58c; --paid-soft:#3a2f24;
+    --chip:#2a2b30; --chip-on:#ececee; --chip-on-ink:#16171a;
+   color-scheme:dark; } }
+:root[data-theme="dark"]{
+    --bg:#16171a; --panel:#1f2024; --ink:#ececee; --sub:#9a9aa2; --line:#33343a;
+    --accent:#7fc3ae; --accent-soft:#22332e;
+    --red:#ff8a7f; --red-soft:#3a2321; --orange:#f3a85a; --orange-soft:#3a2d1d;
+    --yellow:#e2c55a; --yellow-soft:#332e1a; --gray-soft:#2a2b30;
+    --free:#7fd3a4; --free-soft:#1f3328; --paid:#e0b58c; --paid-soft:#3a2f24;
+    --chip:#2a2b30; --chip-on:#ececee; --chip-on-ink:#16171a;
+   color-scheme:dark; }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:14px/1.55 "Hiragino Sans","Yu Gothic UI","Meiryo",system-ui,sans-serif}
+a{color:var(--accent)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:14px 20px 10px}
+.top{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+h1{font-size:20px;margin:0;letter-spacing:.02em}
+.meta{color:var(--sub);font-size:12px}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:3px 10px;font-size:12px}
+.stat b{font-size:15px;margin-right:3px}
+.filters{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:10px;align-items:center}
+.group{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.group > span{color:var(--sub);font-size:12px;margin-right:2px}
+.chip{border:0;background:var(--chip);color:var(--ink);border-radius:999px;padding:4px 10px;font:inherit;font-size:12px;cursor:pointer}
+.chip.on{background:var(--chip-on);color:var(--chip-on-ink)}
+input[type=search],select{font:inherit;font-size:13px;padding:5px 9px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink)}
+input[type=search]{width:220px}
+label.tg{font-size:12px;display:flex;gap:4px;align-items:center;cursor:pointer}
+main{padding:12px 20px 60px;max-width:1500px;margin:0 auto}
+.month{font-size:13px;font-weight:700;color:var(--sub);margin:22px 0 6px;padding-left:2px}
+.list{display:flex;flex-direction:column;gap:6px}
+.row{display:grid;grid-template-columns:28px 92px 1fr 150px 150px 120px 120px;gap:12px;align-items:center;
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.row.past{opacity:.45}
+.star{border:0;background:none;font-size:18px;cursor:pointer;color:var(--sub);padding:0;line-height:1}
+.star.on{color:#e0a800}
+.dis{border:0;background:none;font-size:17px;cursor:pointer;color:var(--sub);padding:0;line-height:1;font-family:inherit}
+.dis:hover{color:var(--red)}
+.sx{display:flex;flex-direction:column;gap:8px;align-items:center}
+.row.dismissed,.card.dismissed{opacity:.45}
+.due{text-align:center;border-radius:8px;padding:4px 2px;background:var(--gray-soft)}
+.due .d{font-size:20px;font-weight:700;line-height:1.1}
+.due .u{font-size:11px}
+.due .dt{font-size:11px;color:var(--sub)}
+.due.r{background:var(--red-soft);color:var(--red)} .due.o{background:var(--orange-soft);color:var(--orange)}
+.due.y{background:var(--yellow-soft);color:var(--yellow)}
+.name{font-weight:700;font-size:14.5px}
+.name a{color:var(--ink);text-decoration:none} .name a:hover{text-decoration:underline}
+.sub{color:var(--sub);font-size:12px;margin-top:2px}
+.tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+.tag{font-size:11px;border-radius:5px;padding:1px 6px;background:var(--chip);white-space:nowrap}
+.tag.prep{background:var(--accent-soft);color:var(--accent);font-weight:700}
+.tag.warn{background:var(--orange-soft);color:var(--orange)}
+.cell .k{font-size:11px;color:var(--sub)}
+.cell .v{font-size:13px}
+.fee.free{color:var(--free);font-weight:700}
+.ent{display:inline-block;font-size:12px;border-radius:5px;padding:1px 7px;font-weight:700}
+.ent.U{background:var(--free-soft);color:var(--free)} .ent.M{background:var(--accent-soft);color:var(--accent)}
+.ent.C,.ent.O{background:var(--paid-soft);color:var(--paid)} .ent.N{background:var(--chip);color:var(--sub)}
+.links{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.btn{font-size:12px;border:1px solid var(--line);border-radius:6px;padding:2px 8px;text-decoration:none;color:var(--ink);background:var(--panel);cursor:pointer;font-family:inherit}
+.btn:hover{border-color:var(--accent)}
+.detail{grid-column:3 / -1;font-size:12px;color:var(--sub);border-top:1px dashed var(--line);padding-top:6px;display:none}
+.row.open .detail{display:block}
+.more{border:0;background:none;color:var(--sub);cursor:pointer;font-size:11px;padding:0;margin-top:3px}
+.empty{padding:40px;text-align:center;color:var(--sub)}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:6px 14px;border-radius:8px;font-size:12px;opacity:0;transition:opacity .2s}
+.toast.on{opacity:1}
+/* ===== タイムライン ===== */
+:root{ --g1:#2f6fb0; --g2:#c0692a; --g3:#8a4fb0; --g4:#2f8a5a; --g5:#b03a5b; --g6:#7a7a7a; --g7:#a08a1a; --wk:#fbfaf8; }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --g1:#6fa8e0; --g2:#e8a070; --g3:#c49ae0; --g4:#6fcf9a; --g5:#e88aa5; --g6:#a8a8b0; --g7:#d8c060; --wk:#1b1c20;  color-scheme:dark; } }
+:root[data-theme="dark"]{ --g1:#6fa8e0; --g2:#e8a070; --g3:#c49ae0; --g4:#6fcf9a; --g5:#e88aa5; --g6:#a8a8b0; --g7:#d8c060; --wk:#1b1c20;  color-scheme:dark; }
+.view{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.view button{border:0;background:var(--panel);color:var(--ink);font:inherit;font-size:12px;padding:4px 12px;cursor:pointer}
+.view button.on{background:var(--chip-on);color:var(--chip-on-ink)}
+.tl{display:grid;margin-top:12px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+.tl-head{display:contents}
+.tl-head > div{position:sticky;top:var(--hh,0px);z-index:3;background:var(--panel);border-bottom:2px solid var(--line);padding:8px 8px;font-size:12px;font-weight:700}
+.tl-head .gname{border-top:4px solid var(--gc)}
+.tl-head .gname small{color:var(--sub);font-weight:400;margin-left:4px}
+.tl-row{display:contents}
+.tl-row > div{border-bottom:1px solid var(--line);padding:6px;min-height:46px}
+.tl-row.alt > div{background:var(--wk)}
+.tl-row.mstart > div{border-top:2px solid var(--sub)}
+.tl-row .cellg{border-left:1px solid var(--line);display:flex;flex-direction:column;gap:5px}
+.wk{font-size:12px;line-height:1.35}
+.wk .m{font-size:15px;font-weight:700}
+.wk .rel{color:var(--sub);font-size:11px}
+.wk.now .rel{color:var(--red);font-weight:700}
+.card{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--gc);border-radius:7px;padding:5px 7px;font-size:12px;line-height:1.4;cursor:pointer}
+.card:hover{border-color:var(--gc)}
+.card .c-top{display:flex;gap:6px;align-items:baseline;justify-content:space-between}
+.card .c-date{font-weight:700;white-space:nowrap}
+.card .c-left{font-size:11px;white-space:nowrap;border-radius:4px;padding:0 5px;background:var(--gray-soft)}
+.card .c-left.r{background:var(--red-soft);color:var(--red)} .card .c-left.o{background:var(--orange-soft);color:var(--orange)} .card .c-left.y{background:var(--yellow-soft);color:var(--yellow)}
+.card .c-name{font-weight:700;font-size:12.5px;margin-top:1px}
+.card .c-name a{color:var(--ink);text-decoration:none} .card .c-name a:hover{text-decoration:underline}
+.card .c-sum{color:var(--sub);margin-top:1px}
+.card .c-prize{margin-top:2px;font-size:12px}
+.card .c-prize b{font-size:12.5px}
+.card .c-prize span{color:var(--sub);font-size:11px}
+.card .c-judge{margin-top:2px;font-size:11.5px;display:flex;gap:5px;align-items:center;flex-wrap:wrap}
+.card .c-judge .m{font-size:10.5px;font-weight:700;border-radius:4px;padding:0 5px;background:var(--accent-soft);color:var(--accent)}
+.card .c-judge .m.paper{background:var(--orange-soft);color:var(--orange)}
+.card .c-subs{margin-top:2px;font-size:11.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card.open .c-subs{display:none}
+.card .c-subs span{font-size:10.5px;color:var(--sub);border:1px solid var(--line);border-radius:4px;padding:0 4px;margin-right:2px}
+ul.subs{margin:2px 0 4px;padding-left:18px}
+.card .c-foot{display:flex;gap:4px;flex-wrap:wrap;align-items:center;margin-top:3px}
+.card .fee-b{font-size:11px;font-weight:700;border-radius:4px;padding:0 5px;background:var(--paid-soft);color:var(--paid)}
+.card .fee-b.free{background:var(--free-soft);color:var(--free)}
+.card .ent{font-size:10.5px;padding:0 5px}
+.card .gtag{display:none;font-size:11px;color:var(--gc);font-weight:700}
+.card .star{font-size:14px;margin-left:auto}
+.card .dis{font-size:14px;margin-left:4px}
+.card .c-more{display:none;margin-top:5px;padding-top:5px;border-top:1px dashed var(--line);color:var(--sub)}
+.card.open .c-more{display:block}
+.card .c-more .btn{margin:4px 4px 0 0;display:inline-block}
+.card.reg{border-style:dashed;border-left-style:solid;background:transparent;opacity:.85}
+.card.prep .c-name::after{content:"準備済み";font-size:10px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:0 4px;margin-left:5px;vertical-align:1px}
+@media (max-width:900px){
+  .tl{display:block;border:0;background:none}
+  .tl-head{display:none}
+  .tl-row{display:block;margin-bottom:10px}
+  .tl-row > div{border:0;padding:3px 0;min-height:0;background:none !important}
+  .tl-row .cellg{border:0}
+  .tl-row .cellg:empty{display:none}
+  .tl-row.mstart > div{border:0}
+  .tl-row .wk{position:sticky;top:0;background:var(--bg) !important;padding:6px 0;z-index:2;border-bottom:1px solid var(--line)}
+  .card .gtag{display:inline}
+}
+@media (max-width:1000px){
+  header{position:static}
+  .row{grid-template-columns:28px 80px 1fr;}
+  .row .cell,.row .links{grid-column:3}
+  .row .cell{display:flex;gap:8px;align-items:baseline}
+  .links{flex-direction:row}
+  input[type=search]{width:100%}
+}
+@media (max-width:600px){
+  header,main{padding-left:16px;padding-right:16px}
+  .stats{margin-left:0}
+}
+
+/* ===== アプリ版（iPad・スマホ） ===== */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+header,main{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.a3b{font-size:12px;border:1px solid var(--accent);color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px 8px;cursor:pointer;font-family:inherit;font-weight:700;text-decoration:none}
+.card .c-foot .a3b{font-size:11px;padding:1px 7px}
+.ftoggle{display:none}
+@media (pointer:coarse){
+  .chip{padding:6px 12px;font-size:13px}
+  .btn,.a3b{padding:5px 10px}
+  .card .c-foot .a3b{padding:3px 9px}
+  .star{font-size:22px}
+  .card .star{font-size:18px}
+  label.tg{padding:4px 0}
+  label.tg input{width:18px;height:18px}
+}
+@media (max-width:760px){
+  .ftoggle{display:inline-block}
+  header.closed .filters{display:none}
+  .filters{gap:8px 10px}
+}
+@media (max-width:600px){
+  header,main{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+}
+/* A3 一覧 */
+.a3grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px;margin-top:14px}
+.a3tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;text-align:left;padding:0;font:inherit;color:var(--ink)}
+.a3tile:hover,.a3tile:focus-visible{border-color:var(--accent);outline:none}
+.a3tile img{display:block;width:100%;aspect-ratio:1191/842;object-fit:cover;background:var(--gray-soft);border-bottom:1px solid var(--line)}
+.a3tile .t{padding:8px 10px;display:flex;gap:8px;align-items:baseline;min-width:0}
+.a3tile .t .nm{font-weight:700;font-size:13px;min-width:0}
+.a3tile .t .lf{margin-left:auto;font-size:11px;white-space:nowrap;border-radius:4px;padding:0 5px;background:var(--gray-soft)}
+.a3tile .t .lf.r{background:var(--red-soft);color:var(--red)} .a3tile .t .lf.o{background:var(--orange-soft);color:var(--orange)} .a3tile .t .lf.y{background:var(--yellow-soft);color:var(--yellow)}
+.a3tile.past{opacity:.5}
+.a3note{color:var(--sub);font-size:12px;margin-top:10px}
+/* A3 ビューア */
+.lb{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;flex-direction:column}
+.lb[hidden]{display:none!important}
+.lb-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--line);background:var(--panel);
+  padding:calc(8px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 8px max(16px,env(safe-area-inset-left,0px))}
+.lb-bar .ttl{font-weight:700;font-size:14px;min-width:0;flex:1 1 200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb-bar .ttl small{color:var(--sub);font-weight:400;margin-left:6px}
+.lb-bar button,.lb-bar a{font:inherit;font-size:13px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);padding:6px 11px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.lb-bar .close{background:var(--chip-on);color:var(--chip-on-ink);border-color:var(--chip-on)}
+.lb-body{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y pinch-zoom;padding-bottom:env(safe-area-inset-bottom,0px)}
+.lb-body img{display:block;margin:0 auto;max-width:none;background:#fff}
+.lb-body.fit{display:flex;align-items:center;justify-content:center}
+.lb-body.fit img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.lb-msg{padding:40px;text-align:center;color:var(--sub)}
+@media (max-width:600px){ .lb-bar .ttl{order:-1;flex-basis:100%} }
+</style>
+<header>
+  <div class="top">
+    <h1>コンペ一覧</h1>
+    <button class="btn ftoggle" id="ftoggle" type="button">絞り込み ▾</button>
+    <span class="meta" id="meta"></span>
+    <div class="stats" id="stats"></div>
+  </div>
+  <div class="filters">
+    <div class="view" id="view"><button data-v="tl" class="on">タイムライン</button><button data-v="list">リスト</button><button data-v="a3">A3ペライチ</button></div>
+    <input type="search" id="q" placeholder="名前・概要・メモで検索">
+    <div class="group" id="f-region"><span>地域</span></div>
+    <div class="group" id="f-field"><span>分野</span></div>
+  </div>
+  <div class="filters">
+    <div class="group" id="f-fee"><span>応募料</span></div>
+    <div class="group" id="f-ent"><span>応募数</span></div>
+    <div class="group" id="f-within"><span>締切</span></div>
+    <div class="group" id="sortGroup"><span>並び順</span>
+      <select id="sort">
+        <option value="due">締切が近い順</option>
+        <option value="prize">賞金が高い順</option>
+        <option value="fee">応募料が安い順</option>
+        <option value="name">名前順</option>
+      </select>
+    </div>
+    <label class="tg"><input type="checkbox" id="onlyPrep">準備済みだけ</label>
+    <label class="tg"><input type="checkbox" id="onlyStar">★だけ</label>
+    <label class="tg"><input type="checkbox" id="showPast">締切済みも表示</label>
+    <label class="tg"><input type="checkbox" id="showStudent">学生のみのコンペも表示</label>
+    <label class="tg"><input type="checkbox" id="showAge">年齢制限で応募できないものも表示</label>
+    <label class="tg"><input type="checkbox" id="showDismissed">×で隠したものも表示</label>
+    <label class="tg"><input type="checkbox" id="showHidden">隠した分野（グラフィック・ロゴ、アワード）も表示</label>
+    <button class="btn" id="openCsv" title="update.bat を使わずに、CSVを直接読み込んで表示します">CSVを開く</button>
+    <input type="file" id="csvFile" accept=".csv" hidden>
+  </div>
+</header>
+<main id="main"></main>
+<div class="toast" id="toast"></div>
+<div class="lb" id="lb" hidden role="dialog" aria-label="A3ペライチ">
+  <div class="lb-bar">
+    <button class="close" id="lbClose" type="button">閉じる</button>
+    <div class="ttl" id="lbTitle"></div>
+    <button id="lbPrev" type="button" aria-label="前のA3">‹ 前</button>
+    <button id="lbNext" type="button" aria-label="次のA3">次 ›</button>
+    <button id="lbZoom" type="button">拡大</button>
+    <a id="lbPdf" href="#" target="_blank" rel="noopener">PDF ↗</a>
+  </div>
+  <div class="lb-body fit" id="lbBody"><img id="lbImg" alt=""></div>
+</div>
+
+<!-- DATA:BEGIN -->
+<script id="compe-data" type="text/csv" data-updated="2026-10-17 09:46 更新">
+状態,締切,締切メモ,登録締切,コンペ,概要,URL,地域,分野,対象,応募料,応募料_円,最高賞,賞金_円,応募数,応募数ルール,提出物,審査の流れ,提出方法,フォルダ,備考,A3まとめ,まとめPDF,まとめmd
+未着手,2026-10-13,,,スポーツ庁 スポーツ・健康まちづくり学生コンペ アイデア部門,スポーツで健康なまちをつくるアイデア（学生）,https://www.mext.go.jp/sports/b_menu/sports/mcatetop02/list/1380329_00031.htm,日本,アイデア・企画,学生,無料,0,賞金なし,,複数可,複数応募可,,,,,,,,
+未着手,2026-10-13,,,JIA東海支部設計競技,日本建築家協会 東海支部の建築設計競技,https://compe.japandesign.ne.jp/jia-tokai-competition-2026/,日本,建築・空間,不問,無料,0,10万円分,100000,記載なし,,A2片面1枚（縦横自由・氏名記載不可）／同PDF（50MB以下）／申込用紙（Excelデータ＋A4印刷）／USBメモリ,一次（書類）→ 二次（詳細は11月上旬に通過者へ通知）→ 結果発表（12月下旬）,紙＋データ（A2シートと申込書を郵送、PDF・申込書データはUSBで同封／JIA東海支部・名古屋、消印有効）,,提出・審査の情報：二次情報（https://compe.japandesign.ne.jp/jia-tokai-competition-2026/）,,,
+準備済み,2026-10-13,,,住まいのインテリアコーディネーションコンテスト,住まいのインテリアの提案（プレゼンボード）,https://compe.japandesign.ne.jp/sumai-interior-2026/,日本,建築・空間,不問,無料,0,50万円,500000,記載なし,,A3ボード（厚さ1mm程度）／応募用紙を裏面に貼付,審査1回（結果発表12月末頃）,紙（Webエントリー後、郵送・宅配便）,X057_Sumai_Interior,提出・審査の情報：公式で確認（https://compe.japandesign.ne.jp/sumai-interior-2026/）,A3まとめ/2026-10-13_X057_Sumai_Interior_A3まとめ.pdf,../X057_Sumai_Interior/06_report/02_住まいのインテリア_まとめ.pdf,../X057_Sumai_Interior/06_report/04_まとめ.md
+準備済み,2026-10-14,,,第21回 ダイワハウスコンペティション,大和ハウスの建築アイデアコンペ,https://compe.japandesign.ne.jp/daiwahouse-idea-2026/,日本,建築・空間,不問,無料,0,200万円,2000000,複数可,※複数応募可,A2横1枚（片面・パネル化不可）／PDF 3〜5MB（ファイル名は登録番号）／一次通過時は模型等,一次（書類、11月中旬〜下旬通知）→ 公開二次審査（ポスターセッション、2027/1/27 コングレスクエア羽田）→ 結果発表（住宅特集2027年3月号）,紙＋データ（A2作品を郵送・消印有効＋PDFをメール送付）,X039_Daiwa_House,提出・審査の情報：公式で確認（https://compe.japandesign.ne.jp/daiwahouse-idea-2026/）,A3まとめ/2026-10-14_X039_Daiwa_House_A3まとめ.pdf,../X039_Daiwa_House/06_report/02_ダイワハウス_まとめ.pdf,../X039_Daiwa_House/06_report/04_まとめ.md
+未着手,2026-10-14,,,MUSE Design Awards,完成作品の国際デザインアワード（多部門）,https://design.museaward.com/,海外,アワード（完成作品）,不問,$269＋$30,45000,トロフィー・掲載中心,,無制限,no limits on the amount of entries,,,,,,,,
+未着手,2026-10-15,,,ほっかいどう女性活躍推進会議 ロゴ,北海道の女性活躍推進会議のロゴマーク,https://www.pref.hokkaido.lg.jp/ks/dms/djb/katsuyaku/action/264018.html,日本,グラフィック・ロゴ,不問,無料,0,1万円,10000,複数可,一人2点以上の応募も可,,,,,,,,
+未着手,2026-10-15,,,International Design Awards,完成作品の国際デザインアワード（建築・プロダクトほか）,https://www.idesignawards.com/,海外,アワード（完成作品）,不問,€250（学生€80）、2件目以降は割引,41000,トロフィー・掲載中心,,無制限,as many entries as you wish,,,,,"締切は10/15〜26。学生部門に$1,000の賞金あり",,,
+未着手,2026-10-15,,,会津版図柄ナンバープレート,会津地域のご当地ナンバープレートの図柄,https://compe.japandesign.ne.jp/aizu-numberplate-2026/,日本,グラフィック・ロゴ,不問,無料,0,10万円,100000,記載なし,,,,,,,,,
+未着手,2026-10-15,公式には10/22,,ICAW 2027 ポスター,国際コンポスト啓発週間のポスター,https://compostfoundation.org/icaw-2027-poster-contest-entry-form/,海外,グラフィック・ロゴ,14歳以上,無料,0,$500,75000,1点,1点,,,,,,,,
+準備済み,2026-10-16,日本時間 12:59,,Winter Stations 2027（トロント、テーマ Monument）,トロントの浜辺に冬季設置するパビリオン（テーマ Monument）,https://winterstations.com/competition,海外,庭園・インスタレーション,不問,無料,0,"CAD 2,000＋制作費",220000,複数可,"Yes, you can submit more than one.",1ページ目 Project Summary 11×17インチ（説明文150語以内＋画像）／2ページ目 Images and Drawings 11×17インチ（4面図・立面・パース・概算費用）／応募用紙PDF 4ページ（記入式）／以上を結合したPDF 計6ページ（10MB以下、ファイル名は作品名）を Dropbox ファイルリクエストにアップロード／（任意）Equity & Inclusion Survey,ブラインドの書類審査1回で選出。選ばれたら現地トロントで制作・設置,データ（Dropbox にアップロード）,X047_Winter_Stations,"締切の表記がESTだが夏時間。早いほうに合わせた／おすすめリサーチ実施済み・案「Winter Plinth」作成済み（2026-10-08）：空いた台座に来場者が毛糸の結び目を残し、6週間で色の地層になる記念碑。材料費約CAD 4,300",A3まとめ/2026-10-16_X047_Winter_Stations_A3まとめ.pdf,../X047_Winter_Stations/06_report/02_WinterStations_まとめ.pdf,../X047_Winter_Stations/06_report/04_まとめ.md
+未着手,2026-10-16,,,Terraviva「Ruinas de Quilmes」,アルゼンチンの遺跡キルメスにまつわる建築提案,https://www.terravivacompetitions.com/,海外,建築・空間,不問,€139,23000,"$4,000",600000,複数可,Terravivaの規約：1件分の応募料で1案、追加の応募料で追加案,A1横2枚／説明文250〜500語,審査1回（国際審査員8名）→ 結果発表（2026/11/16）,データ（Terraviva公式サイトでオンライン提出）,,詳細は competitions.archi の掲載情報による。応募料は時期が進むほど上がる。提出・審査の情報：二次情報（https://competitions.archi/competition/ruinas-de-quilmes-competition/）,,,
+未着手,2026-10-16,,,Global Design iT Award,完成作品の国際デザインアワード,https://designitaward.com/,海外,アワード（完成作品）,不問,$50,7500,トロフィー・掲載中心,,無制限,no limit to the number of entries,,,,,,,,
+未着手,2026-10-18,,,KITTE NAGOYA ILLUSTRATION CONTEST,KITTE名古屋で使うイラスト,https://nagoya.jp-kitte.jp/koubo2026/,日本,グラフィック・ロゴ,不問,無料,0,30万円,300000,複数可,一人複数作品の応募可,,,,,,,,
+未着手,2026-10-18,,,BLT Built Design Awards,完成した建築・インテリアのアワード,https://bltawards.com/,海外,アワード（完成作品）,不問,CHF 230〜270（学生80〜100）,41000,トロフィー・掲載中心,,無制限,as many entries as you wish,,,,,,,,
+未着手,2026-10-18,,,LIT Lighting Design Awards,照明デザインのアワード,https://litawards.com/,海外,アワード（完成作品）,不問,CHF 230〜270（学生80〜100）,41000,トロフィー・掲載中心,,無制限,as many entries as you wish,,,,,,,,
+未着手,2026-10-18,,,令和の里海づくりポスター（学生）,里海づくり（海と人の共生）のポスター,https://compe.japandesign.ne.jp/emecs-satoumi-poster-2026/,日本,グラフィック・ロゴ,不問,無料,0,10万円,100000,上限あり,2テーマまで,,,,,,,,
+未着手,2026-10-20,,,WOLDA ロゴアワード,世界のロゴデザインのアワード,https://wolda.org/faq/,海外,アワード（完成作品）,不問,€80〜200（学生半額）,13000,トロフィー・掲載中心,,無制限,6件以上で20%割引,,,,,,,,
+未着手,2026-10-21,,,NY Architectural & Interior Design Awards,完成した建築・インテリアのアワード（NY）,https://nyarchitectureawards.com/,海外,アワード（完成作品）,不問,$219〜＋$30,37000,トロフィー・掲載中心,,無制限,no limits on the number of entries,,,,,,,,
+未着手,2026-10-21,,,NY Product Design Awards,完成したプロダクトのアワード（NY）,https://nydesignawards.com/,海外,アワード（完成作品）,不問,$219〜＋$30,37000,トロフィー・掲載中心,,無制限,no limits on the number of entries,,,,,,,,
+未着手,2026-10-21,,,日光市今市 U35実践アイデアコンペ,日光市今市のまちづくりの実践アイデア（35歳以下）,https://compe.japandesign.ne.jp/nikko-u35-2026/,日本,建築・空間,35歳以下,無料,0,盾（賞金なし）,,記載なし,,プレゼンシートA3横1枚,一次（書類、結果11/4）→ 最終（プレゼン等・表彰式、12/19 ニコニコ本陣）,データ（エントリー後、応募フォームに投稿）,,提出・審査の情報：公式で確認（https://compe.japandesign.ne.jp/nikko-u35-2026/）,,,
+準備済み,2026-10-23,A3当日消印・PDF 23:59,,第14回 大東建託 賃貸住宅コンペ（境界を、解く／富山県高岡市）,賃貸住宅のアイデア。テーマ「境界を、解く」、敷地は高岡市,https://kentaku.shinkenchiku.net,日本,建築・空間,不問,記載なし,0,200万円,2000000,複数可,複数案の応募は可能です（2案目以降は別のメールアドレスで登録）,応募登録（案ごとに別メールアドレス）／① コンセプトシート A3横（全文テキスト、11pt以上）／② 提案シート A3横（ビジュアル主体、8pt以上）／③ 自己PRシート A3横 最大3枚／④ ①〜③をまとめたPDF（10MB以内、フォームからアップロード）／A3出力紙を郵送（10/23消印有効）,1次審査（書類、11月中旬発表）→ 通過4組は高岡でフィールドワーク（11/28–29）→ 公開2次審査（2027/3/20、パワーポイントと模型）,紙＋データ（A3出力紙を郵送＋PDFをアップロード）,X046_Daito_Kentaku,質疑の可否が要項PDFとサイトで食い違う／おすすめリサーチ実施済み・案「ほどき工房長屋」作成済み（2026-10-08）：拠点は「くらすごす江尻」（運営 いいまちラボ高岡）。評価軸は前提の鋭さと構想の大きさ。要・応募登録と敷地図,A3まとめ/2026-10-23_X046_Daito_Kentaku_A3まとめ.pdf,../X046_Daito_Kentaku/06_report/02_大東建託コンペ_まとめ.pdf,../X046_Daito_Kentaku/06_report/04_まとめ.md
+未着手,2026-10-23,,,EXPERT BISAI CREATORS CONTEST 学生部門,ものづくりの学生アイデアコンテスト,https://bisai-monozukuri.com/lp/expert-bisai-creators/2026.html,日本,プロダクト・家具,学生,無料,0,10万円,100000,複数可,複数作品の応募可,,,,,,,,
+未着手,2026-10-23,,,Terraviva「Villa Gioia」,イタリアのヴィラにまつわる建築提案,https://www.terravivacompetitions.com/,海外,建築・空間,不問,€129,21000,"€5,000",825000,複数可,Terravivaの規約：1件分の応募料で1案、追加の応募料で追加案,A1横1枚（59.4×84.1cm）／説明文500〜1000語,審査1回（国際審査員8名、結果発表11/23）,データ（Terraviva公式サイトからオンライン提出と推定）,,詳細は competitions.archi の掲載情報による。応募料は時期が進むほど上がる。提出・審査の情報：二次情報（https://competitions.archi/?p=262039（公式: https://www.terravivacompetitions.com/villa-gioia-competition-2026/））,,,
+要確認,2026-10-25,時刻記載なし（募集 9/11〜）,,鯉の池・跡地 活用コンペティション（鳥取市 カトカミ）,「紙」にまつわる旧鯉ゾーンの利活用・実装提案,https://katokami.jp/event/691/,日本,建築・空間,小学生以上（所属・居住地不問、チーム可）。最優秀賞は現地実装できること,記載なし,,最優秀賞 賞金5万円＋実装予算10万円,50000,記載なし,応募点数の記載なし,企画提案書（A3 1枚 PDF、空間イメージ添付）／見積書（予算10万円以内）,一次審査（11/9通知、入居者投票）→最終プレゼン 2026/12/12→12月中旬〜3月実装,応募フォーム,,条件（応募無制限か無料）を確認できていない。応募料は記載なし（費用は応募者負担との記載のみ、未確認）。原状復帰前提で釘打ち・塗装は原則不可。小規模・実装型。出典：https://koubo.jp/contest/379898 。年齢制限：なし 【2026-10-16 追加調査】,,,
+未着手,2026-10-25,必着（時刻記載なし）。結果発表11/11予定,,介護テクノロジー アイディアコンテスト2026 ～見守り・コミュニケーション編～,介護現場の見守り・コミュニケーションのアイデア,https://genbasmilelab.jp/contest2026,日本,アイデア・企画,不問（18歳未満は保護者同意）,無料,0,最優秀賞 3万円分ギフトカード,30000,無制限,「応募は一人何案でも可、ただし、入賞は1案まで」,アイディア（形式指定なし）,記載なし（11/11結果発表予定）,公式サイトの応募フォーム,,主催：ニチイ学館 現場スマイルLab。出典 https://compe.japandesign.ne.jp/genbasmilelab-kaigo-idea-2026/ （公式ページはJS表示で本文未取得）。AIツールで作成したアイデアは不可。賞金は小さい。年齢制限なし 【2026-10-16 追加調査】,,,
+要確認,2026-10-25,23:59,,三菱電機 名古屋製作所×Wemake「駆動技術から生まれる、生産・物流・省エネの未来！」,駆動技術を使った新製品・サービスの提案,https://www.wemake.jp/projects/254,日本,アイデア・企画,記載なし（Wemake会員登録が必要。個人提案可）,記載なし,,賞金総額300万円（一覧表示）,3000000,記載なし,記載なし（採用3案予定）,コンセプト（文章で課題・ニーズ・価値を示す。画像不要）,一次審査10/26〜11/18→二次11/19〜12/2→最終2027年3月中旬,Wemakeの提案フォーム,,条件（応募無制限か無料）を確認できていない。応募料・応募数は本ページに記載なし＝未確認。同プラットフォームの過去案件（登竜門掲載 carproduct-wemake-2026）は「参加費無料・複数応募可」と記載。賞の内訳は未掲載 【2026-10-16 追加調査】,,,
+未着手,2026-10-26,,,水戸市 こころのバリアフリー ロゴ,水戸市「こころのバリアフリー」のロゴ,https://www.city.mito.lg.jp/page/133976.html,日本,グラフィック・ロゴ,不問,無料,0,5万円分,50000,無制限,何点でも応募できます,,,,,,,,
+未着手,2026-10-26,,,兵庫県市川町 新小学校 校章,市川町に新設する小学校の校章,https://koubo.jp/contest/376593,日本,グラフィック・ロゴ,不問,無料,0,特産品,,無制限,お一人何作品でも応募可能,,,,,,,,
+準備済み,2026-10-26,第1段階 2026/10/26 17:00 KST（日本時間も17:00）。オンラインの最終提出まで。第2段階提出 11/30、最終結果 12/7,,WDC BUSAN 2028 パビリオン国際デザインコンペ,WDC釜山2028の固定型＋移動型パビリオンを1つの統合システムとして提案する2段階国際コンペ（第1段階は匿名コンセプト）,https://wdcbusanpavilion-idc.kr/en,海外,建築・空間,事業者登録（または国内外の相当する登録）のある会社・団体・個人事業主。登録のない個人は不可。年齢不問・学生限定ではない,無料,0,"優勝 5,000万ウォン（約540万円）／第2段階進出2チームに各2,000万ウォン",5400000,1点,1者1件（共同のメンバーとしても重複不可）,第1段階：匿名コンセプト提案 A3横 最大6ページ・PDF1つ・50MBまで＋事務書類PDF（様式1・3・4・5、事業者登録の証明）,第1段階匿名審査で2チーム選定→4週間の設計開発→最終審査で1チーム,公式サイトのオンライン提出システムのみ,X065_BUSAN,1ウォン≒0.108円で換算。日本の開業届が「相当する登録」になるかは未確認（要確認）。サイト見出しの「華明屋外プール」は同じ主管の別コンペの名前の残り（※推定）。年齢制限：なし 【2026-10-17 X065 で与条件・リサーチ・案「母港」】,A3まとめ/2026-10-26_X065_BUSAN_A3まとめ.pdf,../X065_BUSAN/06_report/02_WDC釜山パビリオン_まとめ.pdf,../X065_BUSAN/06_report/04_まとめ.md
+準備済み,2026-10-27,23:59,,東京ビジネスデザインアワード（全8テーマ）,都内中小企業の技術・素材を使った新事業の提案（8テーマ）,https://design-award.metro.tokyo.lg.jp/award.html,日本,アイデア・企画,国内在住,無料,0,50万円,500000,無制限,2テーマまで、テーマ内での応募数に制限なし,応募用紙 A3横3枚（公式様式、3枚目はプロフィール＋顔写真）／企画書 A3横5枚まで（事業構造の図を入れる）／以上を綴じた応募PDF 最大8枚・4MB以下／（一次通過時）プレゼン動画 7分以内,一次（書類・非公開）→ 二次（書類＋プレゼン動画7分、テーマ企業も参加）→ 最終（テーマ賞の公開プレゼン）,データ（公式サイトにアップロード）,X048_Tokyo_Business_Design_Award,顔写真が必須。二次審査の時期の表記が食い違う／おすすめリサーチ実施済み・案「HADAMI」作成済み（2026-10-08）：T08 熊沢印刷工芸のテクスチャー印刷で、手が触れる高さだけ着せ替える腰壁。事務局への質問は未送信,A3まとめ/2026-10-27_X048_Tokyo_Business_Design_Award_A3まとめ.pdf,../X048_Tokyo_Business_Design_Award/06_report/02_TBDA_まとめ.pdf,../X048_Tokyo_Business_Design_Award/06_report/04_まとめ.md
+未着手,2026-10-27,,,GRANSHAN Bloom（非ラテン文字）,非ラテン文字（日本語など）の書体・タイポのアワード,https://granshan.com/bloom/en/guidelines,海外,アワード（完成作品）,不問,€30〜450,5000,トロフィー・掲載中心,,無制限,1件・1部門ごとに料金がかかる,,,,,日本語の作品も可,,,
+未着手,2026-10-27,,,景観開花。2026,景観・土木の学生／若手アイデアコンペ,https://compe.japandesign.ne.jp/keikan-kaika-2026/,日本,建築・空間,学生・実務5年以下,無料,0,20万円,200000,1点,1点,A1片面1枚（PDF）／写真・CG等JPEG1〜5枚／概要100字以内（フォーム入力）／模型（任意・最終時、1m角以内）,一次（匿名・書類）→ 最終（公開最終審査会、模型持込可）,データ（エントリー後に案内される作品データ提出フォーム）,,提出・審査の情報：二次情報（https://compe.japandesign.ne.jp/keikan-kaika-2026/）,,,
+準備済み,2026-10-28,日本時間 6:00（現地10/27 17:00）,,International Garden Festival 2027（カナダ）,ケベックの庭園祭で実際に作られる庭の提案,https://projects.internationalgardenfestival.ca/,海外,庭園・インスタレーション,不問,記載なし,0,"1庭 CAD 27,000（謝礼 7,000）",770000,1点,1人1案,A：プロジェクトPDF（11×17インチかA3を2枚、10MB以下、設計者名なし、英語か仏語）／B：全体像のJPG 1枚（13MBまたは3000×4500pxまで）／C：設計者PDF（表紙・最近の作品3つまで・履歴書・連絡先、5MB以下）／ポータルでアカウント作成して3ファイルをアップロード,選考1回（2026年11月）→ 選出作は2027年1月に契約・2月に発表 → 現地で庭を施工,データ（ポータル）,X053_International_Garden_Festival,"選ばれたら現地での施工参加が必須／おすすめリサーチ実施済み・案「Dividing Line」作成済み（2026-10-08）：分水界の稜線と測量の直線を重ね、交点の分水器で水を分け合う庭。概算CAD 12,900",A3まとめ/2026-10-28_X053_International_Garden_Festival_A3まとめ.pdf,../X053_International_Garden_Festival/06_report/02_GardenFestival_まとめ.pdf,../X053_International_Garden_Festival/06_report/04_まとめ.md
+未着手,2026-10-29,,,Desall「Phygital HORECA Experience Design」,飲食・ホテル業向けのデジタル×実空間の体験デザイン,https://desall.com/Contest/Phygital-HORECA-Experience-Design/Brief,海外,プロダクト・家具,18歳以上・国籍不問,無料,0,"€1,000 × 5名",165000,無制限,no limits of uploads per user per contest,ZIP（.doc/.pdf＋画像、100MB以内）：ベンチマーク3件＋独自コンセプト1件のシート／ギャラリー画像1〜5枚（4:3、960×720px推奨、各1MB以内）／英文の概要・説明,任意コンセプトレビュー（〜9/15）→ スポンサー審査（10/29〜）→ 結果発表（2027年2月末頃）,データ（desall.comのアップロードページ）,,課題の閲覧・応募にログインが必要。提出・審査の情報：公式で確認（https://desall.com/Contest/Phygital-HORECA-Experience-Design/Brief）,,,
+未着手,2026-10-30,,,東北大学 農学部 ロゴ,東北大学 農学部のロゴマーク,https://www.agri.tohoku.ac.jp/jp/news/20260928_agr_logo/,日本,グラフィック・ロゴ,不問,無料,0,2万円,20000,無制限,応募点数に上限はありません,,,,,,,,
+未着手,2026-10-30,,,Terraviva「Tactical Urbanism NOW!」,小さな介入で街を変えるタクティカル・アーバニズム,https://www.terravivacompetitions.com/,海外,建築・空間,不問,€129,21000,"$5,000",750000,複数可,Terravivaの規約：1件分の応募料で1案、追加の応募料で追加案,A1横2枚（59.4×84.1cm）／説明文250〜500語,審査1回（国際審査員8名、結果発表11/30）,データ（Terraviva公式サイトからオンライン提出と推定）,,詳細は competitions.archi の掲載情報による。応募料は時期が進むほど上がる。提出・審査の情報：二次情報（https://competitions.archi/competition/tactical-urbanism-now-competition-terraviva/（公式: https://www.terravivacompetitions.com/tactical-urbanism-competition-2026/））,,,
+未着手,2026-10-30,,,五三会建築設計競技「原始の家」,テーマ「原始の家」の住宅設計（中国地方の学生）,https://itsumikai.jp/compe/53/,日本,建築・空間,中国地方の建築学生,無料,0,賞金総額30万円,300000,記載なし,,,,,,,,,
+未着手,2026-10-30,,,AKIYA 001 PROJECT（正栄産業）,空き家の再生提案。実際に改修・売却される,https://sho-ei.net/recruit-new/akiya001project/,日本,建築・空間,大学・高専・専門学校の学生,無料,0,20万円＋売却益の配分,200000,記載なし,,,,,,,,,
+未着手,2026-10-30,,,弘前ねぷたまつりポスター,弘前ねぷたまつりの公式ポスター,https://compe.japandesign.ne.jp/hirosaki-neputa-poster-2026/,日本,グラフィック・ロゴ,不問,無料,0,10万円,100000,上限あり,2点,,,,,,,,
+未着手,2026-10-30,,,仙台フラッグデザイン,仙台市のフラッグ（旗）のデザイン,https://compe.japandesign.ne.jp/sendai-flag-design-2026/,日本,グラフィック・ロゴ,不問,無料,0,5万円,50000,記載なし,,,,,,,,,
+未着手,2026-10-30,,,Radicepura Garden Festival（シチリア）,シチリアの庭園祭で実際に作られる庭（36歳以下）,https://www.radicepurafestival.it/en/call-for-ideas-2026/,海外,庭園・インスタレーション,36歳以下,無料,0,"制作費€10,000＋渡航費",1650000,1点,1案,フェーズ1：簡潔なドシエ（タイトル／短い説明文／参考画像／スケッチ）,フェーズ1（アイデア、芸術・技術審査員、通過通知11/30）→ フェーズ2（選出者が実施案を作成）→ 結果発表（2027/1/15）,,,提出・審査の情報：二次情報（https://archup.net/radicepura-garden-festival-vi-gardens-of-hope-cultivating-coexistence/）,,,
+要確認,2026-10-30,,,KITA IDEA NEXT,アイデアコンペ（詳細未確認）,,日本,アイデア・企画,,未確認,,200万円,2000000,記載なし,,エントリーシート（Word）／PRシート（PowerPoint）、各10MB以内,一次（書類、11月上旬）→ ブラッシュアップセミナー（12/5）→ ファイナル（公開プレゼン、12/19 赤羽会館、5グループ）,データ（応募フォームに添付）,,応募料・点数とも未確認。問い合わせる価値あり。提出・審査の情報：公式で確認（https://www.city.kita.lg.jp/living/counseling/1018867/1026502.html）,,,
+未着手,2026-10-30,10:00必着（オンライン）,,瀬戸内国際芸術祭2028 作品公募,島々の会場で展開するサイトスペシフィック作品・プロジェクト,https://setouchi-artfest.jp/proposals,日本,庭園・インスタレーション,会期前に一定期間現地滞在し住民と制作できること（国籍・年齢の制限記載なし）,"1プラン1,500円",1500,採択（5〜10件程度）・制作費補助 上限約250万円,2500000,複数可,「応募は応募者1組につき3プランまで」,作品提案書（コンセプト・図面・予算等）／経歴・参考資料（合計10ページ以内）／応募料支払証明,書類審査→2027年秋頃結果（Hikita会場の一部は別条件）,公式サイトの応募フォーム,,締切が近い（10/30 10:00）。賞金ではなく制作費補助。作品の所有権は原則実行委員会。出典：https://compe.japandesign.ne.jp/setouchi-artfest-2026/ 。年齢制限：記載なし 【2026-10-16 追加調査】,,,
+未着手,2026-10-30,時刻記載なし。面接審査12/11（オンライン）、最終審査2027-02-05 大崎,,ビジネス創造コンテスト2026（品川区・品川ビジネスクラブ）,新しいビジネスアイデアを広く募集,https://bsc-shinagawa.com/,日本,アイデア・企画,不問,無料,0,最優秀賞 30万円,300000,複数可,「お一人で複数アイデアの応募も可能です。」,ビジネスアイデア（応募フォーム）,書類審査（11月上〜下旬）→オンライン面接（12/11）→最終審査（2027/2/5 会場）,公式サイトの応募フォーム,,出典 https://compe.japandesign.ne.jp/shinagawa-businessclub-2026/ 。企業賞（各5万円）など多数。年齢制限の記載なし 【2026-10-16 追加調査】,,,
+準備済み,2026-10-31,,,ミラタップデザインアワード プロダクト部門,住宅設備（水まわり等）のプロダクト提案,https://info.miratap.co.jp/designaward/product/,日本,プロダクト・家具,不問・国籍不問,無料,0,100万円,1000000,無制限,応募点数：制限なし。ただし1作品につき1登録,A3横・片面1枚のプレゼンシート（PDF、日本語か英語、匿名）／応募フォームの入力（公募プランナーでアカウント登録）,一次選考（11月）→ 最終審査（12月）。いずれもシートのみの書類審査,データ（応募フォーム）,X042_miratap,,A3まとめ/2026-10-31_X042_miratap_A3まとめ.pdf,,../X042_miratap/06_report/04_まとめ.md
+未着手,2026-10-31,,,日本制服デザインアワード,学校の制服のデザイン（小6〜高3）,https://seifukuaward.com/?page_id=4577,日本,プロダクト・家具,小6〜高3,無料,0,制服化など,,無制限,応募は一人何点でも可,,,,,,,,
+未着手,2026-10-31,,,TURNER AWARD,絵具メーカー ターナー色彩のアートアワード（学生）,https://compe.japandesign.ne.jp/turner-award-2026/,日本,グラフィック・ロゴ,学生,無料,0,15万円,150000,無制限,応募点数は不問,,,,,,,,
+未着手,2026-10-31,,,ステッドラー クリエイティブチャレンジ,ステッドラー画材を使った作品,https://compe.japandesign.ne.jp/staedtler-creative-challenge-2026/,日本,グラフィック・ロゴ,不問,無料,0,"€1,500旅行券など",250000,複数可,複数作品は1点ずつ個別にアップロード,,,,,,,,
+未着手,2026-10-31,,,防災ポスターコンクール（内閣府）,防災を呼びかけるポスター,https://www.bousai.go.jp/kyoiku/poster/index.html,日本,グラフィック・ロゴ,不問,無料,0,5万円,50000,無制限,応募点数は不問,,,,,,,,
+未着手,2026-10-31,,,筑波会議2027 ポスター,国際会議「筑波会議2027」の公式ポスター,https://www.tsukuba.ac.jp/highlights/20260622172132.html,日本,グラフィック・ロゴ,不問,無料,0,5万円,50000,無制限,応募点数は不問（複数応募可）,,,,,,,,
+未着手,2026-10-31,,,Joseph Binder Award,グラフィック・イラストの国際アワード（ウィーン）,https://www.josephbinderaward.com/submission,海外,アワード（完成作品）,不問,€105（2件目以降€79、学生€55／€45）＋VAT,17000,トロフィー・掲載中心,,無制限,The number of entries is not limited.,,,,,,,,
+未着手,2026-10-31,,,若monoデザインコンペ燕 vol.11,燕市の金属加工技術を使うプロダクト（39歳以下）,https://compe.japandesign.ne.jp/tsubame-industrial-design-2026/,日本,プロダクト・家具,39歳以下,無料,0,30万円,300000,上限あり,3点,A3縦1枚（PDF 10MB以下・日本語・匿名）／フォームにテーマ考察・価値・機能・ターゲット・展望を各約300字／1人3点まで,予備審査（11月下旬通知）→ 最終審査（模型、2027年3月表彰式で発表）,データ（応募フォームからPDF提出）。予備審査通過者は模型を燕市役所へ送付,,提出・審査の情報：公式で確認（https://compe.japandesign.ne.jp/tsubame-industrial-design-2026/）,,,
+未着手,2026-10-31,,,エンチョーDIYグランプリ,DIYで作った作品,https://encho.co.jp/diygrandprix/entry.html,日本,プロダクト・家具,不問,無料,0,5万円分,50000,記載なし,,作品写真3〜5枚（JPEG各1MB以上、角度違い・過程写真）／応募用紙（郵送時のみ）,審査1回（結果発表2027年1月頃）,データまたは紙（公式応募フォーム／応募用紙＋写真を郵送（静岡県富士市・エンチョー本社）／Instagram投稿）,,提出・審査の情報：二次情報（https://compe.japandesign.ne.jp/encho-diygrandprix-2026/）,,,
+未着手,2026-10-31,,,SAF Idea Challenge（JAL・エアバス）,持続可能な航空燃料（SAF）を広めるアイデア（学生）,https://www.jal.com/ja-jp/sustainability/saf-contest/,日本,アイデア・企画,学生,無料,0,フランス研修旅行,,記載なし,,,,,,,,,
+未着手,2026-10-31,,,世界弓道大会ロゴ,世界弓道大会の大会ロゴ,https://www.kyudo.jp/pdf/notice/20260615_info_logo_design.pdf,日本,グラフィック・ロゴ,不問,無料,0,20万円,200000,上限あり,2点,,,,,,,,
+未着手,2026-10-31,,,InnovMetal Award（中国・永康）,金物・金属製品のプロダクトデザイン,http://www.ykwjdesign.com/,海外,プロダクト・家具,世界,無料,0,約$140k（賞金総額384万元）,20000000,記載なし,,,予選（11月中旬）→ 二次（12月下旬）→ 最終審査・授賞式（2027年3〜4月）,データ（公式サイトからオンライン応募）,,提出・審査の情報：二次情報（https://artinfoland.com/opportunities/2026-innovmetal-award-industrial-design-competition/）,,,
+未着手,2026-10-31,時刻記載なし,,第10回 日本建築協会 論考コンクール 片岡安賞（テーマ「Re」）,「Re」の視点で建築・社会を捉え直す論考,https://www.aaj.or.jp/project/award/aaj-award/kataoka10.html,日本,アイデア・企画,国籍・年齢・所属不問（単著・共著可）,無料,0,片岡安賞 10万円＋副賞,100000,記載なし,応募点数の記載なし（「投稿料は無料とする」）,"応募用紙／論考（約6,000字、図版可、Word等）",審査→『建築と社会』2027年5月号で発表、6月号に全文掲載,メール（hensyu2@aaj.or.jp）または郵送,,設計ではなく論文コンペ。受賞者は同協会へ入会し3年以上継続が条件。未発表論考に限る。出典：https://kenchiku.co.jp/compe/cmp20260526-2.html 。年齢制限：なし 【2026-10-16 追加調査】,,,
+要確認,2026-10-31,時刻記載なし,,栃木県上三川町まきコンペ2026,空き家・空き店舗・空き地の活用アイデア,https://makicompe.com/kaminokawa/entry,日本,アイデア・企画,資格不問（県内外の住民・学生・社会人）,記載なし,,上三川町賞（町の特産品セット）,0,記載なし,応募点数の記載なし,エントリーシート（A4、手書き or PC）をPDF/画像で,書類審査→最終プレゼン（来場者投票あり）→2026年12月上旬発表,専用エントリーフォーム,,条件（応募無制限か無料）を確認できていない。賞金なし（特産品）。応募料は記載なし（未確認）。公式サイトは取得できず公募ガイド掲載で確認。出典：https://koubo.jp/contest/384088 。年齢制限：記載なし 【2026-10-16 追加調査】,,,
+要確認,2026-10-31,時刻記載なし。書類選考通過者は2027/1/14〜16に作品提出,,第3回 京都クラフト＆デザインコンペティション「TRADITION for TOMORROW」,京都の伝統工芸による「つづくかたち」の作品,https://kmtc.jp/tft/,日本,プロダクト・家具,職人・作家部門：京都の伝統工芸に携わる方、またはその技術を活用するクリエイター（京都ゆかり）。学生部門あり,"5,500円／1応募（学生部門2,750円）",5500,グランプリ 100万円,1000000,記載なし,「作品（製品）1点につき1応募を基本とするが、色・柄違い等…最大5点までを1応募とすることが可能」,作品画像（最大5枚）／作品情報・技法・素材・コンセプト（フォーム入力）,書類選考（11月中旬通知）→作品提出→展示・審査会・一般投票（2027/1/23〜3/22）→表彰3/22,公式サイトの応募フォーム,,条件（応募無制限か無料）を確認できていない。有料。応募数上限の記載はなく1作品1応募で複数応募は可能と読めるが明記なし＝条件ぎりぎり。デザイナー単独で応募可かは不明（要問合せ）。既製の作品・製品が前提。出典 https://kmtc.jp/tft/entry 【2026-10-16 追加調査】,,,
+未着手,2026-10-31,23:59 PST（最終延長締切）。10/15までは早割料金,,L A M P 2026 国際照明デザインコンペ,フロア・テーブル・ペンダント・壁付照明のデザイン,https://lampthecompetition.com/,海外,プロダクト・家具,プロ（2023年以前未発売のデザイン）／学生。個人・チーム可,$195→$225（10/16以降、プロ）／学生$110→$120,33750,入賞者に賞金（金額未記載）＋Alcova Mexico City（2027年2月）展示,,複数可,"""One design per submission fee""（1作品ごとに応募料）",画像・説明等（詳細はGuidelines PDF、未確認）／作品は10立方フィート以内,11/5–25審査、People's Choice投票、12/10–15発表,Submittable（https://xlampthecompetition.submittable.com/submit）,,"出典：dezeen https://www.dezeen.com/competitions/lamp-2026/ , illustrarch。展示選出時は実物の輸送費自己負担。賞金額未確認。年齢制限：なし（記載なし） 【2026-10-16 追加調査】",,,
+未着手,2026-11-01,,2026-10-30,UNI「Opera Truck 2.0」,移動するオペラ劇場（トラック）の提案,https://uni.xyz/competitions/opera-truck-20,海外,建築・空間,不問,$50〜70,7500,"最大$1,800（応募数で変動）",270000,複数可,1コンペに複数案を応募可。1案ごとに登録,,,データ（uni.xyz上でオンライン提出）,,賞金は応募数に応じて変動、現状は$100程度。提出・審査の情報：不明（https://uni.xyz/competitions/opera-truck-20）,,,
+未着手,2026-11-01,,2026-10-30,UNI「ParaSports」,パラスポーツのための施設の提案,https://uni.xyz/competitions/parasports,海外,建築・空間,不問,$50〜70,7500,"最大$1,800（応募数で変動）",270000,複数可,1コンペに複数案を応募可。1案ごとに登録,ボード推奨5枚（約2800×3500px縦・JPEG、各20MB以内、最低3枚）／カバー画像（横・文字なし）／英語,一般投票（11/2〜12/1）→ ショートリスト発表（11/15）→ 審査員評価（11/16〜11/30）→ 結果発表（12/2）,データ（uni.xyzでプロジェクト公開→Submit）,,賞金は応募数に応じて変動、現状は$100程度。提出・審査の情報：公式で確認（https://uni.xyz/competitions/parasports/schedule/schedule）,,,
+未着手,2026-11-01,,2026-10-30,UNI「Luminous」,光をテーマにした建築アイデア,https://uni.xyz/competitions/luminous,海外,建築・空間,不問,$50〜70,7500,"最大$1,800（応募数で変動）",270000,複数可,1コンペに複数案を応募可。1案ごとに登録,（参考）造形は28×28×137cm以内,,,,賞金は応募数に応じて変動、現状は$100程度。提出・審査の情報：不明（https://uni.xyz/competitions/luminous）,,,
+未着手,2026-11-01,,2026-10-30,UNI「Envent」,UNIの建築アイデアコンペ（課題は公式で確認）,https://uni.xyz/competitions/envent,海外,建築・空間,不問,$50〜70,7500,"最大$1,800（応募数で変動）",270000,複数可,1コンペに複数案を応募可。1案ごとに登録,,,データ（uni.xyz上でオンライン提出）,,賞金は応募数に応じて変動、現状は$100程度。提出・審査の情報：不明（https://uni.xyz/competitions/envent）,,,
+未着手,2026-11-01,,2026-10-30,UNI「Concave」,「凹面」をテーマにした建築アイデア,https://uni.xyz/competitions/concave,海外,建築・空間,不問,$50〜70,7500,"最大$1,800（応募数で変動）",270000,複数可,1コンペに複数案を応募可。1案ごとに登録,ボード推奨5枚（約2800×3500px縦・JPEG、各20MB以内、最低3枚）／カバー画像（横・文字なし）／英語,一般投票（11/2〜12/1）→ ショートリスト発表（11/15）→ 審査員評価（11/16〜11/30）→ 結果発表（12/2）,データ（uni.xyzでプロジェクト公開→Submit）,,賞金は応募数に応じて変動、現状は$100程度。提出・審査の情報：公式で確認（https://uni.xyz/competitions/concave/schedule/schedule）,,,
+未着手,2026-11-01,,2026-10-30,UNI「Slum City」,スラムの住環境を改善する都市提案,https://uni.xyz/competitions/slum-city,海外,建築・空間,不問,$50〜70,7500,"最大$1,800（応募数で変動）",270000,複数可,1コンペに複数案を応募可。1案ごとに登録,（参考）表現媒体自由、写真の直接使用不可,,,,賞金は応募数に応じて変動、現状は$100程度。提出・審査の情報：不明（https://uni.xyz/competitions/slum-city）,,,
+未着手,2026-11-01,,,Bolu国際ポスターコンペ（SDGs）,SDGsをテーマにしたポスター（トルコ）,https://biahposter.com/theme/,海外,グラフィック・ロゴ,世界,無料,0,賞金なし,,無制限,There is no limit on poster submission.,,,,,,,,
+未着手,2026-11-01,,,黒船祭ポスター,下田・黒船祭のポスター,https://compe.japandesign.ne.jp/blackshipfestival-poster-design-2026/,日本,グラフィック・ロゴ,不問,無料,0,10万円,100000,記載なし,,,,,,,,,
+未着手,2026-11-01,,,Memorial to the Sixth Extinction（西オーストラリア大学）,「第6の大量絶滅」を記憶するメモリアル,https://www.audrc.org/competitions,海外,庭園・インスタレーション,世界,無料,0,"賞金総額AUD 15,000",1500000,1点,1案,,,,,提出・審査の情報：不明（https://www.audrc.org/competitions）,,,
+要確認,2026-11-01,23:59,,三菱電機モビリティ×Wemake「車載音響技術で、豊かなモビリティ社会を実現する製品・サービス」,車載音響技術を使う製品・サービスの提案,https://www.wemake.jp/projects/245,日本,アイデア・企画,記載なし（個人提案可、Wemake会員登録が必要）,記載なし,,賞金総額300万円（一覧表示）,3000000,記載なし,記載なし,コンセプト（文章で課題・ニーズ・価値を示す。画像不要）,一次審査11/2〜11/25→二次11/26〜12/9→最終（結果2027年3月初旬）,Wemakeの提案フォーム,,条件（応募無制限か無料）を確認できていない。応募料・応募数は本ページに記載なし＝未確認（Wemakeの過去案件は参加費無料・複数応募可）。賞の内訳は未掲載 【2026-10-16 追加調査】,,,
+未着手,2026-11-02,,,湯けむり国スポ・全スポぐんま ポスター,2029年 群馬国スポ・全スポのポスター,https://compe.japandesign.ne.jp/sports2029-gunma-poster-2026/,日本,グラフィック・ロゴ,不問,無料,0,30万円,300000,記載なし,,,,,,,,,
+要確認,2026-11-02,12:00 EST（正午）,,MIT Solve 2027 Global Challenges,気候・経済・健康・教育の社会課題を解く解決策を公募,https://solve.mit.edu/challenges,海外,アイデア・企画,記載なし（チームリーダーが英語で発表できること）,記載なし（未確認）,,"選出チームに各$10,000＋各種賞（最大$200,000）",1500000,記載なし,記載なし,オンライン申請フォーム（Solution Profile）,オンライン審査→選出→Solve Challenge Finals,solve.mit.edu から申請,,条件（応募無制限か無料）を確認できていない。出典：https://opportunitiesforyouth.org/2026/10/04/mit-solve-global-challenges-2027-open-with-over-usd-1-million-in-prize-funding-and-nine-months-of-support/ 。応募料・必要な開発段階（例年は試作以上とされる）を公式で確認できず。アイデア段階のみでは不利な可能性。年齢制限：記載なし 【2026-10-16 追加調査】,,,
+未着手,2026-11-03,,,未来チャレンジコンペ2027（神奈川県建築士会）,未来の建築の小さな提案。3Dプリントで制作（25歳以下）,https://compe.japandesign.ne.jp/kanagawa-kentikusikai-mirai-challenge-2026/,日本,建築・空間,25歳以下,無料,0,3Dプリンタで実物を制作,,記載なし,,A3提案書1枚（PDF・100MB以下、氏名所属記載不可）,,データ（公式サイトの応募フォーム）,,年齢対象外：25歳以下（1993年生まれは不可）。提出・審査の情報：二次情報（https://compe.japandesign.ne.jp/kanagawa-kentikusikai-mirai-challenge-2026/）,,,
+準備済み,2026-11-04,23:59,,サーキュラーエコノミー コンペティション（TASビル、千代田区）,千代田区TASビルを題材にした循環型の提案,https://kuji-competition.pages.dev/,日本,建築・空間,不問,無料,0,10万円,100000,無制限,お一人（1チーム）あたりの応募数に制限はありません,応募登録（応募ナンバーがメールで届くまで2〜3日）／プレゼンボード A2横 PDF 1枚（10MB以内、右下に「応募ナンバー_代表者名」を24pt）／作品提出フォームへアップロード（Googleログイン）／（二次審査）A2用紙1枚・模型は任意,一次（PDF、11月中旬通知、最大50名程度）→ 二次（12/4 東京でポスターセッション、Zoom 可。Zoom の場合は A2 原本を郵送）,データ（作品提出フォーム）。二次審査に進んだら A2 出力1枚を持参,X050_Circular_Economy,初回開催／おすすめリサーチ実施済み・案「神保町 部材古書店」作成済み（2026-10-08）：参考誌はディテール2025年10月号がほぼ当たり。TASビルの躯体を残し、古書店の作法で町の部材を巡らせる,A3まとめ/2026-11-04_X050_Circular_Economy_A3まとめ.pdf,../X050_Circular_Economy/06_report/02_サーキュラーエコノミー_まとめ.pdf,../X050_Circular_Economy/06_report/04_まとめ.md
+要確認,2026-11-04,,,iF Design Award,完成作品の国際デザイン賞（ドイツ）,,海外,アワード（完成作品）,,未確認,,,,記載なし,,,,,,応募料・点数とも未確認。問い合わせる価値あり,,,
+未着手,2026-11-05,,,長谷工 住まいのデザインコンペティション,集合住宅・住まいのアイデア（学生）,https://compe.japandesign.ne.jp/hasekou-sumai-2026/,日本,建築・空間,学生,無料,0,100万円,1000000,複数可,※複数応募可,,,,,,,,
+未着手,2026-11-05,,,World Design Awards,完成した建築・デザインのアワード,https://www.thearchitecturecommunity.com/world-design-awards/,海外,アワード（完成作品）,不問,$250,37500,トロフィー・掲載中心,,無制限,Unlimited Projects,,,,,,,,
+未着手,2026-11-06,,,Terraviva「The Students Apartment」,学生向け集合住宅の提案,https://www.terravivacompetitions.com/,海外,建築・空間,不問,€99→€139,16000,"€3,000",495000,複数可,Terravivaの規約：1件分の応募料で1案、追加の応募料で追加案,A1横1枚／簡潔な説明文,審査1回（発表日未記載）,データ（公式サイトのUploadから）,,詳細は competitions.archi の掲載情報による。応募料は時期が進むほど上がる。提出・審査の情報：公式で確認（https://www.terravivacompetitions.com/the-students-apartment-competition-2026/）,,,
+未着手,2026-11-06,,2026-10-22,Creathlon「Open Chair」（3Dプリントの椅子）,3Dプリントで作る椅子,https://www.creathlon.co.uk/competitions/open-chair,海外,プロダクト・家具,不問,£5〜35,1000,£600,117000,複数可,Multiple Entries are permitted… registered separately,STL 2点（組立完成形／番号付き全パーツ・各220×220×250mm以内）／A2横ボード1枚（JPG・匿名）／説明PDF 500語以内／A2縦ポスター1枚（JPG・文字なし）／合計15MB以内,審査1回（審査11月、受賞発表2027/1/11頃）,データ（公式サイトの提出ページからアップロード）,,提出・審査の情報：公式で確認（https://www.creathlon.co.uk/competitions/open-chair）,,,
+未着手,2026-11-06,,,London Design Awards,完成作品のデザインアワード（ロンドン）,https://thelondondesignawards.com/,海外,アワード（完成作品）,不問,$209〜249＋$30,36000,トロフィー・掲載中心,,無制限,no limits,,,,,,,,
+要確認,2026-11-06,,,DID Award 東莞杯（中国）,工業デザインのアワード（詳細未確認）,,海外,プロダクト・家具,,未確認,,,,記載なし,,,,,,応募料・点数とも未確認。問い合わせる価値あり。提出・審査の情報：不明,,,
+要確認,2026-11-06,時刻記載なし。最終審査は2027/3/9 総合大会で発表必須,,未来60年賞チャレンジコンテスト2026（電子情報通信学会）,情報通信の60年後を拓く独創的アイデア,https://www.ieice.org/jpn_r/awards/mirai60/,日本,アイデア・企画,2026/12/31時点で36歳の誕生日を迎えていない人。電子情報通信学会の正員または学生員,記載なし,,未来60年賞（最優秀）300万円,3000000,記載なし,記載なし,企画提案シート／提案概要シート,書類審査→最終審査対象者が2027/3/9に発表→同日結果,Webのエントリーフォーム,,条件（応募無制限か無料）を確認できていない。年齢制限：2026年12月31日時点で35歳以下（36歳の誕生日前）。1993年生まれは基準日時点32〜33歳でOK。学会の正員（年会費あり）または学生員であることが必要。応募料・応募数の記載なし＝条件(a)(b)とも未確認。出典 https://koubo.jp/contest/375443 【2026-10-16 追加調査】,,,
+要確認,2026-11-08,23:59。受賞者は2027/2/4〜6の羅臼町現地プログラムに参加,,北海道羅臼町 新しい関わり方アイデアコンテスト,若者が羅臼町に関わり続ける仕組みの提案,https://flaspo.jp/try/758,日本,アイデア・企画,18歳以上の学生・若手社会人（年齢上限の定義なし）。チーム可,記載なし（現地プログラムは無料）,,上位3組 各5万円,50000,記載なし,記載なし,FLASPOのプラン投稿（設問①〜⑥への回答）／補足資料（任意）／アンケート,書類審査（羅臼町三役ほか）→11月中旬発表→説明会11/30,FLASPO（要会員登録）,,条件（応募無制限か無料）を確認できていない。年齢制限：「若手社会人」の上限は記載なし（33歳が対象か要確認）。応募料・応募数の記載なし＝条件未確認。出典 https://koubo.jp/contest/384928 【2026-10-16 追加調査】,,,
+要確認,2026-11-08,23:59,,Wemake「『スポーツ店の実店舗』で展開する新たなサービスの創出」,スポーツ店の実店舗で使えるサービス・製品の提案,https://www.wemake.jp/projects/243,日本,アイデア・企画,記載なし（個人・法人とも提案可、Wemake会員登録が必要）,記載なし,,賞金総額50万円（一覧表示）,500000,記載なし,記載なし（採用5案予定）,コンセプト（文章。画像・事業計画書は不要）,審査→結果2026年12月中旬,Wemakeの提案フォーム,,条件（応募無制限か無料）を確認できていない。主催はスポーツ・メディカル分野の企業（社名非公開）。応募料・応募数は記載なし＝未確認（Wemakeの過去案件は参加費無料・複数応募可） 【2026-10-16 追加調査】,,,
+未着手,2026-11-09,,2026-10-13,ティーダフラッグス2026（沖縄県）,沖縄県の公共施設などの設計競技（40歳以下）,https://www.pref.okinawa.jp/site/doboku/shisetsu/kikaku/sekkeikyougi.html,日本,建築・空間,40歳以下で沖縄にゆかりのある人,無料,0,20万円分,200000,記載なし,,様式1〜5・チェックリスト等（詳細は要項PDF）,一次（結果11/27予定）→ 最終審査・結果発表（12/22予定）,,,提出・審査の情報：公式で確認（https://www.pref.okinawa.jp/machizukuri/kenchiku/1013476/1013481/1040870.html）,,,
+未着手,2026-11-10,必着（時刻記載なし）,,HOKURIKU-U35 Craft Award,北陸ゆかりの35歳以下の工芸作家を顕彰,https://hokurikuu-35craftaward.com/,日本,プロダクト・家具,2026/4/1時点で35歳以下、北陸三県（富山・石川・福井）在住または出身,無料,0,グランプリ 20万円＋ギャラリー個展,200000,1点,「応募は一人1点まで」,応募申込書／作品画像（全体・ディテール各1枚）／作品ステートメント（200字以内）,記載なし,メール（info@ukmediawork.jp）,,年齢制限：2026年4月1日時点で35歳以下（1993年生まれは32〜33歳でOK）。北陸在住・出身が条件のため該当しなければ不可。既存の作品が対象。出典 https://compe.japandesign.ne.jp/hokurikuu-35craftaward-2026/ 【2026-10-16 追加調査】,,,
+未着手,2026-11-11,,,富山ガラス大賞展2027,ガラス作品の公募展,https://toyama-glass.jp,日本,プロダクト・家具,不問,無料,0,300万円,3000000,上限あり,2点,作品画像JPEG 3枚（別アングル、うち1枚全体、2〜10MB・300dpi程度）／展示イメージ図PDF（A4かA3・4p以内・2MB以内）／映像作品は限定公開YouTube URL,一次（画像審査、2027/1/20、約50点入選）→ 二次（実作品審査・講評会、2027年4月、5月中旬発表）,データ（応募フォームで画像等を提出）。入選者は実作品を送付（〜2027/3/26）,,提出・審査の情報：公式で確認（https://toyama-glass.jp/2027/requirements/）,,,
+未着手,2026-11-13,,,OAC学生広告クリエイティブアワード,課題企業の広告企画（学生）,https://compe.japandesign.ne.jp/oac-gakusei-2026/,日本,アイデア・企画,学生,無料,0,記載なし,,無制限,応募点数は不問,,,,,,,,
+未着手,2026-11-13,,,Asahi学生デザインコンペ,住まい・暮らしのデザイン提案（学生）,https://compe.japandesign.ne.jp/asahi-life-gakusei-compe-2026/,日本,建築・空間,学生,無料,0,10万円,100000,記載なし,,,,,,,,,
+未着手,2026-11-14,,,原城跡世界遺産センター 愛称・ロゴ,原城跡の世界遺産センターの愛称とロゴ,https://worldheritage-remainsofharacastle.jp/,日本,グラフィック・ロゴ,不問,無料,0,5万円,50000,無制限,応募は１人何点でも可能です,,,,,,,,
+未着手,2026-11-15,,,UX Design Awards,UX・サービスデザインのアワード,https://ux-design-awards.com/enter/faq,海外,アワード（完成作品）,不問,€70〜320,11500,トロフィー・掲載中心,,無制限,プロは無制限、学生は1件まで,,,,,,,,
+要確認,2026-11-15,23:59。受賞者は2026/12/11〜13のモデルツアーに全日程参加,,長野県木曽郡 木曽との関わり方アイデアコンテスト,木曽の食・自然・商いとの関わり方の提案,https://flaspo.jp/try/759,日本,アイデア・企画,18歳以上・個人のみ,記載なし（ツアー参加は無料）,,上位5名 各3万円＋2泊3日ツアー招待,30000,記載なし,記載なし（個人応募のみ）,設問6問への回答（文章またはスライド）／補足資料（任意）／アンケート,書類審査（木曽広域連合・FLASPO）→11月下旬発表→ツアー→2027/1/15に最終プラン提出,FLASPO（要会員登録）,,条件（応募無制限か無料）を確認できていない。年齢制限：18歳以上（上限なし）。応募料・応募数の記載なし＝条件未確認。出典 https://koubo.jp/contest/390391 【2026-10-16 追加調査】,,,
+要確認,2026-11-15,23:59（任意の初期提案は10/18まで）,,NEC×Wemake「住民・社会の日常を変革する新事業を募集！」,Life Support Platformの事業アイデア,https://www.wemake.jp/projects/255,日本,アイデア・企画,資格不問（チーム可、Wemake会員登録が必要）,記載なし,,最優秀賞 100万円,1000000,記載なし,記載なし（採用3案予定）,コンセプト画像1〜10枚程度＋説明（タイトル・課題・解決策・詳細）,一次11/16〜12/3→二次12/4〜12/16→最終（結果2027年3月下旬）,Wemakeの提案フォーム,,条件（応募無制限か無料）を確認できていない。賞金総額200万円（一覧表示）。応募料・応募数は記載なし＝未確認（Wemakeの過去案件は参加費無料・複数応募可）。出典 https://koubo.jp/contest/389566 【2026-10-16 追加調査】,,,
+未着手,2026-11-16,,,東京都 空き家リノベーションコンテスト,都内の実在の空き家のリノベーション提案,https://www.juutakuseisaku.metro.tokyo.lg.jp/akiya/event/renovationcontest,日本,建築・空間,都内の実在の空き家が必要（所有者の同意あり）,無料,0,100万円,1000000,複数可,複数の作品を応募いただく場合は…作品ごとにメールを分けて,応募申込書（Word）／取組概要書（Word、部門別様式）,一次（書類、12月頃）→ 最終（公開審査・表彰式、2027/1/27）,データ（Word様式を事務局へメール送信）,,提出・審査の情報：公式で確認（https://www.juutakuseisaku.metro.tokyo.lg.jp/akiya/event/renovationcontest）,,,
+未着手,2026-11-16,,,CLT DESIGN AWARD 2026,CLT（直交集成板）を使った建築の提案,https://compe.japandesign.ne.jp/clt-design-award-2026/,日本,建築・空間,実務者・学生,無料,0,50万円,500000,1点,1点,A2横2枚以内（PDF、1〜10MB）,審査1回（入賞者へ2027年2月中旬までに通知、3/5表彰式）,データ（エントリー後、作品提出フォームに投稿）,,提出・審査の情報：公式で確認（https://compe.japandesign.ne.jp/clt-design-award-2026/）,,,
+未着手,2026-11-16,,,いしかわ女性活躍推進企業ロゴ,石川県の女性活躍推進企業の認定ロゴ,https://www.pref.ishikawa.lg.jp/kenmin/danjo/kigyounintei/koubo.html,日本,グラフィック・ロゴ,不問,無料,0,5万円,50000,上限あり,3点,,,,,,,,
+未着手,2026-11-16,,2026-10-20,Bute Park Art Gallery（英国カーディフ）,カーディフの公園に建つ小さなギャラリー,https://competitions.archi/competition/bute-park-art-gallery-design-competition/,海外,建築・空間,不問,無料,0,"£1,000",195000,記載なし,,,審査1回（展示・表彰 2026/11/27）,データ（メールで事前登録・競技番号付与。提出方法詳細はブリーフ参照）,,提出・審査の情報：二次情報（https://competitions.archi/competition/bute-park-art-gallery-design-competition/）,,,
+未着手,2026-11-16,,2026-10-16,The FORUM Installation 2027（カナダ）,カナダのアート施設で実際に作られるインスタレーション,https://www.theforumatfabrik.ca/opencall,海外,庭園・インスタレーション,学生・若手,無料,0,CAD 500＋制作費,55000,記載なし,,"PDF1ファイル最大5頁（11×17in横・10MB以下）：コンセプト（説明250語以内＋パース2）／敷地対応図面／材料・施工／予算（CAD4,500以内）・工程／経歴",審査1回（招聘審査員、11月下旬に選出発表、最大3案）,データ（PDFをtheforum@fabrikarchitects.caへメール）,,提出・審査の情報：公式で確認（https://www.theforumatfabrik.ca/opencall）,,,
+未着手,2026-11-16,17:00必着,,地方創生☆政策アイデアコンテスト2026（内閣府）,RESAS等で地域を分析した政策アイデア,https://contest.resas-portal.go.jp/,日本,アイデア・企画,大学生以上一般の部：誰でも可（個人・グループ可）,無料,0,地方創生担当大臣賞（副賞、金額記載なし）,,記載なし,記載なし,PDF資料（表紙含む10〜20ページ、10MB以下、RESAS等での分析を含む）,記載なし（地方予選→最終審査の形式と思われるが未確認）,公式サイトの応募フォーム,,賞金額なし。出典 https://compe.japandesign.ne.jp/resas-portal-2026/ （公式要項PDFは本文取得できず） 【2026-10-16 追加調査】,,,
+未着手,2026-11-17,,,小黒三郎賞・創作玩具公募展,木のおもちゃなど創作玩具の公募展,https://toymuseum.wixsite.com/creative-toy-so,日本,プロダクト・家具,不問,"3,000円（学生1,500円）、1件ごと",3000,30万円,300000,無制限,応募する作品数に応じた出品料のお支払い,作品現物（60×60×60cm以内）／応募用紙A4／プレゼンシートA4片面1枚,審査1回（結果発表2027/3/1）,紙＋作品現物（郵送・持参、11/17必着）,,提出・審査の情報：公式で確認（https://compe.japandesign.ne.jp/toymuseum-okayama-c-toy-2026/）,,,
+準備済み,2026-11-17,日本時間 1:00,,Yong Ding Chang'an Pavilion（北京、UIA承認）,北京のパビリオン。1等は実施設計まで（若手・建築家資格）,https://biacompetition.com/,海外,建築・空間,1986/11/16以降生まれ・代表者は建築家資格,無料,0,"€35,000＋実施設計",5775000,記載なし,,"A0縦の展示ボード1枚（JPG 300dpi、英語、右上に匿名登録番号）／A4の設計説明書（英語、本文1,000語まで、指標表つき）／アカウント登録と建築家資格の証明（PDF/JPG 5MBまで）",審査会1回（2026年11月）で決定。1等は実施設計へ,データ（応募サイト）,X052_Yongding_Pavilion,資格証明のアップロードが必要。初回開催／おすすめリサーチ実施済み・案「永定の物差し」作成済み（2026-10-08）：敷地は幅約7mの細い帯（西の約2.3mは地下の箱で荷重不可）で細長い平屋に。斜面に洪水位の朱の帯。DWGは未読,A3まとめ/2026-11-17_X052_Yongding_Pavilion_A3まとめ.pdf,../X052_Yongding_Pavilion/06_report/02_永定パビリオン_まとめ.pdf,../X052_Yongding_Pavilion/06_report/04_まとめ.md
+未着手,2026-11-19,,,上富良野町カントリーサイン,町境に立つカントリーサイン（看板）,https://www.town.kamifurano.hokkaido.jp/index.php?id=6432,日本,グラフィック・ロゴ,不問,無料,0,10万円,100000,上限あり,3点,,,,,,,,
+要確認,2026-11-19,,,Reuse the Theater Falerone,イタリアの古代劇場の再活用（詳細未確認）,,海外,建築・空間,,未確認,,,,記載なし,,A1 1枚／チーム最大4名,審査1回（国際審査員3組、結果2026年12月）→ 展示（2027年2月、ファレローネ）,データ（Reuse Italyサイトからオンライン提出と推定）,,応募料・点数とも未確認。問い合わせる価値あり。提出・審査の情報：公式で確認（https://www.reuseitaly.com/competitions/reuse-the-theater-falerone-marche/）,,,
+未着手,2026-11-20,,,ファッションシューズコンテスト2027,靴のデザイン画,https://csia.or.jp/event/index2.htm,日本,プロダクト・家具,不問,無料,0,20万円,200000,無制限,応募点数制限はありません（但し入賞は1人1点）,着色デザイン画（一般・中高生B4／小学高学年A4、点数無制限）／裏面に応募用紙貼付,審査1回（入賞発表2027年2月予定）,紙（デザイン画を日本ケミカルシューズ工業組合（神戸市長田区）へ送付、必着）,,提出・審査の情報：公式で確認（https://csia.or.jp/event/index2.htm）,,,
+未着手,2026-11-20,,,五條市70周年 ロゴ,五條市 市制70周年の記念ロゴ,https://www.city.gojo.lg.jp/event/19758.html,日本,グラフィック・ロゴ,市にゆかりのある人,無料,0,特産品,,複数可,1人で複数点の応募が可能,,,,,,,,
+未着手,2026-11-20,,,ユニオン造形デザイン賞,ドア・建築金物まわりの造形デザイン（学生・若手）,https://compe.japandesign.ne.jp/artunion-uffec-design-2026/,日本,建築・空間,学生・実務10年以内（1997/1/1以降生まれ）,無料,0,100万円,1000000,1点,1点,A2用紙1枚（出品票貼付）／応募申請書／作品説明書（趣旨400字以内）,審査1回（2027年1月、受賞者のみ通知）,紙＋データ（作品は郵送・宅配、申請書類はメール）,,年齢対象外：1997年1月1日以降生まれに限る（1993年生まれは不可）。提出・審査の情報：公式で確認（https://compe.japandesign.ne.jp/artunion-uffec-design-2026/）,,,
+未着手,2026-11-22,,,Eulsukdo Land Art（釜山）,釜山・乙淑島のランドアート。実際に制作,https://eulsukdo-ecoart.com/en/,海外,庭園・インスタレーション,不問,無料,0,"作家料2,000万ウォン＋制作費",2200000,1点,1案,所定様式（DOCX 2点）／提案書A4横 約20ページ（韓国語または英語）,一次（書類、4案選出）→ 二次（プレゼン、1案選出）→ 結果発表（2026年12月）,データ（メール eulsukdo.ecoart@gmail.com、受付11/2〜11/22 KST）,,提出・審査の情報：公式で確認（https://eulsukdo-ecoart.com/en/）,,,
+未着手,2026-11-24,,,ケアテック・イノベーション・コンテスト,介護・ケアの課題を解く技術・事業（助成型）,https://ysmf-caretech.jp,日本,アイデア・企画,国内在住,無料,0,"最大1,000万円の助成",10000000,1点,1件,応募フォーム入力／提出書類（部門別）／本人出演の紹介動画／様式1 助成金使途明細,一次（書類、結果12/4）→ 二次（プロトタイプ部門、結果1/15）→ 最終審査・表彰式（2027/2/6、原宿、参加必須）,データ（応募専用Webフォームで入力・書類アップロード）,,提出・審査の情報：公式で確認（https://ysmf-caretech.jp）,,,
+未着手,2026-11-24,23:59（タイムゾーン表記なし）,,Art Award おおたかの森 2026 立体アート部門,駅前ストリートに設置する屋外立体アート案,https://compe.japandesign.ne.jp/otakanomori/,日本,庭園・インスタレーション,不問（日本に拠点、日本語or英語で連絡可能）,無料,0,大賞 20万円＋実設置（制作・施工費は主催者負担・上限あり）,200000,記載なし,応募点数の記載なし,応募用紙（A4縦3ページ PDF・氏名記載不可）／タイトル（30字）／コンセプト（200字）,一次審査で上位3組（パネル・模型制作補助5万円）→最終審査→2027年2月発表,公式サイトの応募フォーム,,主催：流山おおたかの森S.C.／東神開発。大賞作品は幅900×奥行900×高さ1600mm以内等の条件あり。出典：https://compe.japandesign.ne.jp/takanomori-sc-rittai-2026/ 。年齢制限：なし 【2026-10-16 追加調査】,,,
+未着手,2026-11-25,,,糸魚川翡翠ジュエリーデザイン画,糸魚川の翡翠を使ったジュエリーのデザイン画,https://compe.japandesign.ne.jp/itoigawa-hisui-jewellery-2026/,日本,プロダクト・家具,国内在住・在学,無料,0,8万円,80000,上限あり,3点,A4原寸デザイン画（着彩必須、厚さ1〜2.5mm）1人3点まで／応募用紙を裏面に貼付,審査1回（12月末までに通知）,紙（書留郵便・宅配便）,,提出・審査の情報：公式で確認（https://compe.japandesign.ne.jp/itoigawa-hisui-jewellery-2026/）,,,
+準備済み,2026-11-26,日本時間 22:59,,Desall「Perfume Refill Cap Design」,香水の詰め替え用キャップのデザイン,https://desall.com/Contest/Perfume-Refill-Cap-Design/Brief,海外,プロダクト・家具,18歳以上・国籍不問,無料,0,"€5,000",825000,無制限,no limits of uploads per user per contest,提出画像 1〜5枚（4:3、960×720px推奨、1枚1MB以下）／英語の説明文（abstract・description・tags）／（任意）3Dデータ＋高解像度画像の zip（100MB以下）／Desallアカウント登録と規約への同意,主催企業が審査（Client Vote）1回。受賞発表は2027年2月末ごろ,データ（desall.com にアップロード）,X051_Desall_Perfume_Refill_Cap,課題の閲覧・応募にログインが必要／おすすめリサーチ実施済み・案「BULLE」作成済み（2026-10-08）：泡の窓で満タンを知らせるPP1部品キャップ。Techniplast特許の回避策あり、11/12アップロード目標,A3まとめ/2026-11-26_X051_Desall_Perfume_Refill_Cap_A3まとめ.pdf,../X051_Desall_Perfume_Refill_Cap/06_report/02_DesallRefillCap_まとめ.pdf,../X051_Desall_Perfume_Refill_Cap/06_report/04_まとめ.md
+未着手,2026-11-27,,,岡山モノづくり学生アイデア＆デザインコンテスト,岡山のものづくり企業と組む製品アイデア（学生）,https://compe.japandesign.ne.jp/monomake-okayama-idea-2026/,日本,アイデア・企画,高校生・大学生,無料,0,3万円相当,30000,1点,1点,,,,,,,,
+未着手,2026-11-30,,,解決！G-Fun DIY アイデア大賞,暮らしの困りごとをDIYで解決するアイデア,https://g-fun.jp/idea/2026/,日本,アイデア・企画,国内在住,無料,0,10万円分,100000,複数可,お1人で複数作品のご応募も可能です,作品の写真・画像データ（枚数・形式の記載なし）／1応募1作品,審査1回（速報2027年1月中旬、詳細発表2月下旬）,データ（公式サイトの応募フォームで写真・画像を提出、会員登録不要）,,提出・審査の情報：公式で確認（https://g-fun.jp/idea/2026/）,,,
+未着手,2026-11-30,,,瀬戸内海環境保全 ポスター,瀬戸内海の環境保全のポスター,https://www.seto.or.jp/koubo/item1493,日本,グラフィック・ロゴ,不問,無料,0,10万円,100000,無制限,応募点数は制限なし,,,,,,,,
+未着手,2026-11-30,,2026-10-29,Buildner Vancouver Tall Challenge,バンクーバーの高層建築の提案,https://architecturecompetitions.com/VancouverTallChallenge,海外,建築・空間,不問,€120（学生）／€140,20000,"CAD 7,000",770000,無制限,permitted to upload an unlimited number of submissions（追加分は割引）,,審査1回（匿名審査）→ 結果発表（2027/1/26）,データ（Buildnerアカウントのアップロードパネル）,,提出・審査の情報：公式で確認（https://architecturecompetitions.com/VancouverTallChallenge）,,,
+未着手,2026-11-30,,2026-10-28,Buildner Kinderspace #4,子どものための空間（幼児施設など）,https://architecturecompetitions.com/kinderspace4,海外,建築・空間,不問,€120／€140＋VAT,20000,"€5,000",825000,無制限,permitted to upload an unlimited number of submissions（追加分は割引）,,審査1回（匿名、結果2027/1/19）,データ（Buildnerのアップロードパネル）,,提出・審査の情報：公式で確認（https://architecturecompetitions.com/kinderspace4）,,,
+未着手,2026-11-30,,,Architect Sheep（建築ハッカソン）,名古屋テレビ主催の建築ハッカソン（チーム）,https://compe.japandesign.ne.jp/nagoyatv-hackathon-architectsheep-2026/,日本,建築・空間,建築学生,無料,0,100万円,1000000,上限あり,チーム単位,,,,,,,,
+未着手,2026-11-30,,,東北建築フォーラム 未来のエスキス,未来の建築のスケッチ（中高生）,https://arch.tohtech.ac.jp/exhibition,日本,建築・空間,中高生,無料,0,7万円,70000,1点,1点,,,,,,,,
+未着手,2026-11-30,,,燕市 バスのラッピングデザイン,燕市のバスのラッピング,https://www.city.tsubame.niigata.jp/kurashi/kotsu/3/22943.html,日本,グラフィック・ロゴ,不問,無料,0,10万円,100000,1点,1点,,,,,,,,
+未着手,2026-11-30,,,Beam Camp Project 2027（米国）,米国のキャンプで子どもと一緒に作る大型プロジェクト,https://www.beamcenter.org/events/2027-beam-camp-project-call-3bpb9,海外,庭園・インスタレーション,年齢・国籍不問,無料,0,"$5,000＋制作費",750000,記載なし,,PDF1点（タイトル／詳細な説明／スケッチ・図・パース等または動画リンク／共同設計者情報・CV）,審査1回（Beam Center職員・若者・過去デザイナー等による選考委員会）,データ（PDF1点でオンライン提出、11/30 23:59 EST）,,提出・審査の情報：公式で確認（https://www.beamcenter.org/events/2027-beam-camp-project-call-3bpb9）,,,
+未着手,2026-11-30,必着（時刻記載なし）。表彰式2027年2月下旬（姫路）,,第2回 ひめじ観光ビジネスコンテスト,姫路の観光まちづくりビジネスプラン,https://www.himeji-cci.or.jp/kanko_business/index.html,日本,アイデア・企画,学生（高校〜大学院・専門）・社会人。姫路市でのプレゼン・打合せに自費で参加できること,無料,0,最優秀賞 10万円分旅行券,100000,記載なし,記載なし,応募様式（公式サイトからダウンロード）,書類審査→最終審査（出席必須）→2027年2月下旬表彰,メール（machi@himeji-cci.or.jp）,,事業化挑戦部門とアイデア部門あり（アイデア賞5万円分）。交通費は自己負担。出典 https://compe.japandesign.ne.jp/himeji-cci-kanko-business-2026/ 【2026-10-16 追加調査】,,,
+未着手,2026-11-30,登録締切（提出期限の詳細は未確認）,2026-11-30,AI Future Design Competition 2026（工業文化創新発展大賽）,AIを活用した未来デザイン。ウェアラブル・グリーン等,https://www.acompetitions.com/competition/tscup-design,海外,アイデア・企画,不問（国内外の個人・企業・学生・独立デザイナー、海外グループあり）,無料,0,各トラック金賞＋オープンテーマ総合グランプリ（賞品は1万〜10万元相当の特典プール、証書・トロフィー）,,記載なし,記載なし,デジタル作品／コンセプトデザイン／AI映像等＋AIGC使用声明（OPCトラックは試作・デモ必須）,オンライン応募→全国進出審査→中国国内での全国決勝,tscup-design.com で登録（OPCトラックはメール）,,出典：acompetitions掲載ページのみ（主催：工業和信息化部工業文化発展センター等）。賞金は現金でなく特典プールのため賞金_円は空欄。決勝は中国開催（会場未定）。年齢制限：記載なし 【2026-10-16 追加調査】,,,
+未着手,2026-12-01,,2026-11-30,UNI「ReDrive-In」,ドライブインシアターの再生提案,https://uni.xyz/competitions/redrive-in,海外,建築・空間,不問,$50〜70,7500,"最大$1,800",270000,複数可,1コンペに複数案を応募可。1案ごとに登録,ボード推奨5枚（約2800×3500px縦・JPEG、各20MB以内、最低3枚）／カバー画像（横・文字なし）／英語,一般投票（12/2〜1/1）→ ショートリスト発表（12/15）→ 審査員評価（12/16〜12/30）→ 結果発表（2027/1/2）,データ（uni.xyzでプロジェクト公開→Submit）,,提出・審査の情報：公式で確認（https://uni.xyz/competitions/redrive-in/schedule/schedule）,,,
+未着手,2026-12-01,,2026-11-30,UNI「Domain」（論文）,建築の論文・エッセイ,https://uni.xyz/competitions/domain,海外,建築・空間,不問,$50〜70,7500,"最大$1,800",270000,複数可,1コンペに複数案を応募可。1案ごとに登録,論文1000〜1500語程度／画像3枚未満,,,,提出・審査の情報：公式で確認（https://uni.xyz/competitions/domain）,,,
+未着手,2026-12-01,,,Stanford Longevity Design Challenge,長寿社会の課題を解くデザイン（学生）,https://longevity.stanford.edu/design-challenge/,海外,プロダクト・家具,学生（世界）,無料,0,"$10,000",1500000,複数可,submit multiple designs… under a different email address,,,,,,,,
+未着手,2026-12-01,,,WBDS Student Design Awards,学生のデザイン作品アワード（多部門）,https://www.studentdesignawards.com/faqs,海外,アワード（完成作品）,不問,£35〜75,7000,トロフィー・掲載中心,,無制限,as many works/entries as you may wish,,,,,,,,
+未着手,2026-12-01,12月上旬（正確な日付は未公表、仮に12/1） 公式では『12月上旬頃』まで（正確な日付は未確認）。10/8受付開始,,Better Design Award（越来越好）国際設計大賽 2026,広東・大湾区主催の大型国際デザイン賞。概念部門あり,https://www.bdaward.com,海外,プロダクト・家具,国内外の企業・機関・学校・チーム・個人。概念作品は未発売のオリジナル,無料（物流・保険・通関は自己負担）,0,概念至尊奨 10万元（6件）／製品至尊奨 20万元（10件）,2100000,記載なし,記載なし（『1作品は1部門のみ』『過去応募作の再応募不可』）,オンライン登録・画像資料／二次審査で概念作品は実物（模型）＋全体を示す動画,一次審査（12月中旬）→作品送付（12月中旬〜1月上旬）→二次審査（1月中旬）→最終審査（2月下旬）→授賞式（3月下旬）,公式サイト登録,,"出典：https://www.acompetitions.com/competition/bdaward , https://www.shejijingsai.com/2026/10/1653195.html , 深圳新聞網。締切日は未確認のため空欄。賞金総額410万元。二次審査で実物提出が必要＝国際輸送の負担大。円換算1元≈21円。年齢制限：記載なし 【2026-10-16 追加調査】",,,
+未着手,2026-12-03,,,Volume Zero「Unbox」,Volume Zero の建築アイデア「Unbox」,https://volumezerocompetitions.com/unbox-2026,海外,建築・空間,不問,約$112,17000,"$5,000",750000,複数可,free to submit multiple entries but each entry needs to be registered separately,A1横1枚（JPG・5MB以下・右上にチームコード）,審査1回（国際審査員、結果発表2027/2/5）,データ（メールで提出、12/3 23:59 IST）,,提出・審査の情報：公式で確認（https://volumezerocompetitions.com/unbox-2026）,,,
+未着手,2026-12-03,,,Volume Zero「Micro Living」,極小住居の提案,https://volumezerocompetitions.com/micro-living-2026,海外,建築・空間,不問,約$112,17000,"$5,000",750000,複数可,free to submit multiple entries but each entry needs to be registered separately,A1横1枚（JPG・5MB以下、右上にチームコード）,審査1回（国際審査員）→ 結果発表（2027/2/5）,データ（JPGをオンライン/メール提出）,,提出・審査の情報：公式で確認（https://volumezerocompetitions.com/micro-living-2026）,,,
+未着手,2026-12-03,18:00（日本時間）。受付 2026/10/13 8:00〜,,サンゲツデザインアワード2026（テーマ「Joy of Design」）,壁面のデザインを募集（素材・サイズ自由）,https://www.sangetsu-award.jp/2026/index.html,日本,建築・空間,不問（企業・団体・個人・グループ、年齢・国籍等一切不問）,記載なし,,大賞 100万円,1000000,無制限,応募点数「制限なし」（「別の作品を追加」ボタンで追加可）,空間イメージ図（A3横 jpg/png）／デザイン画（A2横・原寸推奨）／コンセプト・素材（フォーム入力）／実物（任意）,一次データ審査（12月中旬）→審査員個別相談会 2027/1/22→最終プレゼン 2027/3/10（東京、ファイナリストは試作提出・制作費支給予定）,公募ガイド社の応募サイト（planner.koubo.jp）からアップロード,,応募料は公式・公募ガイドとも記載なし（無料と思われる）。大賞相当は知的財産権が主催者へ移転。出典：https://koubo.jp/contest/330894 。年齢制限：なし 【2026-10-16 追加調査】,,,
+未着手,2026-12-04,,,Terraviva「The Civic Kiosk」,まちの小さなキオスク（公共の小建築）,https://www.terravivacompetitions.com/,海外,建築・空間,不問,€99→€139,16000,"$3,000",450000,複数可,Terravivaの規約：1件分の応募料で1案、追加の応募料で追加案,A1横1枚／簡潔な説明文,審査1回（発表日未記載）,データ（公式サイトのUploadから）,,詳細は competitions.archi の掲載情報による。応募料は時期が進むほど上がる。提出・審査の情報：公式で確認（https://www.terravivacompetitions.com/?p=111477）,,,
+未着手,2026-12-04,申込は消印有効（現金書留で出品料と応募用紙を郵送）。作品搬入 2026/12/8〜12/18,,第23回 因州和紙あかり展（一般部門）,因州和紙を使ったあかり作品・オブジェ,https://www.tbz.or.jp/aoya-washi/news/2495/,日本,プロダクト・家具,不問（プロ・アマ、年齢、個人・グループ問わず）,"1点1,000円／2点1,500円",1000,大賞 30万円,300000,複数可,「一人2点まで」,応募用紙／出品料（現金書留）→実物作品の搬入（LED40W以内・AC100V・コード2m以上）,実物審査（審査委員長：石谷孝二ほか）→2027/1/16結果発表,郵送申込＋作品搬入（鳥取市あおや和紙工房）,,実物の完成作品が必要。出典：https://compe.japandesign.ne.jp/insyu-washi-akari-2026/ 。年齢制限：なし 【2026-10-16 追加調査】,,,
+未着手,2026-12-05,,,Architect of the Year Awards,建築家・事務所の表彰（完成作品）,https://www.thearchitecturecommunity.com/architect-of-the-year-awards-2026/,海外,アワード（完成作品）,不問,$250,37500,トロフィー・掲載中心,,無制限,Unlimited Projects,,,,,,,,
+未着手,2026-12-05,,,Residential Architecture Awards,完成した住宅のアワード,https://www.thearchitecturecommunity.com/ira-awards/,海外,アワード（完成作品）,不問,$250,37500,トロフィー・掲載中心,,無制限,Unlimited Projects,,,,,,,,
+未着手,2026-12-07,,,「海の日」ポスターコンクール,「海の日」の広報ポスター,https://www.kaijipr.or.jp/uminohips/,日本,グラフィック・ロゴ,日本国籍,無料,0,10万円,100000,無制限,1人何点でも応募可,,,,,,,,
+未着手,2026-12-07,,,Festival des Architectures Vives（モンペリエ）,モンペリエの中庭に作る建築インスタレーション,https://festivaldesarchitecturesvives.com/appel-a-candidatures/,海外,庭園・インスタレーション,建築資格のあるチーム,無料,0,"€1,500",250000,記載なし,,PDF1点（メンバーCV各A4 1枚／作品実績／趣旨書約1ページ＋画像1点）,書類選考（10チーム選出、翌1月発表）→ 現地視察（2月）→ 6月に設置（2025年版の例）,データ（公式サイト応募ページからPDF1点・10MB以内）,,提出・審査の情報：二次情報（https://www.adfwebmagazine.jp/en/architect/the-festival-des-architectures-vives-2025-is-accepting-applications-for-10-projects/）,,,
+未着手,2026-12-08,,,ロリポップ！デプロイナウ コンテスト（Webアプリ）,Webアプリを作って公開する,https://lolipop.jp/deploy-now/contest/,日本,アイデア・企画,国内在住,無料,0,100万円,1000000,無制限,応募点数に制限はございません,公開Webアプリ/サイトのURL／応募フォーム記入事項,月間賞（9〜11月各月末締め）→ 最終（運営＋特別審査員、2027年1月中旬発表）,データ（デプロイナウで公開し、応募フォームにURL送信）,,提出・審査の情報：公式で確認（https://lolipop.jp/deploy-now/contest/）,,,
+未着手,2026-12-10,アイデア部門・不動産情報活用部門は12/10 20:00、ビジネス部門は11/30 20:00（JST）。表彰2027/3/19,,イチBizアワード2026（地理空間情報を活用したビジネスアイデアコンテスト）,地理空間情報を使うビジネス・アイデア,https://www.g-idea.go.jp/2026/,日本,アイデア・企画,不問（個人・グループ・法人、国籍・居住地不問、日本語）,記載なし,,賞金総額200万円（予定、配分未定）,,複数可,「同一人物からの複数アイデアの応募も可能です。」,応募者情報／タイトル（50字）／課題・対象（400字）／提案内容（700字）／背景（300字）／補足資料（任意、PDF・PPT10ページ以内）,一次選考→ブラッシュアップ支援→最終審査（2027年2月中旬頃）→表彰3/19（G空間EXPO）,公式サイトの応募フォーム,,主催：内閣官房（不動産部門は国交省と連携）。応募料の記載はない（国の事業で無料と思われるが未確認）。出典 https://www.g-idea.go.jp/2026/application/ 【2026-10-16 追加調査】,,,
+準備済み,2026-12-11,JST midnight,,国際家具デザインコンペ旭川 IFDA 2027（Origin）,家具のデザイン。テーマ「Origin」、入選作は試作される,https://ifda.jp/en/,日本,プロダクト・家具,国籍不問,1件1万円,10000,300万円,3000000,複数可,複数応募可,プレゼンシート A3横・片面1枚（PDF、5MB以下、匿名）／応募フォーム（Jotform）の入力／応募登録料 1点1万円の決済（クレジットカード）／（本審査に進んだ場合）原寸図・詳細図、または試作品の送付,予備審査（プレゼンシート、2027/1）→ 入選候補10名は原寸図面か試作品を送付 → 本審査（家具の実物＋プレゼン、2027/5/18、オンライン可）,データ（応募フォーム）,X049_IFDA_Asahikawa,おすすめリサーチ実施済み・案「KOBIKI」作成済み（2026-10-08）：入選は約10点で通過率約1.5%、委員長はカンディハウスのデザイナー。小径木1本から9部材の椅子,A3まとめ/2026-12-11_X049_IFDA_Asahikawa_A3まとめ.pdf,../X049_IFDA_Asahikawa/06_report/02_IFDA旭川_まとめ.pdf,../X049_IFDA_Asahikawa/06_report/04_まとめ.md
+未着手,2026-12-11,,,Terraviva「Rural Housing II」,農村の住宅の提案,https://www.terravivacompetitions.com/,海外,建築・空間,不問,€99→€139,16000,"€5,000",825000,複数可,Terravivaの規約：1件分の応募料で1案、追加の応募料で追加案,A1横2枚／簡潔な説明文,審査1回（発表日未記載）,データ（公式サイトのUploadから）,,詳細は competitions.archi の掲載情報による。応募料は時期が進むほど上がる。提出・審査の情報：公式で確認（https://www.terravivacompetitions.com/rural-housing-II-competition-2026/）,,,
+要確認,2026-12-16,,,AIxGaudi,AIとガウディをテーマにした建築提案（詳細未確認）,,海外,建築・空間,,未確認,,"$6,000",900000,記載なし,,,審査1回（国際審査員、結果発表2027/2/4）,データ（archademy.ai でオンライン提出と推定）,,応募料・点数とも未確認。問い合わせる価値あり。提出・審査の情報：二次情報（https://competitions.archi/?p=263511（公式: https://archademy.ai/））,,,
+準備済み,2026-12-16,12:00 GMT＝日本時間 21:00（与条件のダブルチェック済み）。早期料金は10/18まで,2026-12-13,YAC「House of Poetry」,詩をテーマにした建築（詳細は要項ZIP）,https://www.youngarchitectscompetitions.com/open-competitions/house-of-poetry,海外,建築・空間,要項ZIP内（未確認）,€65→€85→€115＋VAT,11000,"€8,000",1320000,複数可,further payments in order to upload further projects,応募登録と支払い（1支払い＝1案）／プレゼンボード（サイズ・枚数は要項ZIPで要確認。直近の1位はA1 PDF＋A3レポートPDF＋カバー画像）／説明文などの添付（要確認）,審査会1回（2026/12/21）→ 結果発表（2027/1/25）,データ（YAC サイト）,X054_YAC_House_of_Poetry,おすすめリサーチ実施済み・案「Viaggio e ritorno」作成済み（2026-10-08）：家は2025年にUnione Montanaが購入、地元紙では「育った家」。模型・写真は読了、HP_2D.dwg（入口の位置）が残り,A3まとめ/2026-12-16_X054_YAC_House_of_Poetry_A3まとめ.pdf,../X054_YAC_House_of_Poetry/06_report/02_HouseOfPoetry_まとめ.pdf,../X054_YAC_House_of_Poetry/06_report/04_まとめ.md
+未着手,2026-12-18,,,ADFデザインアワード2027（建築を含む複数部門）,ADF主催の国際デザインアワード（建築・プロダクトほか）,https://11664.evalato.com,日本,建築・空間,国籍不問（ADFへの無料会員登録が必要）,無料,0,"US$10,000",1500000,1点,1点,※前回2025年版要項：デザイン提案PDF（A4・5頁以内・10MB以下・300dpi）／経歴書PDF（A4横5頁以内）,,データ（evalatoのオンライン応募ページ）,,提出・審査の情報：二次情報（https://www.adfwebmagazine.jp/en/?p=263395）,,,
+未着手,2026-12-18,,2026-12-10,大垣まつりPRポスター,大垣まつりのPRポスター,https://compe.japandesign.ne.jp/ogaki-postermuseum-japan-maturi-poster-2026/,日本,グラフィック・ロゴ,不問,無料,0,20万円,200000,1点,1点,,,,,,,,
+未着手,2026-12-20,9/23〜12/20受付,,韶関 第8回『風采杯』工業デザイン大賽 2026,韶関市の製造業向け製品・概念デザイン,https://sgfcc.dtg168.com,海外,プロダクト・家具,国内外の企業・機関・学校・個人・チーム（国籍不問）。2024/9/23以降完成のオリジナル,記載なし（未確認）,,製品組 金賞3万元／概念組 金賞2万元,420000,無制限,"""所参赛作品数量不限""（1作品は1組のみ）","A2縦 1〜3枚（JPG,150dpi,各5MB以内、匿名）／決勝は実物・模型＋動画またはPPT",初審（画像）→決勝（実物＋プレゼン）,公式登録サイト（sgfcc.dtg168.com）,,出典：https://www.shejijingsai.com/2026/09/1647307.html 。主催：韶関市工業和信息化局。応募料の記載なし。決勝は実物提出が必要。円換算1元≈21円。年齢制限：記載なし 【2026-10-16 追加調査】,,,
+未着手,2026-12-23,,,Metro Ad Creative Award（広告企画）,東京メトロの駅・車両を使う広告企画,https://maca.sendenkaigi.com/faq/,日本,アイデア・企画,国籍不問,無料,0,各部門70万円,700000,無制限,1人何本でも応募できます,企画書A4 PDF 10枚以内（表紙含む、10MB以内、氏名・社名表記不可）／サイネージ部門は動画（DL URL）,一次 → 最終（ファイナリスト発表2027年3月上旬、グランプリ発表3月下旬）,データ（公式サイトの課題ページから応募のみ）,,提出・審査の情報：公式で確認（https://maca.sendenkaigi.com/about/index.html?id=Requirements）,,,
+未着手,2026-12-23,,,くらしの中の竹工芸展,暮らしで使う竹工芸の作品,https://www.city.beppu.oita.jp/sangyou/sangyousinkou/bambooinnovation/event.html,日本,プロダクト・家具,不問,"1,500円、1件ごと",1500,10万円,100000,無制限,2点目以上も同額とする,"竹工芸作品（1点ごと応募料1,500円）／出品カード",審査1回（非公開、2027/1/18）→ 表彰式・講評会（1/25）→ 作品展（1/26〜2/14）,実物（応募フォームで申込＋作品を持込または元払い送付、2027/1/8〜1/11）,,提出・審査の情報：公式で確認（https://www.city.beppu.oita.jp/doc/sangyou/sangyousinkou/bambooinnovation/event/youkou.pdf）,,,
+未着手,2026-12-23,,,Volume Zero「Tiny House」,タイニーハウスの提案,https://volumezerocompetitions.com/tinyhouse-2026,海外,建築・空間,不問,$82.6→$106.2,12500,"$2,500",375000,複数可,free to submit multiple entries but each entry needs to be registered separately,A1横1枚（JPG・5MB以下、右上にチームコード）,審査1回（国際審査員）→ 結果発表（2027/3/4）,データ（JPGをオンライン/メール提出）,,提出・審査の情報：公式で確認（https://volumezerocompetitions.com/tinyhouse-2026）,,,
+未着手,2026-12-24,,,2028申年 業務用年賀状デザイン,2028年（申年）の業務用年賀状,https://www.idea-factory.co.jp/contest/,日本,グラフィック・ロゴ,不問,無料,0,5万円,50000,複数可,一人複数応募可,,,,,,,,
+未着手,2026-12-25,,,坂出市デザインマンホール,坂出市のデザインマンホールの蓋,https://www.city.sakaide.lg.jp/soshiki/tosiseibi/designmanhole3.html,日本,グラフィック・ロゴ,不問,無料,0,5万円,50000,1点,1点,,,,,,,,
+未着手,2026-12-30,,,Asia Design Prize 2027,アジアのデザインアワード（完成作品・学生）,https://asiadesignprize.com/rules,海外,アワード（完成作品）,不問,学生$60〜75、プロ$200〜,9000,トロフィー・掲載中心,,無制限,過去回は複数応募可（今回の規約には記載なし）,,,,,,,,
+未着手,2026-12-31,,,Animayo 2027 ポスター,アニメ映画祭 Animayo のポスター,https://www.animayo.com/?accion=concurso_carteles,海外,グラフィック・ロゴ,16歳以上,無料,0,€500,82500,上限あり,5点,,,,,,,,
+未着手,2027-01-01,3:00 PM UTC（日本時間 同日24:00）,2026-12-30,UNI「Throne」,デナーリスのための鉄の玉座を再デザイン,https://uni.xyz/competitions/throne-1,海外,プロダクト・家具,不問（学生・一般）,US$50/1登録（一般・学生同額、現ラウンド）→次ラウンド$60→$70,7500,"優勝US$100＋UNI会員権$100等（現ラウンド。登録数に応じ$150→$200…と増額。一覧表示の賞金プールUS$7,000）",15000,無制限,「You can enter more than one project in a competition. Each one needs its own registration.」（UNI一般規約）,推奨：5枚程度 2800×3500px JPEG（規約上は3枚以上・上限なし、1枚20MBまで）,公開投票（Likes）→ショートリスト発表→審査員評価→結果発表（People's Choice賞あり）,UNIサイト上でプロジェクトを公開→My CompetitionsからSubmit,,UNI一般規約：賞の受領は18歳以上（年齢上限なし）。賞金・応募料は登録ラウンドで変動し、最終賞金は未確定。出典：https://uni.xyz/competitions/throne-1（schedule/awards-fees）、https://uni.xyz/help/competitions/master-guide-to-uni-competitions-general-rules-guidelines/ 【2026-10-16 追加調査】,,,
+未着手,2027-01-01,3:00 PM UTC（日本時間 同日24:00）,2026-12-30,UNI「On Rail」,新疆ウルムチ〜カシュガル線の豪華列車内装,https://uni.xyz/competitions/on-rail,海外,建築・空間,不問（学生・一般）,US$50/1登録（一般・学生同額、現ラウンド）→次ラウンド$60→$70,7500,"優勝US$100＋UNI会員権$100等（現ラウンド。登録数に応じ$150→$200…と増額。一覧表示の賞金プールUS$7,000）",15000,無制限,「You can enter more than one project in a competition. Each one needs its own registration.」（UNI一般規約）,推奨：5枚程度 2800×3500px JPEG（規約上は3枚以上・上限なし、1枚20MBまで）,公開投票（Likes）→ショートリスト発表→審査員評価→結果発表（People's Choice賞あり）,UNIサイト上でプロジェクトを公開→My CompetitionsからSubmit,,UNI一般規約：賞の受領は18歳以上（年齢上限なし）。賞金・応募料は登録ラウンドで変動し、最終賞金は未確定。出典：https://uni.xyz/competitions/on-rail（schedule/awards-fees）、https://uni.xyz/help/competitions/master-guide-to-uni-competitions-general-rules-guidelines/ 【2026-10-16 追加調査】,,,
+未着手,2027-01-01,3:00 PM UTC（日本時間 同日24:00）,2026-12-30,UNI「Of Yore」,アンコール・ワット都市の3Dビジュアライゼーション再現,https://uni.xyz/competitions/of-yore,海外,アイデア・企画,不問（学生・一般）,US$50/1登録（一般・学生同額、現ラウンド）→次ラウンド$60→$70,7500,"優勝US$100＋UNI会員権$100等（現ラウンド。登録数に応じ$150→$200…と増額。一覧表示の賞金プールUS$7,000）",15000,無制限,「You can enter more than one project in a competition. Each one needs its own registration.」（UNI一般規約）,推奨：5枚程度 2800×3500px JPEG（規約上は3枚以上・上限なし、1枚20MBまで）,公開投票（Likes）→ショートリスト発表→審査員評価→結果発表（People's Choice賞あり）,UNIサイト上でプロジェクトを公開→My CompetitionsからSubmit,,UNI一般規約：賞の受領は18歳以上（年齢上限なし）。賞金・応募料は登録ラウンドで変動し、最終賞金は未確定。出典：https://uni.xyz/competitions/of-yore（schedule/awards-fees）、https://uni.xyz/help/competitions/master-guide-to-uni-competitions-general-rules-guidelines/ 注意：建築ビジュアライゼーション（レンダリング）課題で設計コンペではない。 【2026-10-16 追加調査】,,,
+未着手,2027-01-05,23:59 ロンドン時間（日本時間 翌朝8:59）,2026-12-03,Buildner「The Architect's Chair #6（Stockholm Furniture Fair）」,建築家の思考を表す椅子をデザイン,https://architecturecompetitions.com/architectschairstockholm,海外,プロダクト・家具,不問（資格不要、個人または4名までのチーム）,€140（一般）／€120（学生）+VAT,23100,"1位€3,500＋ストックホルム家具見本市で展示（総額€8,000）",577500,無制限,「Participants may upload an unlimited number of submissions」（規約4.9）。同一チームの追加提出は同じUIC（登録コード）に紐付け、割引料金がある場合あり。別チーム構成は別登録,ブリーフで指定（未確認）,運営・社内審査員・専門家がショートリスト作成→ゲスト審査員がポイント制で順位付け（匿名審査）,architecturecompetitions.com の提出パネルからJPEG（各10MB以下、最大4枚、枚数はブリーフで指定）をアップロード。メール提出不可,,年齢制限：18歳以上（上限なし）。チーム最大4名。料金は+VAT4.5%、3回分割払い可。規約：https://architecturecompetitions.com/oakmoonpavilion/terms（Buildner共通規約）。出典：公式ページ・competitions.archi。料金カテゴリの対応は公式ページ上で明示が弱い（要確認）。 【2026-10-16 追加調査】,,,
+要確認,2027-01-08,消印有効。時刻記載なし,,令和8年度 新潟建築賞設計コンペ（第47回新潟県建築士会競技設計）,糸魚川駅北大火10年、復興のその先の建築を提案,https://www.025arc.net/activity/compe.html,日本,建築・空間,不問（「どなたでも応募できます」高校生〜実務者）,記載なし,,審査員長賞 10万円＋副賞,100000,1点,「応募作品は1人（1グループ）1点までとします。」,応募用紙／提案図面A3判4枚以内（配置・平面・立面・断面等）／図面PDF（CD or 大容量転送）,一次書類審査（1月中旬）→二次公開審査 2027/2/27（長岡市内予定、模型・プロジェクターでプレゼン）,郵送（PDFはメール送付も可：kensikai@025arc.net）,,条件（応募無制限か無料）を確認できていない。審査員長：河内一泰。応募料は要項PDFに記載なし（無料と思われるが未確認）。条件(b)は未確認のため要確認。二次審査会場は要項PDFでは長岡市、KENCHIKU掲載では長野市と表記ゆれ。出典：https://www.025arc.net/editor/upload/admin/files/2026072110373201640124cb1a3df.pdf 。年齢制限：記載なし 【2026-10-16 追加調査】,,,
+未着手,2027-01-10,,2026-11-30,YJ HOUSING COMPETITION,住宅の設計競技,https://compe.japandesign.ne.jp/yj-housing-26-2027/,日本,建築・空間,実務者・建築学生,無料,0,100万円,1000000,1点,1点,エントリー時：建築・空間写真2枚＋一言／作品詳細はエントリー後に通知,一次（書類、結果2027年2月下旬）→ 最終（プレゼン、3月下旬表彰式で発表）,データ（エントリー後、専用フォームに投稿）,,提出・審査の情報：公式で確認（https://compe.japandesign.ne.jp/yj-housing-26-2027/）,,,
+未着手,2027-01-11,23:59 ロンドン時間（日本時間 翌朝8:59）,2026-12-09,Buildner「Portugal Long Table Restaurant」,ブラガ近郊の馬小屋を共同食堂＋宿泊小屋に再生,https://architecturecompetitions.com/longtable,海外,建築・空間,不問（資格不要、個人または4名までのチーム）,€140（一般）／€120（学生）+VAT,23100,"1位€5,000（総額€10,000）",825000,無制限,「Participants may upload an unlimited number of submissions」（規約4.9）。同一チームの追加提出は同じUIC（登録コード）に紐付け、割引料金がある場合あり。別チーム構成は別登録,パネル最大4枚（A2横、JPEG各10MB以下）※枚数・内容はブリーフで指定,運営・社内審査員・専門家がショートリスト作成→ゲスト審査員がポイント制で順位付け（匿名審査）,architecturecompetitions.com の提出パネルからJPEG（各10MB以下、最大4枚、枚数はブリーフで指定）をアップロード。メール提出不可,,年齢制限：18歳以上（上限なし）。チーム最大4名。料金は+VAT4.5%、3回分割払い可。規約：https://architecturecompetitions.com/oakmoonpavilion/terms（Buildner共通規約）。出典：公式ページ・Dezeen。 【2026-10-16 追加調査】,,,
+未着手,2027-01-13,当日消印有効（応募期間 2027/1/4〜1/13）。時刻記載なし,,第53回 全国造園デザインコンクール（大学・一般の部）,住宅庭園・街区公園・商業施設の造園デザイン,https://www.jalc.or.jp/designcompe/,日本,庭園・インスタレーション,造園に興味を持つ者（造園を履修していなくても可）。実習作品部門のみ学生限定,無料,0,国土交通大臣賞ほか特別賞（賞状・記念品）,0,記載なし,要項②に点数の記載なし,A1横1枚（全体平面図・着色スケッチ等、部門別に縮尺指定）／応募票（図面裏面左下に貼付）,審査委員会による審査→2027/2/1結果発表→2/20表彰式,郵送（株式会社アテナ内 全国造園デザインコンクール事務局）,,主催：日本造園建設業協会、共催：ランドスケープコンサルタンツ協会。応募料は登竜門掲載で「参加費なし」、要項PDFには記載なし。賞金の記載なし。課題図はA・C部門のzipを公式サイトで配布。出典：https://www.jalc.or.jp/fileManager/public/designcompe/index/dezakonyoukou.pdf ／ https://compe.japandesign.ne.jp/jalc-design-2027/ 。年齢制限：記載なし 【2026-10-16 追加調査】,,,
+未着手,2027-01-15,,2026-11-30,木の家設計グランプリ2027,木造住宅の設計（学生）,https://compe.japandesign.ne.jp/sekkei-ryokou-plan-2026/,日本,建築・空間,建築学生,無料,0,20万円,200000,記載なし,,,,,,,,,
+要確認,2027-01-17,最終提出・一般投票終了。通常締切11/17（11/17までに出すと一般投票に参加）,,Green Product Award 2027（Green Concept Award）,サステナブルな製品・未発売コンセプトの国際賞（14部門）,https://www.gp-award.com/en/gpaward,海外,アワード（完成作品）,不問（コンセプト部門は学生・卒業後6ヶ月〜1年は無料、それ以外は有料）,€450（税別）。学生・新卒は無料,74250,各部門 Best Concept（賞金なし、認証シール・授賞式）,0,記載なし,記載なし,製品／コンセプトの資料（詳細未確認）,12/8暫定ファイナリスト・一般投票→2/17ファイナリスト発表→3月末ベルリン授賞式,公式サイトから,,"条件（応募無制限か無料）を確認できていない。出典：https://www.gp-award.com/en/gpaward , /gcaward。賞金なしの有料認証型アワードで優先度低。応募数ルール未確認。年齢制限：なし（学生割引は在籍資格による） 【2026-10-16 追加調査】",,,
+未着手,2027-01-18,23:59 ロンドン時間（日本時間 翌朝8:59）,2026-12-10,Buildner「New York High Falls Riverfront Market」,ロチェスター・ハイフォールズの川沿いマーケット,https://architecturecompetitions.com/newyorkmarket/,海外,建築・空間,不問（資格不要、個人または4名までのチーム）,€140（一般）／€120（学生）+VAT,23100,"1位€5,000（総額€10,000）",825000,無制限,「Participants may upload an unlimited number of submissions」（規約4.9）。同一チームの追加提出は同じUIC（登録コード）に紐付け、割引料金がある場合あり。別チーム構成は別登録,パネル最大4枚（A2横、JPEG各10MB以下）※枚数・内容はブリーフで指定,運営・社内審査員・専門家がショートリスト作成→ゲスト審査員がポイント制で順位付け（匿名審査）,architecturecompetitions.com の提出パネルからJPEG（各10MB以下、最大4枚、枚数はブリーフで指定）をアップロード。メール提出不可,,年齢制限：18歳以上（上限なし）。チーム最大4名。料金は+VAT4.5%、3回分割払い可。規約：https://architecturecompetitions.com/oakmoonpavilion/terms（Buildner共通規約）。AIA Rochester等と共催。出典：公式ページ・Dezeen。 【2026-10-16 追加調査】,,,
+未着手,2027-01-18,9/28〜2027/1/18受付,,第12回『兔宝宝杯』家居国際設計大賽 2026,『好房子』住空間・ランドスケープ宿泊空間・AIGC派生デザイン,https://milan-aap.org.cn/?sessionid=-403949278#/channel/tubaobao,海外,建築・空間,学生（卒業5年以内含む）・大学教員・プロデザイナー・デザイン愛好者,無料,0,一等賞（入選数の0.5%）証書のみ,0,記載なし,"記載なし（""本次征集不收取任何费用""、画像は最大3人＋指導2人）","A3画像（300dpi,最大3枚）または動画（5分以内）＋A3縦ポスター1枚",主催委員会審査（比率で一〜三等）,専用サイトから投稿,,出典：https://www.shejijingsai.com/2026/09/1648700.html 。賞金なし・証書のみのため優先度低。外国人可否は明記なし（国際と銘打つ）。年齢制限：記載なし 【2026-10-16 追加調査】,,,
+要確認,2027-01-25,11:59 CEST,2027-01-19,Schrödinger's Room Edition #3（Archcontest）,『重ね合わせ』を主題にした概念的な部屋・空間,https://www.archcontest.com/en/competition/18,海外,アイデア・企画,建築家・デザイナー・クリエイター（制限記載なし）,€40（〜10/1）→€60（〜11/18）→€90（11/19〜1/18）,9900,"賞金総額 €3,000",495000,記載なし,記載なし,ブリーフに基づくパネル等（匿名、詳細は要項）,オンライン審査,登録後にUIC（識別コード）で提出,,条件（応募無制限か無料）を確認できていない。出典：公式ページ、bustler。現時点は€60（Advance）。リンク先IDが17/18で揺れているので要確認。複数応募可否は未確認。年齢制限：記載なし 【2026-10-16 追加調査】,,,
+要確認,2027-01-27,Early Bird／Regular／Extendedで料金変動（各日付未確認）,,Designverse Awards 2026-2027,空間・プロダクトの実作／コンセプト部門がある中国発アワード,https://www.designverse.com.cn/en/article/space/453566,海外,アワード（完成作品）,不問,"1作品あたり 2,850元（早割）→3,680元→4,680元（税別）",59850,Outstanding Prize（賞金なし）,0,記載なし,記載なし（料金は作品単位）,オンライン提出（詳細未確認）,ノミネート→特別栄誉賞→審査員大賞→Outstanding Prize,公式サイト,,条件（応募無制限か無料）を確認できていない。出典：graphiccompetitions https://graphiccompetitions.com/multiple-disciplines/designverse-awards-2026-2027/ 。有料・賞金なしのアワード型で優先度低。円換算1元≈21円。年齢制限：記載なし 【2026-10-16 追加調査】,,,
+未着手,2027-01-29,17:00（JST）。一次審査（画像）2027年2月,,第14回 国際陶磁器展美濃 国際陶磁器コンペティション,陶芸・陶磁器デザインの国際公募,https://www.icfmino.com/iccm,日本,プロダクト・家具,不問。2024/2/1以降制作の自作のやきもの中心の作品,無料,0,グランプリ 500万円,5000000,上限あり,「各部門3作品まで」（同じ作品を複数部門に出すのは不可）,応募者情報／作品情報・コンセプト（800字以内）／作品画像3枚（JPEG各4MB以内）,一次（画像、2月）→二次（画像、4月）→最終（実物、2027/8/1〜2）→表彰10月,公式サイトのマイページから登録,,陶磁器デザイン部門（スタジオ分野）は個人で応募可。最終審査は実物の作品が必要（完成品）。坂﨑重雄セラミックス賞は40歳以下が対象。出典：公式要項PDF https://www.icfmino.com/icfmino/wp-content/uploads/2026/01/2027youkou_EN20260119.pdf 【2026-10-16 追加調査】,,,
+未着手,2027-01-31,日本時間（時刻記載なし）。ファイナリスト2027年3月上旬、結果4月中旬,,CLASSICS the Small Luxury Design Award 2027「The Power of Flowers」,花の力をテーマにしたハンカチーフのデザイン,https://classics-the-small-luxury.com/blogs/news/20260904classics-the-small-luxury-design-award-2027,日本,プロダクト・家具,不問（企業・団体・個人・グループ、年齢・国籍不問）,無料,0,グランプリ 10万円＋製品化,100000,上限あり,「1名につき5作品まで」,45×45cm正方形デザイン（JPEG、5315px角、300dpi、6MB以内）,ファイナリスト選出（3月上旬）→結果発表（4月中旬）,公式の応募フォーム（受付は2026/11/3から）,,主催：ブルーミング中西。柄（平面）のデザインなのでグラフィック寄り（製品化前提のプロダクト扱いで掲載） 【2026-10-16 追加調査】,,,
+未着手,2027-01-31,3:00 PM UTC（日本時間 同日24:00）,2027-01-30,UNI「Simulation」,VRヘッドセット販売の概念的ストアフロント設計,https://uni.xyz/competitions/simulation,海外,建築・空間,不問（学生・一般）,US$50/1登録（一般・学生同額、現ラウンド）→次ラウンド$60→$70,7500,"優勝US$100＋UNI会員権$100等（現ラウンド。登録数に応じ$150→$200…と増額。一覧表示の賞金プールUS$7,000）",15000,無制限,「You can enter more than one project in a competition. Each one needs its own registration.」（UNI一般規約）,推奨：5枚程度 2800×3500px JPEG（規約上は3枚以上・上限なし、1枚20MBまで）,公開投票（Likes）→ショートリスト発表→審査員評価→結果発表（People's Choice賞あり）,UNIサイト上でプロジェクトを公開→My CompetitionsからSubmit,,UNI一般規約：賞の受領は18歳以上（年齢上限なし）。賞金・応募料は登録ラウンドで変動し、最終賞金は未確定。出典：https://uni.xyz/competitions/simulation（schedule/awards-fees）、https://uni.xyz/help/competitions/master-guide-to-uni-competitions-general-rules-guidelines/ 【2026-10-16 追加調査】,,,
+未着手,2027-01-31,早割は2026/11/30まで（€35）、通常 12/1〜1/31（€50）,,C-IDEA Design Award 2027,自由テーマ／AIの未来。プロダクト・建築・コンセプト等,https://www.acompetitions.com/competition/cidea-union,海外,アイデア・企画,不問（学生は26歳以下）,€35（早割）→€50／入選後ファイナリスト料€150（プロ）,5775,Grand Award（トロフィー・証書、賞金なし）,0,複数可,"1エントリーごとに課金（""per entry""）、上限記載なし",作品画像・説明（詳細未確認）,予備審査→ファイナリスト（追加料金）→2027年3月発表,オンライン,,出典：acompetitions。完成品・コンセプトとも可。入選時に€150が必要。応募料_円は早割1点分。年齢制限：学生区分のみ26歳以下（一般区分は制限なし→33歳OK） 【2026-10-16 追加調査】,,,
+未着手,2027-01-31,24:00（イタリア時間）,,Porada International Design Award 2026「テーブル」,無垢材を主材料とした新しいテーブルの提案,https://www.polidesign.net/en/concorsi/porada-international-design-award-2026/,海外,プロダクト・家具,プロ（独立／企業所属は書面許可要）・学生。国籍不問,無料,0,"プロ部門1位 €2,500",412500,1点,"""Each participant (or group) may submit only one project.""","A4縦レポート（3,000字以内・画像なし）／A3横ボード3枚（コンセプト・図面・レンダー/模型写真）を1PDF（5MB以内）／プレビューJPG",審査員9名（Porada、ADI、POLI.design等）が多数決→2/26までに決定,公式ポータル porada-design-award.polidesign.net からアップロード,,出典：要項PDF https://porada-design-award.polidesign.net/sites/default/files/bando/Bando2026_eng.pdf 。年齢制限：なし 【2026-10-16 追加調査】,,,
+要確認,2027-01-31,Early Bird料金あり（日付未確認）,,IN:SENSE Design Award 2027,『Design Beyond Sight』多感覚デザインの国際賞（4部門）,https://insensedesign.com/award,海外,アワード（完成作品）,不問（学生・若手・プロ。学生は在籍証明）,一般 $45（早割）→$90／ファイナリスト審査料$200,13500,Winner（賞金なし、証書・オンライン展示）,0,記載なし,"記載なし（料金は""per entry""）",作品画像・説明（コンセプト・試作可）,書類審査→ファイナリスト（追加料金）→Winner,オンライン,,"条件（応募無制限か無料）を確認できていない。出典：https://www.acompetitions.com/competition/insense-design-award-2027-international-sensory-design-award , graphiccompetitions。主催：韓国AUDIAS。賞金なし・追加料金ありで優先度低。年齢制限：記載なし 【2026-10-16 追加調査】",,,
+未着手,2027-02-01,消印有効。時刻記載なし,,第6回 公募アートハウスおやべ現代造形展,平面・立体・インスタレーションの現代造形公募,https://art-oyabe.jp/competition/,日本,庭園・インスタレーション,不問（海外からは国内代理人が必要）,"無料（二次選考出品時のみ3,000円）",0,大賞 30万円＋個展開催権,300000,1点,「応募は一人1点まで（複数部門への応募も不可）」,申込書類／作品概要写真（A4 2枚以内）／返信用封筒（110円切手）,一次写真審査（2月中旬）→二次選考（2月下旬）→2027/4/17〜5/16展示,郵送,,既発表作も可（公募展受賞作は不可）。アート寄りの公募。映像・音楽作品は不可。出典：https://compe.japandesign.ne.jp/arthouse-oyabe-2026/ 。年齢制限：記載なし 【2026-10-16 追加調査】,,,
+未着手,2027-02-01,エントリー締切（消印有効）。10/31までのエントリーは本審査料10%引き。結果2027/3/26,,AJCクリエイターズコンテスト2027,手づくり作品の12部門公募,https://ajc.jpn.com/,日本,プロダクト・家具,不問（法人不可）。U-25部門・学生部門あり,一次審査無料／本審査料は部門別（例：アートジュエリー1点2万5000円、ミニチュア1点1万5000円）,25000,大賞（内閣総理大臣賞）10万円,100000,無制限,「何点でも応募可（複数部門も可）」,エントリー（フォームまたは郵送）／応募用紙（作品写真貼付）／コンセプトシート,エントリー→一次（写真審査）→通過作品を東京都美術館に展示して本審査,エントリーフォームまたは郵送,,完成した作品が対象（ジュエリー・ファッション雑貨・ペーパーアート・アップサイクル等）。一次通過後は有料。出典 https://compe.japandesign.ne.jp/ajc-creators-2027/ 【2026-10-16 追加調査】,,,
+未着手,2027-02-01,3:00 PM UTC（日本時間 同日24:00）,2027-01-31,UNI「Uphold」,ヘルシンキ・Verkkosaariの人権センター設計,https://uni.xyz/competitions/uphold,海外,建築・空間,不問（学生・一般）,US$50/1登録（一般・学生同額、現ラウンド）→次ラウンド$60→$70,7500,"優勝US$100＋UNI会員権$100等（現ラウンド。登録数に応じ$150→$200…と増額。一覧表示の賞金プールUS$7,000）",15000,無制限,「You can enter more than one project in a competition. Each one needs its own registration.」（UNI一般規約）,推奨：5枚程度 2800×3500px JPEG（規約上は3枚以上・上限なし、1枚20MBまで）,公開投票（Likes）→ショートリスト発表→審査員評価→結果発表（People's Choice賞あり）,UNIサイト上でプロジェクトを公開→My CompetitionsからSubmit,,UNI一般規約：賞の受領は18歳以上（年齢上限なし）。賞金・応募料は登録ラウンドで変動し、最終賞金は未確定。出典：https://uni.xyz/competitions/uphold（schedule/awards-fees）、https://uni.xyz/help/competitions/master-guide-to-uni-competitions-general-rules-guidelines/ 【2026-10-16 追加調査】,,,
+未着手,2027-02-10,23:30（時差は未確認、デンマーク時間と思われる）,,Copenhagen Architecture Biennial 2027「Elements」パビリオン公募,火・水・土・空気で建てる2つのパビリオン（Husum Nord／移動劇場）,https://www.cafx.dk/biennial/open-calls/elements,海外,庭園・インスタレーション,建築家・デザイナー・研究者（詳細未確認）,無料,0,パビリオン実現（予算・謝礼は未確認）,,記載なし,未確認,未確認,未確認（ビエンナーレ開幕2027-09-09前に発表）,公式Open Callページから（詳細未確認）,,無料はArchDaily掲載（https://www.archdaily.com/1186456/elements-pavilions）による。公式の詳細ページ（Husum Nord／The Mobile Theatre Pavilion）は取得できず、資格・提出物・年齢制限は未確認。 【2026-10-16 追加調査】,,,
+未着手,2027-02-15,23:59 ロンドン時間（日本時間 翌朝8:59）,2027-01-13,Buildner「The Quiet Tower」,ラトビア・コルカ岬近くの静かな展望塔,https://architecturecompetitions.com/quiettower,海外,建築・空間,不問（資格不要、個人または4名までのチーム）,€140（一般）／€120（学生）+VAT（Last minute 10/16〜1/13）,23100,"1位€5,000（総額€10,000、Buildner Medal決勝へ）",825000,無制限,「Participants may upload an unlimited number of submissions」（規約4.9）。同一チームの追加提出は同じUIC（登録コード）に紐付け、割引料金がある場合あり。別チーム構成は別登録,パネル最大4枚（A2横、JPEG各10MB以下）※枚数・内容はブリーフで指定,運営・社内審査員・専門家がショートリスト作成→ゲスト審査員がポイント制で順位付け（匿名審査）,architecturecompetitions.com の提出パネルからJPEG（各10MB以下、最大4枚、枚数はブリーフで指定）をアップロード。メール提出不可,,年齢制限：18歳以上（上限なし）。チーム最大4名。料金は+VAT4.5%、3回分割払い可。規約：https://architecturecompetitions.com/oakmoonpavilion/terms（Buildner共通規約）。出典：公式ページ。 【2026-10-16 追加調査】,,,
+未着手,2027-02-15,23:59 ロンドン時間（日本時間 翌朝8:59）,2027-01-14,Buildner「Valli Wine Tasting Room」,ワイナリーのテイスティングルーム設計,https://architecturecompetitions.com/valliwinetastingroom,海外,建築・空間,不問（資格不要、個人または4名までのチーム）,€140（一般）／€120（学生）+VAT,23100,"1位€5,000（総額€10,000、Buildner Medal決勝へ）",825000,無制限,「Participants may upload an unlimited number of submissions」（規約4.9）。同一チームの追加提出は同じUIC（登録コード）に紐付け、割引料金がある場合あり。別チーム構成は別登録,パネル最大4枚（A2横、JPEG各10MB以下）※枚数・内容はブリーフで指定,運営・社内審査員・専門家がショートリスト作成→ゲスト審査員がポイント制で順位付け（匿名審査）,architecturecompetitions.com の提出パネルからJPEG（各10MB以下、最大4枚、枚数はブリーフで指定）をアップロード。メール提出不可,,年齢制限：18歳以上（上限なし）。チーム最大4名。料金は+VAT4.5%、3回分割払い可。規約：https://architecturecompetitions.com/oakmoonpavilion/terms（Buildner共通規約）。出典：公式ページ・Bustler。 【2026-10-16 追加調査】,,,
+未着手,2027-02-18,23:59（フォーム入力と出品料の振込とも）。一次結果は2027年3月上旬,,工芸都市高岡2027クラフトコンペティション（第38回）,素材を活かした手による創造のクラフト,https://takaoka.ccis-toyama.or.jp/craft/entry/,日本,プロダクト・家具,不問（個人・グループ・企業）,"一次 5,000円／1種、二次 5,000円／1種（通過者のみ）",5000,グランプリ 100万円,1000000,複数可,上限の記載なし。「一種とは、単一作品及び同一品種のセット、またデザインの統一されたグループをいいます。」,作品画像・情報（オンライン）→二次は実物を搬入,一次（画像、3月上旬）→二次（実物、6月中旬）→高岡クラフト展9月→東京展11月,オンライン申込（planner.koubo.jp）＋郵便振替,,有料だが点数無制限。二次は実物作品が必要。出典 https://koubo.jp/contest/330394 【2026-10-16 追加調査】,,,
+未着手,2027-02-22,23:59 ロンドン時間（日本時間 翌朝8:59）,2027-01-21,Buildner「Museum of Emotions #9」,負と正の感情を呼ぶ2展示室の美術館（文字なし表現）,https://architecturecompetitions.com/museumofemotions9,海外,建築・空間,不問（資格不要、個人または4名までのチーム）,€120（一般）／€110（学生）〜11/12 → €140／€120（〜1/21）+VAT,19800,"1位€4,000（総額€8,000、Buildner Medal決勝へ）",660000,無制限,「Participants may upload an unlimited number of submissions」（規約4.9）。同一チームの追加提出は同じUIC（登録コード）に紐付け、割引料金がある場合あり。別チーム構成は別登録,ブリーフで指定（文字なし・画像のみで表現）,運営・社内審査員・専門家がショートリスト作成→ゲスト審査員がポイント制で順位付け（匿名審査）,architecturecompetitions.com の提出パネルからJPEG（各10MB以下、最大4枚、枚数はブリーフで指定）をアップロード。メール提出不可,,年齢制限：18歳以上（上限なし）。チーム最大4名。料金は+VAT4.5%、3回分割払い可。規約：https://architecturecompetitions.com/oakmoonpavilion/terms（Buildner共通規約）。敷地・規模自由、パネルに文字を入れない視覚のみのブリーフ。出典：公式ページ。 【2026-10-16 追加調査】,,,
+要確認,2027-02-26,Phase1 15:00 CET（日本時間 23:00）。Phase2（ファイナリストのみ）2027-04-23,2027-02-26,Terraviva「Brugnera Futura」,伊ブルニェーラ旧工場跡に国際キャンパス・住宅等,https://www.terravivacompetitions.com/brugnera-futura-competition-2026/,海外,建築・空間,不問（学生・建築家・デザイナー等、国籍不問）,€79（Early〜12/18）→€99（〜2/5）→€139（〜2/26）,13035,"1位€14,000（総額€30,000、ファイナリスト4組に各€3,500）",2310000,記載なし,要項に1人あたり応募数の明記なし（単一登録ならチーム人数無制限、月額会員は1チーム5名まで）,Phase1：A1横パネル2枚＋短い説明文／Phase2：A1横4枚＋ブックレット＋指標シート,2段階：Phase1でファイナリスト選出（3/18）→Phase2→最終発表（5/10）,公式サイトのUpload Projectフォーム,,条件（応募無制限か無料）を確認できていない。年齢制限の記載なし。登録は「Coming soon」表示で、早割の期限と15%割引コード（〜10/26）の記載が矛盾、要確認。賞金は€表記と「USD参考表示」の注記が混在。月額会員(€19〜)なら全コンペ参加可。既存リストの他Terraviva課題とは別の新課題。 【2026-10-16 追加調査】,,,
+未着手,2027-03-01,3:00 PM UTC（日本時間 同日24:00）,2027-02-28,UNI「Rebuilding Mordor」,モルドールの過酷な地に築く未来都市を描く,https://uni.xyz/competitions/rebuilding-mordor,海外,アイデア・企画,不問（学生・一般）,US$50/1登録（一般・学生同額、現ラウンド）→次ラウンド$60→$70,7500,"優勝US$100＋UNI会員権$100等（現ラウンド。登録数に応じ$150→$200…と増額。一覧表示の賞金プールUS$7,000）",15000,無制限,「You can enter more than one project in a competition. Each one needs its own registration.」（UNI一般規約）,最終グラフィック1枚 2800×3200px JPEG／タイトル・サブタイトル／ビジュアル3点／プロセス画像／カバー画像2000×1000px／約100語の説明文,公開投票（Likes）→ショートリスト発表→審査員評価→結果発表（People's Choice賞あり）,UNIサイト上でプロジェクトを公開→My CompetitionsからSubmit,,UNI一般規約：賞の受領は18歳以上（年齢上限なし）。賞金・応募料は登録ラウンドで変動し、最終賞金は未確定。出典：https://uni.xyz/competitions/rebuilding-mordor（schedule/awards-fees）、https://uni.xyz/help/competitions/master-guide-to-uni-competitions-general-rules-guidelines/ 写真の直接使用不可、既存画像の切り抜きは全体の半分まで。 【2026-10-16 追加調査】,,,
+未着手,2027-03-01,3:00 PM UTC（日本時間 同日24:00）,2027-02-28,UNI「Shifting Music」,路上音楽家用の可搬ミニステージ兼機材キャリア,https://uni.xyz/competitions/shifting-music,海外,プロダクト・家具,不問（学生・一般）,US$50/1登録（一般・学生同額、現ラウンド）→次ラウンド$60→$70,7500,"優勝US$100＋UNI会員権$100等（現ラウンド。登録数に応じ$150→$200…と増額。一覧表示の賞金プールUS$7,000）",15000,無制限,「You can enter more than one project in a competition. Each one needs its own registration.」（UNI一般規約）,推奨：5枚程度 2800×3500px JPEG（規約上は3枚以上・上限なし、1枚20MBまで）,公開投票（Likes）→ショートリスト発表→審査員評価→結果発表（People's Choice賞あり）,UNIサイト上でプロジェクトを公開→My CompetitionsからSubmit,,UNI一般規約：賞の受領は18歳以上（年齢上限なし）。賞金・応募料は登録ラウンドで変動し、最終賞金は未確定。出典：https://uni.xyz/competitions/shifting-music（schedule/awards-fees）、https://uni.xyz/help/competitions/master-guide-to-uni-competitions-general-rules-guidelines/ 注意：/info/schedule は旧回（2026-09-01締切）表示、/schedule/schedule で2027-03-01を確認。 【2026-10-16 追加調査】,,,
+未着手,2027-03-01,3:00 PM UTC（日本時間 同日24:00）,2027-02-28,UNI「Learn-aid」,高齢者が集う30㎡以下の組立式学びパビリオン,https://uni.xyz/competitions/learn-aid,海外,建築・空間,不問（学生・一般）,US$50/1登録（一般・学生同額、現ラウンド）→次ラウンド$60→$70,7500,"優勝US$100＋UNI会員権$100等（現ラウンド。登録数に応じ$150→$200…と増額。一覧表示の賞金プールUS$7,000）",15000,無制限,「You can enter more than one project in a competition. Each one needs its own registration.」（UNI一般規約）,推奨：5枚程度 2800×3500px JPEG（規約上は3枚以上・上限なし、1枚20MBまで）,公開投票（Likes）→ショートリスト発表→審査員評価→結果発表（People's Choice賞あり）,UNIサイト上でプロジェクトを公開→My CompetitionsからSubmit,,UNI一般規約：賞の受領は18歳以上（年齢上限なし）。賞金・応募料は登録ラウンドで変動し、最終賞金は未確定。出典：https://uni.xyz/competitions/learn-aid（schedule/awards-fees）、https://uni.xyz/help/competitions/master-guide-to-uni-competitions-general-rules-guidelines/ 注意：/info/schedule は旧回表示、/schedule/schedule で2027-03-01を確認。 【2026-10-16 追加調査】,,,
+未着手,2027-03-01,23:59 ロンドン時間（日本時間 翌朝8:59）,2027-01-28,Buildner「The Oak Moon Pavilion」,伊ラツィオのオーク下に月形の木造ヨガパビリオン,https://architecturecompetitions.com/oakmoonpavilion,海外,建築・空間,不問（資格不要、個人または4名までのチーム）,€110〜120（Advanced 〜11/5）→€120〜140（Last minute 〜1/28）+VAT（学生／一般で差）,19800,"1位€3,500（総額€8,000）",577500,無制限,「Participants may upload an unlimited number of submissions」（規約4.9）。同一チームの追加提出は同じUIC（登録コード）に紐付け、割引料金がある場合あり。別チーム構成は別登録,A2横パネル4枚（配置図・コンセプト・平立断面・詳細・環境戦略・パース）／任意プレビュー画像3枚,運営・社内審査員・専門家がショートリスト作成→ゲスト審査員がポイント制で順位付け（匿名審査）,architecturecompetitions.com の提出パネルからJPEG（各10MB以下、最大4枚、枚数はブリーフで指定）をアップロード。メール提出不可,,年齢制限：18歳以上（上限なし）。チーム最大4名。料金は+VAT4.5%、3回分割払い可。規約：https://architecturecompetitions.com/oakmoonpavilion/terms（Buildner共通規約）。出典：公式ページ・competitions.archi・archup。 【2026-10-16 追加調査】,,,
+未着手,2027-03-09,23:59 米東部時間（UTC-5）。早割US$135は2026-12-08まで,2027-02-23,eVolo 2027 Skyscraper Competition,敷地・用途自由の未来の超高層ビル提案,https://www.evolo.us/registration-2027-skyscraper-competition/,海外,建築・空間,不問（学生・社会人、全世界、チーム人数制限なし）,US$135（早割〜12/8）→US$175（〜2/23）,20250,"1位US$5,000",750000,無制限,「Participants may submit various projects but must register each entry.」「One registration = One project.」,24×48インチ横ボード2枚（150dpi JPG）／600語以内の説明文（DOC）／個人情報DOC／ZIP,国際審査員による審査、2027-05-18発表,メールでデジタル提出（20MB超はファイル共有サービス）,,年齢制限の記載なし。出典：evolo.us 公式登録ページ。応募料は返金不可。 【2026-10-16 追加調査】,,,
+要確認,2027-03-11,作品提出 2027/3/11（木）17:00必着。応募登録 2026/10/1〜2027/3/4,2027-03-04,第29回 まちづくり・都市デザイン競技（奈良県生駒市 宝山寺参道地区）,参道の歴史的景観を活かしたエリアリノベーション提案,https://www.udc.or.jp/pages/335/,日本,建築・空間,制限なし（国内の連絡先が必要、日本語）。生駒市から関連業務を受託中の事業者は不可,"登録料 5,000円",5000,国土交通大臣賞 50万円,500000,記載なし,応募点数・複数応募の記載なし,A2ボード2枚（5mm厚程度）／パネルPDF／著作者証PDF,書類審査（審査委員長：西村幸夫）→各賞決定,パネルは郵送・持参、PDFはメール,,"条件（応募無制限か無料）を確認できていない。条件(a)(b)とも未確認（登録料5,000円・点数記載なし）のため要確認。奨励賞（3万円×2点以内）は代表者・共同提案者全員が30歳未満が対象で、1993年生まれは対象外だが他の賞には応募可。年齢制限：奨励賞のみ30歳未満。出典：https://kenchiku.co.jp/compe/cmp20261009-1.html 【2026-10-16 追加調査】",,,
+要確認,2027-03-17,2027年版公式（独語ページ）：早期 12/1〜1/20、標準 1/21〜3/17、遅延 3/18〜4/28。英語ページは早期1/2〜2/6・標準〜3/25・遅延〜5/15と記載が食い違う,,Red Dot Award: Design Concept 2027,未発売のコンセプト・試作品のための国際賞,https://www.red-dot.org/design-concept/dates-fees,海外,アワード（完成作品）,不問（Next Genは30歳未満・コンセプトのみ）,有料（金額は『近日公開』で未確認）,,Red Dot: Luminary（賞金の記載なし）,,記載なし,記載なし,"概要400字・説明1,500字（英語）／画像5点以内（JPG,300dpi）／任意で動画・試作品",オンライン審査→5月最終審査→6月発表→10月シンガポール授賞式,公式サイトで登録（2026/12/1開始）,,"条件（応募無制限か無料）を確認できていない。出典：https://www.red-dot.org/de/design-concept/dates-fees , https://www.red-dot.org/design-concept/participate/ 。応募料・受賞者パッケージ料は未公表（有料なのは確実）。締切は日程が食い違うため要確認。年齢制限：なし（Next Gen割引は30歳未満で対象外） 【2026-10-16 追加調査】",,,
+</script>
+<!-- DATA:END -->
+<script>
+// ===== 設定 =====
+// 各コンペの準備フォルダ（X046_… など）が置いてある場所。このHTMLから見た相対パス。
+const FOLDER_BASE = "../";
+const LOCAL = location.protocol==="file:";
+const FOLDER_BASE_WIN = "C:\\Users\\lapla\\Dropbox (Business)\\_2026_Project\\";
+// まとめ（A3ペライチ・まとめPDF・md）へのボタン。列は update.py が各フォルダの 06_report と A3まとめ/ から自動で埋める
+// アプリ版：A3ペライチは画像（a3/X047.jpg など）で開く。PDF も同じ場所に置いてある
+const A3_CODES = new Set(["X039", "X042", "X046", "X047", "X048", "X049", "X050", "X051", "X052", "X053", "X054", "X057", "X065"]);
+function a3code(r){ const c=(r["フォルダ"]||"").split("_")[0]; return A3_CODES.has(c)? c : ""; }
+function a3Btn(r){ const c=a3code(r); return c? `<button class="a3b" type="button" data-a3="${c}">A3</button>` : ""; }
+function docBtns(r){
+  if(!LOCAL){ const c=a3code(r); return c? `<button class="a3b" type="button" data-a3="${c}">📄 A3ペライチ</button>` : ""; }
+  return [["A3まとめ","📄 A3ペライチ"],["まとめPDF","📘 まとめPDF"],["まとめmd","📝 md"]]
+    .filter(([c])=>r[c]).map(([c,t])=>`<a class="btn" href="${esc(encodeURI(r[c]))}" target="_blank">${t}</a>`).join("");
+}
+
+// 最初は隠しておく分野（「隠した分野も表示」にチェックすると出る）
+const HIDDEN_FIELDS = ["グラフィック・ロゴ","アワード（完成作品）"];
+// 応募資格が学生（中高生を含む）だけのコンペ。対象の欄から判定し、最初は隠す
+// 年齢制限で1993年生まれが応募できないコンペ（備考に「年齢対象外」と書いたもの）。最初は隠す
+function ageOut(r){ return /年齢対象外/.test(r["備考"]||""); }
+function studentOnly(r){ const t=r["対象"]||""; return /学生|中高生|高校生|小6/.test(t) && !/実務|若手|一般|不問|社会人/.test(t); }
+const ENT_CODE = {"無制限":"U","複数可":"M","上限あり":"C","1点":"O","記載なし":"N"};
+const WD = "日月火水木金土";
+const $ = s => document.querySelector(s);
+
+function parseCSV(text){
+  text = text.replace(/^\uFEFF/, "");
+  const rows=[]; let row=[], f="", q=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(q){ if(c=='"'){ if(text[i+1]=='"'){f+='"';i++} else q=false } else f+=c; }
+    else if(c=='"') q=true;
+    else if(c==','){ row.push(f); f=""; }
+    else if(c=='\n'||c=='\r'){ if(c=='\r'&&text[i+1]=='\n') i++; row.push(f); rows.push(row); row=[]; f=""; }
+    else f+=c;
+  }
+  if(f!==""||row.length){ row.push(f); rows.push(row); }
+  const head = rows.shift().map(h=>h.trim());
+  return rows.filter(r=>r.some(x=>x.trim())).map(r=>Object.fromEntries(head.map((h,i)=>[h,(r[i]||"").trim()])));
+}
+
+const today = new Date(); today.setHours(0,0,0,0);
+function toDate(s){ const m=/^(\d{4})-(\d{1,2})-(\d{1,2})/.exec(s||""); return m? new Date(+m[1],m[2]-1,+m[3]) : null; }
+function daysLeft(d){ return d? Math.round((d-today)/86400000) : null; }
+function fmt(d){ return d? `${d.getMonth()+1}/${d.getDate()}（${WD[d.getDay()]}）` : "未定"; }
+function num(s){ const n=parseFloat(String(s).replace(/[,，円\s]/g,"")); return isNaN(n)? null : n; }
+function esc(s){ return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function yen(n){ if(n==null) return ""; if(n>=10000) return `約${(n/10000).toLocaleString("ja-JP",{maximumFractionDigits:1})}万円`; return `約${n.toLocaleString("ja-JP")}円`; }
+
+let DATA=[];
+function load(csvText, label){
+  DATA = parseCSV(csvText).map((r,i)=>{
+    const due = toDate(r["締切"]), reg = toDate(r["登録締切"]);
+    return {...r, _i:i, _due:due, _left:daysLeft(due), _reg:reg, _regLeft:daysLeft(reg),
+      _fee:num(r["応募料_円"]), _prize:num(r["賞金_円"]),
+      _free: /^無料|記載なし/.test(r["応募料"]) && !num(r["応募料_円"]),
+      _key: (r["コンペ"]||"")+"|"+(r["締切"]||"")};
+  });
+  $("#meta").textContent = `${label}・今日 ${fmt(today)}`;
+  buildChips(); render();
+}
+
+// ===== ★（このブラウザに保存） =====
+function getStars(){ try{ return new Set(JSON.parse(localStorage.getItem("compe-stars")||"[]")); }catch(e){ return new Set(); } }
+function setStars(s){ try{ localStorage.setItem("compe-stars", JSON.stringify([...s])); }catch(e){} }
+let STARS = getStars();
+// ===== ×で非表示（このブラウザに保存。「×で隠したものも表示」で出して ↺ で戻す） =====
+function getDismissed(){ try{ return new Set(JSON.parse(localStorage.getItem("compe-dismissed")||"[]")); }catch(e){ return new Set(); } }
+function setDismissed(s){ try{ localStorage.setItem("compe-dismissed", JSON.stringify([...s])); }catch(e){} }
+let DISMISSED = getDismissed();
+function disBtn(r){ const d=DISMISSED.has(r._key); return `<button class="dis" type="button" title="${d?"非表示をやめて戻す":"このコンペを非表示にする"}" aria-label="${d?"戻す":"非表示"}">${d?"↺":"×"}</button>`; }
+
+// ===== フィルタ =====
+const state = {region:"すべて", field:"すべて", fee:"すべて", ent:"すべて", within:"すべて"};
+function chipGroup(id, key, values){
+  const g = $(id); g.querySelectorAll("button").forEach(b=>b.remove());
+  ["すべて",...values].forEach(v=>{
+    const b=document.createElement("button"); b.className="chip"+(state[key]===v?" on":""); b.textContent=v;
+    b.onclick=()=>{ state[key]=v; g.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b)); render(); };
+    g.appendChild(b);
+  });
+}
+function uniq(k){ return [...new Set(DATA.map(r=>r[k]).filter(Boolean))]; }
+function hiddenOn(){ return !$("#showHidden").checked; }
+function isHidden(f){ return hiddenOn() && HIDDEN_FIELDS.includes(f); }
+function buildChips(){
+  chipGroup("#f-region","region",uniq("地域"));
+  if(isHidden(state.field)) state.field="すべて";
+  chipGroup("#f-field","field",uniq("分野").filter(f=>!isHidden(f)));
+  chipGroup("#f-fee","fee",["無料","有料"]);
+  chipGroup("#f-ent","ent",["無制限・複数可","無制限のみ"]);
+  chipGroup("#f-within","within",["2週間以内","1か月以内","2か月以内"]);
+}
+
+function filtered(){
+  const q = $("#q").value.trim().toLowerCase();
+  const showPast=$("#showPast").checked, onlyPrep=$("#onlyPrep").checked, onlyStar=$("#onlyStar").checked;
+  const lim = {"2週間以内":14,"1か月以内":31,"2か月以内":62}[state.within];
+  return DATA.filter(r=>{
+    if(!showPast && r._left!=null && r._left<0) return false;
+    if(isHidden(r["分野"])) return false;
+    if(!$("#showStudent").checked && studentOnly(r)) return false;
+    if(!$("#showAge").checked && ageOut(r)) return false;
+    if(!$("#showDismissed").checked && DISMISSED.has(r._key)) return false;
+    if(state.region!=="すべて" && r["地域"]!==state.region) return false;
+    if(state.field!=="すべて" && r["分野"]!==state.field) return false;
+    if(state.fee==="無料" && !r._free) return false;
+    if(state.fee==="有料" && r._free) return false;
+    if(state.ent==="無制限・複数可" && !["無制限","複数可"].includes(r["応募数"])) return false;
+    if(state.ent==="無制限のみ" && r["応募数"]!=="無制限") return false;
+    if(lim && (r._left==null || r._left>lim)) return false;
+    if(onlyPrep && !r["フォルダ"]) return false;
+    if(onlyStar && !STARS.has(r._key)) return false;
+    if(q && !Object.values(r).some(v=>typeof v==="string" && v.toLowerCase().includes(q))) return false;
+    return true;
+  });
+}
+function sorted(list){
+  const s=$("#sort").value, big=1e15;
+  const by = {
+    due:(a,b)=>(a._due??big)-(b._due??big),
+    prize:(a,b)=>(b._prize??-1)-(a._prize??-1) || (a._due??big)-(b._due??big),
+    fee:(a,b)=>(a._fee??big)-(b._fee??big) || (a._due??big)-(b._due??big),
+    name:(a,b)=>(a["コンペ"]||"").localeCompare(b["コンペ"]||"","ja"),
+  }[s];
+  return list.slice().sort(by);
+}
+
+function dueBox(r){
+  const L=r._left; let cls="";
+  if(L!=null && L>=0){ cls = L<=7?"r":L<=14?"o":L<=30?"y":""; }
+  const big = L==null? "?" : L<0? "済" : L===0? "今日" : L;
+  const unit = L==null||L<=0? "" : "日";
+  return `<div class="due ${cls}"><div class="d">${big}<span class="u">${unit}</span></div><div class="dt">${fmt(r._due)}</div></div>`;
+}
+function rowHTML(r){
+  const tags=[];
+  if(r["フォルダ"]) tags.push(`<span class="tag prep">準備済み</span>`);
+  if(r["状態"] && !["未着手","準備済み"].includes(r["状態"])) tags.push(`<span class="tag warn">${esc(r["状態"])}</span>`);
+  tags.push(`<span class="tag">${esc(r["地域"])}</span>`, `<span class="tag">${esc(r["分野"])}</span>`);
+  if(r["対象"] && r["対象"]!=="不問") tags.push(`<span class="tag">対象：${esc(r["対象"])}</span>`);
+  if(r._reg && r._regLeft>=0) tags.push(`<span class="tag warn">登録締切 ${fmt(r._reg)}・あと${r._regLeft}日</span>`);
+  const name = r["URL"]? `<a href="${esc(r["URL"])}" target="_blank" rel="noopener">${esc(r["コンペ"])}</a>` : esc(r["コンペ"]);
+  const memo = r["締切メモ"]? `<div class="sub">締切：${esc(r["締切メモ"])}</div>` : "";
+  const ent = r["応募数"]||"記載なし";
+  const folder = r["フォルダ"];
+  const links = [
+    r["URL"]? `<a class="btn" href="${esc(r["URL"])}" target="_blank" rel="noopener">公式サイト ↗</a>`:"",
+    folder? `${LOCAL?`<a class="btn" href="${esc(FOLDER_BASE+folder+"/")}" target="_blank">📁 ${esc(folder.split("_")[0])}</a>`:""}
+             ${LOCAL?`<button class="btn" data-copy="${esc(FOLDER_BASE_WIN+folder)}">パスをコピー</button>`:""}`:"",
+    docBtns(r),
+  ].join("");
+  const detail = [
+    r["応募数ルール"]? `応募数ルール：「${esc(r["応募数ルール"])}」`:"",
+    r["提出物"]? `提出物：${subList(r["提出物"])}`:"",
+    r["提出方法"]? `提出方法：${esc(r["提出方法"])}`:"",
+    r["審査の流れ"]? `審査の流れ：${esc(r["審査の流れ"])}`:"",
+    r["備考"]? `メモ：${esc(r["備考"])}`:"",
+    folder&&LOCAL? `フォルダ：${esc(FOLDER_BASE_WIN+folder)}`:"",
+  ].filter(Boolean).join("<br>");
+  return `<div class="row${r._left<0?" past":""}${DISMISSED.has(r._key)?" dismissed":""}" data-k="${esc(r._key)}">
+    <div class="sx"><button class="star${STARS.has(r._key)?" on":""}" title="★をつける（この端末に保存）">★</button>${disBtn(r)}</div>
+    ${dueBox(r)}
+    <div><div class="name">${name}</div>${r["提出物"]?`<div class="sub">提出物：${esc(subShort(r["提出物"]))}</div>`:""}${r["概要"]?`<div class="sub">${esc(r["概要"])}</div>`:""}${memo}<div class="tags">${tags.join("")}</div>
+      ${detail? `<button class="more">詳細 ▾</button>`:""}</div>
+    <div class="cell"><div class="k">応募料</div><div class="v fee ${r._free?"free":""}">${esc(r["応募料"]||"—")}</div></div>
+    <div class="cell"><div class="k">最高賞</div><div class="v">${esc(r["最高賞"]||"—")}${r._prize && !/円/.test(r["最高賞"])? `<div class="sub">${yen(r._prize)}</div>`:""}</div></div>
+    <div class="cell"><div class="k">応募数</div><div class="v"><span class="ent ${ENT_CODE[ent]||"N"}">${esc(ent)}</span></div></div>
+    <div class="links">${links}</div>
+    ${detail? `<div class="detail">${detail}</div>`:""}
+  </div>`;
+}
+
+function render(){
+  const list = sorted(filtered());
+  const live = DATA.filter(r=>(r._left==null||r._left>=0) && !isHidden(r["分野"]) && ($("#showStudent").checked || !studentOnly(r)) && ($("#showAge").checked || !ageOut(r)) && !DISMISSED.has(r._key));
+  $("#stats").innerHTML = [
+    ["表示中", list.length],
+    ["1週間以内", live.filter(r=>r._left!=null&&r._left<=7).length],
+    ["準備済み", live.filter(r=>r["フォルダ"]).length],
+    ["無料×無制限", live.filter(r=>r._free&&r["応募数"]==="無制限").length],
+    ...(DISMISSED.size? [["×で非表示", DATA.filter(r=>DISMISSED.has(r._key)).length]] : []),
+  ].map(([k,v])=>`<span class="stat"><b>${v}</b>${k}</span>`).join("");
+  $("#sortGroup").style.display = VIEW==="list"? "" : "none";
+  if(!list.length){ $("#main").innerHTML=`<div class="empty">条件に合うコンペがありません</div>`; return; }
+  if(VIEW==="tl"){ renderTimeline(list); return; }
+  if(VIEW==="a3"){ renderA3(list); return; }
+  let html="", cur=null;
+  if($("#sort").value==="due"){
+    for(const r of list){
+      const m = r._due? `${r._due.getFullYear()}年${r._due.getMonth()+1}月` : "締切未定";
+      if(m!==cur){ if(cur!==null) html+="</div>"; html+=`<div class="month">${m}</div><div class="list">`; cur=m; }
+      html+=rowHTML(r);
+    }
+    html+="</div>";
+  } else html = `<div class="list" style="margin-top:14px">${list.map(rowHTML).join("")}</div>`;
+  $("#main").innerHTML = html;
+}
+
+// ===== タイムライン（縦：週、横：分野） =====
+let VIEW = (()=>{ try{ const v=localStorage.getItem("compe-view"); return ["tl","list","a3"].includes(v)? v : "tl"; }catch(e){ return "tl"; } })();
+const FIELD_ORDER = ["建築・空間","庭園・インスタレーション","プロダクト・家具","アイデア・企画","グラフィック・ロゴ","アワード（完成作品）"];
+function fieldList(){ const u=uniq("分野").filter(f=>!isHidden(f)); return [...FIELD_ORDER.filter(f=>u.includes(f)), ...u.filter(f=>!FIELD_ORDER.includes(f))]; }
+function gColor(f){ const i=fieldList().indexOf(f); return `var(--g${(i%7)+1})`; }
+function monday(d){ const x=new Date(d); x.setDate(x.getDate()-((x.getDay()+6)%7)); x.setHours(0,0,0,0); return x; }
+function leftCls(L){ return L==null||L<0? "" : L<=7?"r":L<=14?"o":L<=30?"y":""; }
+function feeBadge(r){
+  const t = r._free? (r["応募料"]==="記載なし"?"無料（記載なし）":"無料") : (r["応募料"]||"未確認");
+  return `<span class="fee-b ${r._free?"free":""}">${esc(t)}</span>`;
+}
+function subList(t){
+  const items = String(t||"").split(/\s*[／;；\n]\s*/).filter(Boolean);
+  return items.length? `<ul class="subs">${items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>` : "";
+}
+function methodLabel(t){
+  if(/実物|作品現物/.test(t)) return "実物の搬入";
+  const paper=/紙|郵送|宅配|書留/.test(t), data=/データ|アップロード|PDF|メール|フォーム|オンライン/.test(t);
+  if(paper && /または|か、/.test(t)) return "紙かデータ";
+  return paper? (data? "紙＋データ" : "紙") : "データ";
+}
+function stageShort(t){ const n=(String(t).match(/→/g)||[]).length+1; return n===1? "審査1回" : `審査${n}段階`; }
+function subShort(t){ return String(t||"").split(/\s*[／;；\n]\s*/).filter(Boolean).join("・"); }
+function cardHTML(r, isReg){
+  const d = isReg? r._reg : r._due, L = isReg? r._regLeft : r._left;
+  const leftTxt = L==null? "" : L<0? "締切済" : L===0? "今日" : `あと${L}日`;
+  const name = r["URL"]? `<a href="${esc(r["URL"])}" target="_blank" rel="noopener">${esc(r["コンペ"])}</a>` : esc(r["コンペ"]);
+  if(isReg) return `<div class="card reg" style="--gc:${gColor(r["分野"])}" data-k="${esc(r._key)}">
+      <div class="c-top"><span class="c-date">${fmt(d)} 登録締切</span><span class="c-left ${leftCls(L)}">${leftTxt}</span></div>
+      <div class="c-name">${name}</div><div class="c-sum">本締切 ${fmt(r._due)}</div></div>`;
+  const ent = r["応募数"]||"記載なし", folder=r["フォルダ"];
+  const more = [
+    r["締切メモ"]? `締切：${esc(r["締切メモ"])}`:"",
+    r["対象"]? `対象：${esc(r["対象"])}`:"",
+    r["応募数ルール"]? `応募数：「${esc(r["応募数ルール"])}」`:"",
+    r["備考"]? `メモ：${esc(r["備考"])}`:"",
+    r["提出物"]? `提出物：${subList(r["提出物"])}` : "提出物：未記入（competitions.csv の「提出物」列に書くと出ます）",
+    r["提出方法"]? `提出方法：${esc(r["提出方法"])}`:"",
+    r["審査の流れ"]? `審査の流れ：${esc(r["審査の流れ"])}`:"",
+  ].filter(Boolean).join("<br>") + `<div>${r["URL"]?`<a class="btn" href="${esc(r["URL"])}" target="_blank" rel="noopener">公式サイト ↗</a>`:""}${folder?`${LOCAL?`<a class="btn" href="${esc(FOLDER_BASE+folder+"/")}" target="_blank">📁 ${esc(folder)}</a>`:""}${LOCAL?`<button class="btn" data-copy="${esc(FOLDER_BASE_WIN+folder)}">パスをコピー</button>`:""}`:""}${docBtns(r)}</div>`;
+  return `<div class="card${folder?" prep":""}${L<0?" past":""}${DISMISSED.has(r._key)?" dismissed":""}" style="--gc:${gColor(r["分野"])}" data-k="${esc(r._key)}">
+    <div class="c-top"><span class="c-date">${fmt(d)}</span><span class="c-left ${leftCls(L)}">${leftTxt}</span></div>
+    <div class="c-name">${name}</div>
+    ${r["概要"]?`<div class="c-sum">${esc(r["概要"])}</div>`:""}
+    <div class="c-prize">賞金 <b>${esc(r["最高賞"]||"—")}</b>${r._prize && !/円/.test(r["最高賞"])? `<span>（${yen(r._prize)}）</span>`:""}</div>
+    ${r["提出方法"]||r["審査の流れ"]?`<div class="c-judge">${r["提出方法"]?`<span class="m ${methodLabel(r["提出方法"])==="データ"?"":"paper"}">${methodLabel(r["提出方法"])}</span>`:""}${r["審査の流れ"]?esc(stageShort(r["審査の流れ"])):""}</div>`:""}
+    ${r["提出物"]?`<div class="c-subs"><span>提出物</span> ${esc(subShort(r["提出物"]))}</div>`:""}
+    <div class="c-foot"><span class="gtag">${esc(r["分野"])}</span>${feeBadge(r)}<span class="ent ${ENT_CODE[ent]||"N"}">${esc(ent)}</span>${!LOCAL?a3Btn(r):""}
+      <button class="star${STARS.has(r._key)?" on":""}" title="★をつける">★</button>${disBtn(r)}</div>
+    <div class="c-more">${more}</div>
+  </div>`;
+}
+function renderTimeline(list){
+  const fields = state.field==="すべて"? fieldList() : [state.field];
+  const items=[];
+  for(const r of list){
+    if(r._due) items.push({r, d:r._due, reg:false});
+    if(r._reg && r._reg < r._due && ($("#showPast").checked || r._regLeft>=0)) items.push({r, d:r._reg, reg:true});
+  }
+  const undated = list.filter(r=>!r._due);
+  items.sort((a,b)=>a.d-b.d);
+  const DAY=86400000, w0 = monday(items.length? Math.min(items[0].d, today) : today);
+  const wmax = items.length? Math.floor((monday(items[items.length-1].d)-w0)/DAY/7) : 0;
+  const thisWeek = Math.floor((monday(today)-w0)/DAY/7);
+  const buckets = Array.from({length:wmax+1},()=>Object.fromEntries(fields.map(f=>[f,[]])));
+  for(const it of items){ const w=Math.floor((monday(it.d)-w0)/DAY/7); (buckets[w][it.r["分野"]]||[]).push(it); }
+  const cols = `110px repeat(${fields.length}, minmax(170px,1fr))`;
+  let h = `<div class="tl" style="grid-template-columns:${cols}"><div class="tl-head"><div>週</div>${fields.map(f=>{
+      const n=items.filter(i=>!i.reg&&i.r["分野"]===f).length;
+      return `<div class="gname" style="--gc:${gColor(f)}">${esc(f)}<small>${n}件</small></div>`;}).join("")}</div>`;
+  let prevMonth=null;
+  buckets.forEach((b,w)=>{
+    const s=new Date(w0.getTime()+w*7*DAY), e=new Date(s.getTime()+6*DAY);
+    const diff=w-thisWeek, rel = diff===0?"今週":diff===1?"来週":diff<0?`${-diff}週前`:`${diff}週後`;
+    const empty = fields.every(f=>!b[f].length);
+    const mStart = s.getMonth()!==prevMonth; prevMonth=s.getMonth();
+    h += `<div class="tl-row${w%2?" alt":""}${mStart&&w>0?" mstart":""}"${empty?' data-empty="1"':""}>
+      <div class="wk${diff===0?" now":""}"><div class="m">${s.getMonth()+1}/${s.getDate()}〜${e.getMonth()!==s.getMonth()?(e.getMonth()+1)+"/":""}${e.getDate()}</div><div class="rel">${rel}</div></div>
+      ${fields.map(f=>`<div class="cellg">${b[f].map(it=>cardHTML(it.r,it.reg)).join("")}</div>`).join("")}</div>`;
+  });
+  h += `</div>`;
+  if(undated.length) h += `<div class="month">締切未定</div><div class="list">${undated.map(rowHTML).join("")}</div>`;
+  $("#main").innerHTML = h;
+  $("#main").style.setProperty("--hh", (window.innerWidth>1000? $("header").offsetHeight : 0)+"px");
+}
+let A3LIST=[];
+function renderA3(list){
+  const rows = list.filter(a3code).sort((a,b)=>(a._due??1e15)-(b._due??1e15));
+  A3LIST = rows.map(r=>({c:a3code(r), r}));
+  if(!rows.length){ $("#main").innerHTML=`<div class="empty">今の条件で、A3ペライチのあるコンペはありません。</div>`; return; }
+  $("#main").innerHTML = `<div class="a3grid">${rows.map(r=>{
+    const L=r._left, lf = L==null? "" : L<0? "締切済" : L===0? "今日" : `あと${L}日`;
+    return `<button class="a3tile${L<0?" past":""}" type="button" data-a3="${a3code(r)}">
+      <img src="a3/${a3code(r)}_s.jpg" alt="${esc(r["コンペ"])} のA3ペライチ" loading="lazy">
+      <div class="t"><span class="nm">${fmt(r._due)} ${esc(r["コンペ"])}</span><span class="lf ${leftCls(L)}">${lf}</span></div></button>`;
+  }).join("")}</div><div class="a3note">タップで大きく開きます。中身は作成した日の内容です（残り日数も作成日時点）。</div>`;
+}
+
+// ===== A3 ビューア =====
+let LB = {i:0, list:[]};
+function a3Ordered(){
+  // 今見えている順（A3 一覧があればその順、なければ締切順）
+  if(VIEW==="a3" && A3LIST.length) return A3LIST;
+  return DATA.filter(a3code).sort((a,b)=>(a._due??1e15)-(b._due??1e15)).map(r=>({c:a3code(r), r}));
+}
+function openA3(code){
+  LB.list = a3Ordered(); LB.i = Math.max(0, LB.list.findIndex(x=>x.c===code));
+  if(!LB.list.length) return;
+  $("#lb").hidden = false; document.body.style.overflow="hidden"; showA3(true);
+}
+function showA3(fit){
+  const it = LB.list[LB.i], r = it.r, body=$("#lbBody"), img=$("#lbImg");
+  $("#lbTitle").innerHTML = `${esc(r["コンペ"])}<small>${fmt(r._due)} 締切・${LB.i+1}/${LB.list.length}</small>`;
+  if(fit!==undefined) setZoom(fit);
+  img.alt = `${r["コンペ"]} のA3ペライチ`;
+  img.src = `a3/${it.c}.jpg`;
+  $("#lbPdf").href = `a3/${it.c}.pdf`;
+  $("#lbPrev").disabled = LB.i===0; $("#lbNext").disabled = LB.i===LB.list.length-1;
+  body.scrollTop = 0; body.scrollLeft = 0;
+}
+function setZoom(fit){
+  const body=$("#lbBody"), img=$("#lbImg");
+  body.classList.toggle("fit", fit);
+  img.style.width = fit? "" : Math.max(1600, Math.round(body.clientWidth*2.2))+"px";
+  $("#lbZoom").textContent = fit? "拡大" : "全体";
+}
+function closeA3(){ $("#lb").hidden = true; document.body.style.overflow=""; }
+$("#lbClose").onclick = closeA3;
+$("#lbPrev").onclick = ()=>{ if(LB.i>0){ LB.i--; showA3(true); } };
+$("#lbNext").onclick = ()=>{ if(LB.i<LB.list.length-1){ LB.i++; showA3(true); } };
+$("#lbZoom").onclick = ()=>setZoom(!$("#lbBody").classList.contains("fit"));
+$("#lbImg").addEventListener("dblclick", e=>{
+  const body=$("#lbBody"), wasFit=body.classList.contains("fit");
+  const rect=e.target.getBoundingClientRect(), fx=(e.clientX-rect.left)/rect.width, fy=(e.clientY-rect.top)/rect.height;
+  setZoom(!wasFit);
+  if(wasFit) requestAnimationFrame(()=>{ const img=$("#lbImg"); body.scrollLeft=fx*img.offsetWidth-body.clientWidth/2; body.scrollTop=fy*img.offsetHeight-body.clientHeight/2; });
+});
+$("#lbImg").addEventListener("error", ()=>toast("A3の画像を読み込めませんでした"));
+document.addEventListener("keydown", e=>{
+  if($("#lb").hidden) return;
+  if(e.key==="Escape") closeA3();
+  if(e.key==="ArrowLeft") $("#lbPrev").click();
+  if(e.key==="ArrowRight") $("#lbNext").click();
+});
+// 全体表示のときは左右スワイプで前後へ
+(()=>{ let x0=null, y0=null;
+  $("#lbBody").addEventListener("touchstart", e=>{ if(e.touches.length===1){ x0=e.touches[0].clientX; y0=e.touches[0].clientY; } else x0=null; }, {passive:true});
+  $("#lbBody").addEventListener("touchend", e=>{
+    if(x0==null || !$("#lbBody").classList.contains("fit")) return;
+    const dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0; x0=null;
+    if(Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)*1.5) (dx<0? $("#lbNext") : $("#lbPrev")).click();
+  });
+})();
+$("#ftoggle").onclick = ()=>{ const h=$("header"); h.classList.toggle("closed"); $("#ftoggle").textContent = h.classList.contains("closed")? "絞り込み ▾" : "絞り込み ▴"; };
+if(window.innerWidth<=760) $("header").classList.add("closed");
+
+function setView(v){
+  VIEW=v; try{ localStorage.setItem("compe-view",v); }catch(e){}
+  document.querySelectorAll("#view button").forEach(b=>b.classList.toggle("on", b.dataset.v===v));
+  render();
+}
+document.querySelectorAll("#view button").forEach(b=>b.onclick=()=>setView(b.dataset.v));
+document.querySelectorAll("#view button").forEach(b=>b.classList.toggle("on", b.dataset.v===VIEW));
+window.addEventListener("resize", ()=>{ if(VIEW==="tl") $("#main").style.setProperty("--hh", (window.innerWidth>1000? $("header").offsetHeight : 0)+"px"); });
+
+// ===== イベント =====
+$("#main").addEventListener("click", e=>{
+  const a3 = e.target.closest("[data-a3]");
+  if(a3){ openA3(a3.dataset.a3); return; }
+  const cp0 = e.target.dataset && e.target.dataset.copy;
+  if(cp0){ navigator.clipboard.writeText(cp0).then(()=>toast("パスをコピーしました"),()=>toast(cp0)); return; }
+  if(e.target.classList.contains("dis")){
+    const el=e.target.closest("[data-k]"); if(!el) return; const k=el.dataset.k;
+    if(DISMISSED.has(k)){ DISMISSED.delete(k); toast("戻しました"); }
+    else { DISMISSED.add(k); toast("非表示にしました（「×で隠したものも表示」で戻せます）"); }
+    setDismissed(DISMISSED); render(); return;
+  }
+  const card = e.target.closest(".card");
+  if(card){
+    if(e.target.classList.contains("star")){
+      const k=card.dataset.k; STARS.has(k)? STARS.delete(k) : STARS.add(k); setStars(STARS);
+      e.target.classList.toggle("on"); if($("#onlyStar").checked) render(); return;
+    }
+    if(!e.target.closest("a,button")) card.classList.toggle("open");
+    return;
+  }
+  const row = e.target.closest(".row"); if(!row) return;
+  if(e.target.classList.contains("star")){
+    const k=row.dataset.k; STARS.has(k)? STARS.delete(k) : STARS.add(k); setStars(STARS);
+    e.target.classList.toggle("on"); if($("#onlyStar").checked) render(); return;
+  }
+  if(e.target.classList.contains("more")){ row.classList.toggle("open"); return; }
+});
+["#q","#sort","#onlyPrep","#onlyStar","#showPast"].forEach(s=>$(s).addEventListener("input",render));
+$("#showHidden").addEventListener("input",()=>{ buildChips(); render(); });
+$("#showStudent").addEventListener("input",render);
+$("#showAge").addEventListener("input",render);
+$("#showDismissed").addEventListener("input",render);
+if(!LOCAL) $("#openCsv").hidden = true;
+$("#openCsv").onclick=()=>$("#csvFile").click();
+$("#csvFile").onchange=e=>{
+  const f=e.target.files[0]; if(!f) return;
+  f.text().then(t=>load(t, `${f.name} を表示中`));
+};
+function toast(t){ const el=$("#toast"); el.textContent=t; el.classList.add("on"); setTimeout(()=>el.classList.remove("on"),1600); }
+
+const EMB = document.getElementById("compe-data");
+if(EMB && EMB.textContent.trim()) load(EMB.textContent.trim(), `データ：${EMB.dataset.updated||"competitions.csv"}`);
+else if(window.COMPETITIONS_CSV) load(window.COMPETITIONS_CSV, `データ：${window.COMPETITIONS_UPDATED||"competitions.csv"}`);
+else $("#main").innerHTML = `<div class="empty">データが入っていません。update.bat を実行するか、「CSVを開く」で competitions.csv を選んでください。</div>`;
+</script>
