@@ -277,7 +277,7 @@ header,main{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:m
 </div>
 
 <!-- DATA:BEGIN -->
-<script id="compe-data" type="text/csv" data-updated="2026-10-18 22:05 更新">
+<script id="compe-data" type="text/csv" data-updated="2026-10-18 22:09 更新">
 管理番号,状態,締切,締切メモ,登録締切,コンペ,概要,URL,地域,分野,対象,応募料,応募料_円,最高賞,賞金_円,応募数,応募数ルール,提出物,審査の流れ,提出方法,フォルダ,備考,A3まとめ,まとめPDF,まとめmd
 C001,未着手,2026-10-13,,,スポーツ庁 スポーツ・健康まちづくり学生コンペ アイデア部門,スポーツで健康なまちをつくるアイデア（学生）,https://www.mext.go.jp/sports/b_menu/sports/mcatetop02/list/1380329_00031.htm,日本,アイデア・企画,学生,無料,0,賞金なし,,複数可,複数応募可,,,,,,,,
 C002,未着手,2026-10-13,,,JIA東海支部設計競技,日本建築家協会 東海支部の建築設計競技,https://compe.japandesign.ne.jp/jia-tokai-competition-2026/,日本,建築・空間,不問,無料,0,10万円分,100000,記載なし,,A2片面1枚（縦横自由・氏名記載不可）／同PDF（50MB以下）／申込用紙（Excelデータ＋A4印刷）／USBメモリ,一次（書類）→ 二次（詳細は11月上旬に通過者へ通知）→ 結果発表（12月下旬）,紙＋データ（A2シートと申込書を郵送、PDF・申込書データはUSBで同封／JIA東海支部・名古屋、消印有効）,,提出・審査の情報：二次情報（https://compe.japandesign.ne.jp/jia-tokai-competition-2026/）,,,
@@ -536,12 +536,58 @@ function load(csvText, label){
 
 // ===== ★（このブラウザに保存） =====
 function getStars(){ try{ return new Set(JSON.parse(localStorage.getItem("compe-stars")||"[]")); }catch(e){ return new Set(); } }
-function setStars(s){ try{ localStorage.setItem("compe-stars", JSON.stringify([...s])); }catch(e){} }
+function setStars(s){ noteChange("s:", LAST_S, s); LAST_S=new Set(s); try{ localStorage.setItem("compe-stars", JSON.stringify([...s])); }catch(e){} }
 let STARS = getStars();
 // ===== ×で非表示（このブラウザに保存。「×で隠したものも表示」で出して ↺ で戻す） =====
 function getDismissed(){ try{ return new Set(JSON.parse(localStorage.getItem("compe-dismissed")||"[]")); }catch(e){ return new Set(); } }
-function setDismissed(s){ try{ localStorage.setItem("compe-dismissed", JSON.stringify([...s])); }catch(e){} }
+function setDismissed(s){ noteChange("d:", LAST_D, s); LAST_D=new Set(s); try{ localStorage.setItem("compe-dismissed", JSON.stringify([...s])); }catch(e){} }
 let DISMISSED = getDismissed();
+
+// ===== ★×の記録（印ごとに付けた/外したと時刻を持ち、合わせるときは新しいほうを採る） =====
+let LAST_S = new Set(STARS), LAST_D = new Set(DISMISSED);
+let LOG = (()=>{ try{ return JSON.parse(localStorage.getItem("compe-marks-log")||"{}"); }catch(e){ return {}; } })();
+STARS.forEach(k=>{ if(!LOG["s:"+k]) LOG["s:"+k]=[1,1]; });
+DISMISSED.forEach(k=>{ if(!LOG["d:"+k]) LOG["d:"+k]=[1,1]; });
+function saveLog(){ try{ localStorage.setItem("compe-marks-log", JSON.stringify(LOG)); }catch(e){} }
+function noteChange(pre, oldSet, newSet){
+  const t=Date.now(); let n=0;
+  newSet.forEach(k=>{ if(!oldSet.has(k)){ LOG[pre+k]=[1,t]; n++; } });
+  oldSet.forEach(k=>{ if(!newSet.has(k)){ LOG[pre+k]=[0,t]; n++; } });
+  if(n){ saveLog(); cloudPush(); }
+}
+function applyLog(){
+  STARS = new Set(Object.keys(LOG).filter(k=>k.startsWith("s:")&&LOG[k][0]).map(k=>k.slice(2)));
+  DISMISSED = new Set(Object.keys(LOG).filter(k=>k.startsWith("d:")&&LOG[k][0]).map(k=>k.slice(2)));
+  LAST_S=new Set(STARS); LAST_D=new Set(DISMISSED);
+  try{ localStorage.setItem("compe-stars", JSON.stringify([...STARS])); localStorage.setItem("compe-dismissed", JSON.stringify([...DISMISSED])); }catch(e){}
+}
+function mergeLog(other){
+  let changed=false;
+  for(const [k,v] of Object.entries(other||{})){ if(!Array.isArray(v)||v.length<2) continue; const l=LOG[k]; if(!l || v[1]>l[1]){ LOG[k]=[v[0]?1:0, +v[1]||0]; changed=true; } }
+  if(changed){ saveLog(); applyLog(); }
+  return changed;
+}
+// Claude アプリ内（iPad 版）では、★×をアプリの保存領域にも置いて端末をまたいで残す
+let CLOUD=null, CLOUD_BUSY=false, CLOUD_AGAIN=false, CLOUD_T=null;
+function cloudPush(){ if(!CLOUD) return; clearTimeout(CLOUD_T); CLOUD_T=setTimeout(async()=>{
+  if(CLOUD_BUSY){ CLOUD_AGAIN=true; return; }
+  CLOUD_BUSY=true; try{ await CLOUD.set({log:LOG, updated:new Date().toISOString()}); }catch(e){} finally{ CLOUD_BUSY=false; if(CLOUD_AGAIN){ CLOUD_AGAIN=false; cloudPush(); } }
+}, 800); }
+(async()=>{
+  try{
+    if(!(window.claude && window.claude.use)) return;
+    const db = await window.claude.use("db"); if(!db) return;
+    const ref = db.doc("marks/main");
+    ref.onSnapshot(snap=>{
+      const remote = snap.exists? (snap.data().log||{}) : {};
+      const first = !CLOUD; CLOUD = ref;
+      if(mergeLog(remote) && DATA.length) render();
+      // 手元にしかない記録があれば書き戻す
+      if(Object.keys(LOG).some(k=>!remote[k] || remote[k][1]<LOG[k][1])) cloudPush();
+      if(first) toast("★×はこのアプリに保存されます");
+    }, ()=>{ CLOUD=null; });
+  }catch(e){}
+})();
 // 管理番号_コンペ名 をコピーするボタン（フォルダ名用。Windows で使えない文字は _ に）
 function cpyName(r){ return `${r["管理番号"]?r["管理番号"]+"_":""}${(r["コンペ"]||"").replace(/[\\/:*?"<>|]/g,"_").replace(/\s+/g," ").trim()}`; }
 function cpyBtn(r){ return `<button class="cpy" type="button" data-name="${esc(cpyName(r))}" title="「${esc(cpyName(r))}」をコピー" aria-label="名前をコピー">⧉</button>`; }
@@ -905,7 +951,7 @@ function migrateMarks(){
 $("#exportMarks").onclick=async()=>{
   const d=new Date(), pad=n=>String(n).padStart(2,"0");
   const name=`compe-marks_${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}_${pad(d.getHours())}${pad(d.getMinutes())}.json`;
-  const body=JSON.stringify({app:"competition_list", exported:d.toISOString(), stars:[...STARS], dismissed:[...DISMISSED]}, null, 1);
+  const body=JSON.stringify({app:"competition_list", exported:d.toISOString(), stars:[...STARS], dismissed:[...DISMISSED], log:LOG}, null, 1);
   // Claude アプリ内（iPad 版）では保存の確認を通して書き出す
   let dl=null; try{ if(window.claude && window.claude.use) dl=await window.claude.use("downloads"); }catch(err){}
   if(dl){
@@ -923,8 +969,9 @@ $("#marksFile").onchange=e=>{
   f.text().then(t=>{
     let j; try{ j=JSON.parse(t); }catch(err){ toast("読み込めませんでした（★×のファイルではありません）"); return; }
     const s0=STARS.size, d0=DISMISSED.size;
-    (j.stars||[]).forEach(k=>STARS.add(k)); (j.dismissed||[]).forEach(k=>DISMISSED.add(k));
-    migrateMarks(); setStars(STARS); setDismissed(DISMISSED); render();
+    if(j.log) mergeLog(j.log);
+    else { (j.stars||[]).forEach(k=>STARS.add(k)); (j.dismissed||[]).forEach(k=>DISMISSED.add(k)); }
+    migrateMarks(); setStars(STARS); setDismissed(DISMISSED); cloudPush(); render();
     toast(`合わせました：★ +${STARS.size-s0}件・× +${DISMISSED.size-d0}件`);
   });
   e.target.value="";
