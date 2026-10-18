@@ -277,7 +277,7 @@ header,main{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:m
 </div>
 
 <!-- DATA:BEGIN -->
-<script id="compe-data" type="text/csv" data-updated="2026-10-18 21:50 更新">
+<script id="compe-data" type="text/csv" data-updated="2026-10-18 22:05 更新">
 管理番号,状態,締切,締切メモ,登録締切,コンペ,概要,URL,地域,分野,対象,応募料,応募料_円,最高賞,賞金_円,応募数,応募数ルール,提出物,審査の流れ,提出方法,フォルダ,備考,A3まとめ,まとめPDF,まとめmd
 C001,未着手,2026-10-13,,,スポーツ庁 スポーツ・健康まちづくり学生コンペ アイデア部門,スポーツで健康なまちをつくるアイデア（学生）,https://www.mext.go.jp/sports/b_menu/sports/mcatetop02/list/1380329_00031.htm,日本,アイデア・企画,学生,無料,0,賞金なし,,複数可,複数応募可,,,,,,,,
 C002,未着手,2026-10-13,,,JIA東海支部設計競技,日本建築家協会 東海支部の建築設計競技,https://compe.japandesign.ne.jp/jia-tokai-competition-2026/,日本,建築・空間,不問,無料,0,10万円分,100000,記載なし,,A2片面1枚（縦横自由・氏名記載不可）／同PDF（50MB以下）／申込用紙（Excelデータ＋A4印刷）／USBメモリ,一次（書類）→ 二次（詳細は11月上旬に通過者へ通知）→ 結果発表（12月下旬）,紙＋データ（A2シートと申込書を郵送、PDF・申込書データはUSBで同封／JIA東海支部・名古屋、消印有効）,,提出・審査の情報：二次情報（https://compe.japandesign.ne.jp/jia-tokai-competition-2026/）,,,
@@ -710,7 +710,8 @@ function cardHTML(r, isReg){
   const cid = r["管理番号"]? `<span class="cid">${esc(r["管理番号"])}</span>` : "";
   if(isReg) return `<div class="card reg" style="--gc:${gColor(r["分野"])}" data-k="${esc(r._key)}">
       <div class="c-top"><span class="c-date">${fmt(d)} 登録締切${cid}</span><span class="c-left ${leftCls(L)}">${leftTxt}</span></div>
-      <div class="c-name">${name}</div><div class="c-sum">本締切 ${fmt(r._due)}</div></div>`;
+      <div class="c-name">${name}</div><div class="c-sum">本締切 ${fmt(r._due)}</div>
+      <div class="c-foot">${cpyBtn(r)}<button class="star${STARS.has(r._key)?" on":""}" title="★をつける">★</button>${disBtn(r)}</div></div>`;
   const ent = r["応募数"]||"記載なし", folder=r["フォルダ"];
   const more = [
     r["締切メモ"]? `締切：${esc(r["締切メモ"])}`:"",
@@ -863,7 +864,8 @@ $("#main").addEventListener("click", e=>{
   if(card){
     if(e.target.classList.contains("star")){
       const k=card.dataset.k; STARS.has(k)? STARS.delete(k) : STARS.add(k); setStars(STARS);
-      e.target.classList.toggle("on"); if($("#onlyStar").checked) render(); return;
+      document.querySelectorAll(".card[data-k]").forEach(c=>{ if(c.dataset.k===k){ const s=c.querySelector(".star"); if(s) s.classList.toggle("on", STARS.has(k)); } });
+      if($("#onlyStar").checked) render(); return;
     }
     if(!e.target.closest("a,button")) card.classList.toggle("open");
     return;
