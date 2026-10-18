@@ -900,10 +900,17 @@ function migrateMarks(){
   let a,b; [STARS,a]=remapKeys(STARS); [DISMISSED,b]=remapKeys(DISMISSED);
   if(a) setStars(STARS); if(b) setDismissed(DISMISSED);
 }
-$("#exportMarks").onclick=()=>{
+$("#exportMarks").onclick=async()=>{
   const d=new Date(), pad=n=>String(n).padStart(2,"0");
   const name=`compe-marks_${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}_${pad(d.getHours())}${pad(d.getMinutes())}.json`;
   const body=JSON.stringify({app:"competition_list", exported:d.toISOString(), stars:[...STARS], dismissed:[...DISMISSED]}, null, 1);
+  // Claude アプリ内（iPad 版）では保存の確認を通して書き出す
+  let dl=null; try{ if(window.claude && window.claude.use) dl=await window.claude.use("downloads"); }catch(err){}
+  if(dl){
+    try{ await dl.save({filename:name, data:body}); toast(`書き出しました：★${STARS.size}件・×${DISMISSED.size}件`); }
+    catch(err){ if(!err || err.code!=="declined") toast("この画面では書き出せませんでした"); }
+    return;
+  }
   const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([body],{type:"application/json"})); a.download=name;
   document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },1000);
   toast(`書き出しました：★${STARS.size}件・×${DISMISSED.size}件`);
